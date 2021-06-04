@@ -156,7 +156,7 @@ for url in cve_urls:
 os.makedirs('./data/', exist_ok=True)
 
 metadata = {
-    'package_metadata_revision': package_metadata_revision,
+    'package_metadata_source': f'https://github.com/westonsteimel/package-metadata/tree/{package_metadata_revision}',
     'timestamp': int(time.time())
 }
 

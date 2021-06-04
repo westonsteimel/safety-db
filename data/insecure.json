@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_revision": "c2674240e6d6b22d0b0dec63e01a54542e237102",
-    "timestamp": 1622771619
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/c2674240e6d6b22d0b0dec63e01a54542e237102",
+    "timestamp": 1622772041
   },
   "aiohttp-session": [
     "<=2.6.0"
