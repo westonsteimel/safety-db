@@ -30,7 +30,6 @@ for metadata_file in package_metadata_files:
     with open(metadata_file, 'r+') as f:
         metadata = toml.load(f)
         name = metadata['name'].lower()
-        cpe_key = None
 
         for cpe_config in metadata.get('cpe_configurations', []):
             vendor = cpe_config.get('vendor')
@@ -42,11 +41,11 @@ for metadata_file in package_metadata_files:
             if target_software:
                 cpe_key = f'{vendor}:{product}:{target_software}'
         
-        if cpe_key:
-            if cpe_key not in cpe_to_packages_lookup:
-                cpe_to_packages_lookup[cpe_key] = set()
+            if cpe_key:
+                if cpe_key not in cpe_to_packages_lookup:
+                    cpe_to_packages_lookup[cpe_key] = set()
 
-            cpe_to_packages_lookup[cpe_key].add(name)
+                cpe_to_packages_lookup[cpe_key].add(name)
 
 cve_urls = [
     'https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz'
