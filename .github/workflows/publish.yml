@@ -1,0 +1,27 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 1 * * *'
+name: Regenerate and publish updated data
+jobs:
+  regenerate:
+    name: regenerate
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@main
+      - 
+        name: Generate and publish
+        run: |
+            pip install -r requirements.txt
+            python generate.py
+            export DATE="`date --utc --rfc-3339=seconds`"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+            git add .
+            git diff-index --quiet HEAD || git commit --message "regenerated data at ${DATE}."
+            git push
