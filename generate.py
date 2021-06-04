@@ -20,7 +20,8 @@ package_metadata_revision = subprocess.run(\
     ['git', '-C', './.input/package-metadata/', 'rev-parse', 'HEAD'], \
     capture_output=True \
 ).stdout.decode('utf-8').strip()
-print(package_metadata_revision)
+
+print(f'package-metadata revision: {package_metadata_revision}')
 
 package_metadata_files = glob.glob(f'./.input/package-metadata/pypi/**/*.toml', recursive=True)
 cpe_to_packages_lookup = {}
@@ -153,19 +154,43 @@ for url in cve_urls:
                                 insecure[package].append(v)
                                 insecure[package] = sorted(insecure[package])
 
-os.makedirs('./data/', exist_ok=True)
+modified = False
 
-metadata = {
-    'package_metadata_source': f'https://github.com/westonsteimel/package-metadata/tree/{package_metadata_revision}',
-    'timestamp': int(time.time())
-}
+# Check if we have any changes to the actual package data before writing any changes
+insecure = dict(sorted(insecure.items(), key=lambda item: item[0]))
 
-insecure_full['$meta'] = metadata
-insecure['$meta'] = metadata
+with open('data/insecure.json', 'r') as f:
+    current_comp = json.load(f)
+    del current_comp['$meta']
 
-with open(f'./data/insecure_full.json', 'w') as f:
-    json.dump(dict(sorted(insecure_full.items(), key=lambda item: item[0])), f, indent=2)
+modified = current_comp != insecure
 
-with open(f'./data/insecure.json', 'w') as f:
-    json.dump(dict(sorted(insecure.items(), key=lambda item: item[0])), f, indent=2)
+if not modified:
+    insecure_full = dict(sorted(insecure_full.items(), key=lambda item: item[0]))
+    
+    with open('data/insecure_full.json', 'r') as f:
+        current_comp = json.load(f)
+        del current_comp['$meta']
+
+    modified = current_comp != insecure_full
+
+if not modified:
+    print('No changes detected')
+else:
+    print('Persisting changes to ./data/')
+    os.makedirs('./data/', exist_ok=True)
+
+    metadata = {
+        'package_metadata_source': f'https://github.com/westonsteimel/package-metadata/tree/{package_metadata_revision}',
+        'timestamp': int(time.time())
+    }
+
+    insecure_full['$meta'] = metadata
+    insecure['$meta'] = metadata
+
+    with open(f'./data/insecure_full.json', 'w') as f:
+        json.dump(dict(sorted(insecure_full.items(), key=lambda item: item[0])), f, indent=2)
+
+    with open(f'./data/insecure.json', 'w') as f:
+        json.dump(dict(sorted(insecure.items(), key=lambda item: item[0])), f, indent=2)
 
