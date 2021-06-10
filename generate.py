@@ -9,7 +9,7 @@ import subprocess
 import time
 import toml
 
-ids = set()
+db = {}
 insecure_full = {}
 insecure = {}
 
@@ -128,50 +128,67 @@ for url in cve_urls:
                                     v = f'=={version_component}-{update_component}'
 
                         if v:
-                            safety_id = f'pyup.io-{package}:{cve_id}:{v}'
+                            safety_id = f'pyup.io-{package}:{cve_id}'
 
-                            if safety_id in ids:
-                                continue
-
-                            if package not in insecure_full:
-                                insecure_full[package] = []
-                                insecure[package] = []
-
-                            insecure_full[package].append(
-                                {
+                            if safety_id not in db:
+                                db[safety_id] = {
+                                    'package': package,
+                                    'id': safety_id,
                                     'advisory': description,
                                     'cve': cve_id,
-                                    'id': safety_id,
-                                    'specs': [v],
-                                    'v': v,
+                                    'specs': set(),
                                 }
-                            )
 
-                            insecure_full[package] = sorted(insecure_full[package], key=lambda item: item['id'])
+                            db[safety_id]['specs'].add(v)
 
-                            if v not in insecure[package]:
-                                insecure[package].append(v)
-                                insecure[package] = sorted(insecure[package])
+for db_entry in db.values():
+    package = db_entry['package']
 
-modified = False
+    if package not in insecure_full:
+        insecure_full[package] = [] 
+        insecure[package] = []
+
+    insecure_full[package].append(
+        {
+            'id': db_entry['id'],
+            'advisory': db_entry['advisory'],
+            'cve': db_entry['cve'],
+            'specs': sorted(list(db_entry['specs'])),
+        }
+    )
+
+    insecure_full[package] = sorted(insecure_full[package], key=lambda item: item['id'])
+    
+    for spec in db_entry['specs']:
+        if spec not in insecure[package]:
+            insecure[package].append(spec)
+            insecure[package] = sorted(insecure[package])
+
+modified = True
 
 # Check if we have any changes to the actual package data before writing any changes
 insecure = dict(sorted(insecure.items(), key=lambda item: item[0]))
 
-with open('data/insecure.json', 'r') as f:
-    current_comp = json.load(f)
-    del current_comp['$meta']
+try:
+    with open('data/insecure.json', 'r') as f:
+        current_comp = json.load(f)
+        del current_comp['$meta']
 
-modified = current_comp != insecure
+    modified = current_comp != insecure
+except:
+    modified = True
 
 if not modified:
     insecure_full = dict(sorted(insecure_full.items(), key=lambda item: item[0]))
     
-    with open('data/insecure_full.json', 'r') as f:
-        current_comp = json.load(f)
-        del current_comp['$meta']
+    try:
+        with open('data/insecure_full.json', 'r') as f:
+            current_comp = json.load(f)
+            del current_comp['$meta']
 
-    modified = current_comp != insecure_full
+        modified = current_comp != insecure_full
+    except:
+        modified = True
 
 if not modified:
     print('No changes detected')
