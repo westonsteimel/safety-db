@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/a5fb8486b02650019ad0610f0ea19526990752ed",
-    "timestamp": 1623376788
+    "timestamp": 1623462579
   },
   "aiohttp": [
     {
@@ -11382,6 +11382,14 @@
       ]
     },
     {
+      "id": "pyup.io-pillow:CVE-2021-28675",
+      "advisory": "An issue was discovered in Pillow before 8.2.0. PSDImagePlugin.PsdImageFile lacked a sanity check on the number of input layers relative to the size of the data block. This could lead to a DoS on Image.open prior to Image.load.",
+      "cve": "CVE-2021-28675",
+      "specs": [
+        "<8.2.0"
+      ]
+    },
+    {
       "id": "pyup.io-pillow:CVE-2021-28676",
       "advisory": "An issue was discovered in Pillow before 8.2.0. For FLI data, FliDecode did not properly check that the block advance was non-zero, potentially leading to an infinite loop on load.",
       "cve": "CVE-2021-28676",
@@ -11393,6 +11401,14 @@
       "id": "pyup.io-pillow:CVE-2021-28677",
       "advisory": "An issue was discovered in Pillow before 8.2.0. For EPS data, the readline implementation used in EPSImageFile has to deal with any combination of \\r and \\n as line endings. It used an accidentally quadratic method of accumulating lines while looking for a line ending. A malicious EPS file could use this to perform a DoS of Pillow in the open phase, before an image was accepted for opening.",
       "cve": "CVE-2021-28677",
+      "specs": [
+        "<8.2.0"
+      ]
+    },
+    {
+      "id": "pyup.io-pillow:CVE-2021-28678",
+      "advisory": "An issue was discovered in Pillow before 8.2.0. For BLP data, BlpImagePlugin did not properly check that reads (after jumping to file offsets) returned data. This could lead to a DoS where the decoder could be run a large number of times on empty data.",
+      "cve": "CVE-2021-28678",
       "specs": [
         "<8.2.0"
       ]
@@ -48148,6 +48164,16 @@
       "specs": [
         "<=2.15.1"
       ]
+    },
+    {
+      "id": "pyup.io-python-swiftclient:CVE-2017-8761",
+      "advisory": "In OpenStack Swift through 2.10.1, 2.11.0 through 2.13.0, and 2.14.0, the proxy-server logs full tempurl paths, potentially leaking reusable tempurl signatures to anyone with read access to these logs. All Swift deployments using the tempurl middleware are affected.",
+      "cve": "CVE-2017-8761",
+      "specs": [
+        "<=2.10.1",
+        "==2.14.0",
+        ">=2.11.0,<=2.13.0"
+      ]
     }
   ],
   "python3-saml": [
@@ -50297,6 +50323,16 @@
       "cve": "CVE-2017-16613",
       "specs": [
         "<=2.15.1"
+      ]
+    },
+    {
+      "id": "pyup.io-swift:CVE-2017-8761",
+      "advisory": "In OpenStack Swift through 2.10.1, 2.11.0 through 2.13.0, and 2.14.0, the proxy-server logs full tempurl paths, potentially leaking reusable tempurl signatures to anyone with read access to these logs. All Swift deployments using the tempurl middleware are affected.",
+      "cve": "CVE-2017-8761",
+      "specs": [
+        "<=2.10.1",
+        "==2.14.0",
+        ">=2.11.0,<=2.13.0"
       ]
     }
   ],
