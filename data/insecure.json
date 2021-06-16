@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/a5fb8486b02650019ad0610f0ea19526990752ed",
-    "timestamp": 1623462579
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fad13520aa7e4415259451eda6916c489ab5e226",
+    "timestamp": 1623808646
   },
   "aiohttp": [
     "<3.7.4"
@@ -412,6 +412,9 @@
     "==0.1.5137-4",
     "==0.1.5137-5",
     "==0.1.5192-1"
+  ],
+  "datasette": [
+    "<0.56.1"
   ],
   "diffoscope": [
     "<77"
@@ -830,6 +833,9 @@
   ],
   "flask-admin": [
     "==1.5.2"
+  ],
+  "flask-appbuilder": [
+    "<=3.2.3"
   ],
   "flask-cors": [
     "<3.0.9"
@@ -4392,6 +4398,9 @@
     ">=2.3.0,<=2.3.3",
     ">=2.4.0,<2.4.2",
     ">=2.4.0,<=2.4.2"
+  ],
+  "thefuck": [
+    "<3.31"
   ],
   "thrift": [
     "<=0.12.0",

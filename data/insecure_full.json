@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/a5fb8486b02650019ad0610f0ea19526990752ed",
-    "timestamp": 1623462579
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fad13520aa7e4415259451eda6916c489ab5e226",
+    "timestamp": 1623808646
   },
   "aiohttp": [
     {
@@ -1913,6 +1913,16 @@
         "==0.1.5137-4",
         "==0.1.5137-5",
         "==0.1.5192-1"
+      ]
+    }
+  ],
+  "datasette": [
+    {
+      "id": "pyup.io-datasette:CVE-2021-32670",
+      "advisory": "Datasette is an open source multi-tool for exploring and publishing data. The `?_trace=1` debugging feature in Datasette does not correctly escape generated HTML, resulting in a [reflected cross-site scripting](https://owasp.org/www-community/attacks/xss/#reflected-xss-attacks) vulnerability. This vulnerability is particularly relevant if your Datasette installation includes authenticated features using plugins such as [datasette-auth-passwords](https://datasette.io/plugins/datasette-auth-passwords) as an attacker could use the vulnerability to access protected data. Datasette 0.57 and 0.56.1 both include patches for this issue. If you run Datasette behind a proxy you can workaround this issue by rejecting any incoming requests with `?_trace=` or `&_trace=` in their query string parameters.",
+      "cve": "CVE-2021-32670",
+      "specs": [
+        "<0.56.1"
       ]
     }
   ],
@@ -4392,6 +4402,16 @@
       "cve": "CVE-2018-16516",
       "specs": [
         "==1.5.2"
+      ]
+    }
+  ],
+  "flask-appbuilder": [
+    {
+      "id": "pyup.io-flask-appbuilder:CVE-2021-29621",
+      "advisory": "Flask-AppBuilder is a development framework, built on top of Flask. User enumeration in database authentication in Flask-AppBuilder <= 3.2.3. Allows for a non authenticated user to enumerate existing accounts by timing the response time from the server when you are logging in. Upgrade to version 3.3.0 or higher to resolve.",
+      "cve": "CVE-2021-29621",
+      "specs": [
+        "<=3.2.3"
       ]
     }
   ],
@@ -55168,6 +55188,16 @@
         ">=2.2.0,<2.2.3",
         ">=2.3.0,<2.3.3",
         ">=2.4.0,<2.4.2"
+      ]
+    }
+  ],
+  "thefuck": [
+    {
+      "id": "pyup.io-thefuck:CVE-2021-34363",
+      "advisory": "The thefuck (aka The Fuck) package before 3.31 for Python allows Path Traversal that leads to arbitrary file deletion via the \"undo archive operation\" feature.",
+      "cve": "CVE-2021-34363",
+      "specs": [
+        "<3.31"
       ]
     }
   ],
