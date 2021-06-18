@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fad13520aa7e4415259451eda6916c489ab5e226",
-    "timestamp": 1623808646
+    "timestamp": 1623981663
   },
   "aiohttp": [
     {
@@ -716,6 +716,14 @@
       "cve": "CVE-2021-3447",
       "specs": [
         "<1.2.2"
+      ]
+    },
+    {
+      "id": "pyup.io-ansible:CVE-2021-3533",
+      "advisory": "A flaw was found in Ansible if an ansible user sets ANSIBLE_ASYNC_DIR to a subdirectory of a world writable directory. When this occurs, there is a race condition on the managed machine. A malicious, non-privileged account on the remote machine can exploit the race condition to access the async result data. This flaw affects Ansible Tower 3.7 and Ansible Automation Platform 1.2.",
+      "cve": "CVE-2021-3533",
+      "specs": [
+        "==2.0"
       ]
     }
   ],
@@ -3775,6 +3783,16 @@
         ">=2.2,<2.2.18",
         ">=3.0,<3.0.12",
         ">=3.1,<3.1.6"
+      ]
+    },
+    {
+      "id": "pyup.io-django:CVE-2021-33571",
+      "advisory": "In Django 2.2 before 2.2.24, 3.x before 3.1.12, and 3.2 before 3.2.4, URLValidator, validate_ipv4_address, and validate_ipv46_address do not prohibit leading zero characters in octal literals. This may allow a bypass of access control that is based on IP addresses. (validate_ipv4_address and validate_ipv46_address are unaffected with Python 3.9.5+..) .",
+      "cve": "CVE-2021-33571",
+      "specs": [
+        ">=2.2,<2.2.24",
+        ">=3.0,<3.1.12",
+        ">=3.2,<3.2.4"
       ]
     }
   ],
