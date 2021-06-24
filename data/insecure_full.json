@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fad13520aa7e4415259451eda6916c489ab5e226",
-    "timestamp": 1624498926
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
+    "timestamp": 1624573657
   },
   "aiohttp": [
     {
@@ -4311,6 +4311,16 @@
       ]
     }
   ],
+  "fastapi": [
+    {
+      "id": "pyup.io-fastapi:CVE-2021-32677",
+      "advisory": "FastAPI is a web framework for building APIs with Python 3.6+ based on standard Python type hints. FastAPI versions lower than 0.65.2 that used cookies for authentication in path operations that received JSON payloads sent by browsers were vulnerable to a Cross-Site Request Forgery (CSRF) attack. In versions lower than 0.65.2, FastAPI would try to read the request payload as JSON even if the content-type header sent was not set to application/json or a compatible JSON media type (e.g. application/geo+json). A request with a content type of text/plain containing JSON data would be accepted and the JSON data would be extracted. Requests with content type text/plain are exempt from CORS preflights, for being considered Simple requests. The browser will execute them right away including cookies, and the text content could be a JSON string that would be parsed and accepted by the FastAPI application. This is fixed in FastAPI 0.65.2. The request data is now parsed as JSON only if the content-type header is application/json or another JSON compatible media type like application/geo+json. It's best to upgrade to the latest FastAPI, but if updating is not possible then a middleware or a dependency that checks the content-type header and aborts the request if it is not application/json or another JSON compatible content type can act as a mitigating workaround.",
+      "cve": "CVE-2021-32677",
+      "specs": [
+        "<0.65.2"
+      ]
+    }
+  ],
   "fastecdsa": [
     {
       "id": "pyup.io-fastecdsa:CVE-2020-12607",
@@ -4451,6 +4461,16 @@
       ]
     }
   ],
+  "flask-caching": [
+    {
+      "id": "pyup.io-flask-caching:CVE-2021-33026",
+      "advisory": "The Flask-Caching extension through 1.10.1 for Flask relies on Pickle for serialization, which may lead to remote code execution or local privilege escalation. If an attacker gains access to cache storage (e.g., filesystem, Memcached, Redis, etc.), they can construct a crafted payload, poison the cache, and execute Python code.",
+      "cve": "CVE-2021-33026",
+      "specs": [
+        "<=1.10.1"
+      ]
+    }
+  ],
   "flask-cors": [
     {
       "id": "pyup.io-flask-cors:CVE-2020-25032",
@@ -4478,6 +4498,16 @@
       "cve": "CVE-2021-21241",
       "specs": [
         ">=3.3.0,<3.4.5"
+      ]
+    }
+  ],
+  "flask-unchained": [
+    {
+      "id": "pyup.io-flask-unchained:CVE-2021-23393",
+      "advisory": "This affects the package Flask-Unchained before 0.9.0. When using the the _validate_redirect_url function, it is possible to bypass URL validation and redirect a user to an arbitrary URL by providing multiple back slashes such as \\\\\\evil.com/path. This vulnerability is only exploitable if an alternative WSGI server other than Werkzeug is used, or the default behaviour of Werkzeug is modified using 'autocorrect_location_header=False.",
+      "cve": "CVE-2021-23393",
+      "specs": [
+        "<0.9.0"
       ]
     }
   ],
@@ -5068,6 +5098,16 @@
       "cve": "CVE-2020-15120",
       "specs": [
         "<4.1.5"
+      ]
+    }
+  ],
+  "impacket": [
+    {
+      "id": "pyup.io-impacket:CVE-2021-31800",
+      "advisory": "Multiple path traversal vulnerabilities exist in smbserver.py in Impacket through 0.9.22. An attacker that connects to a running smbserver instance can list and write to arbitrary files via ../ directory traversal. This could potentially be abused to achieve arbitrary code execution by replacing /etc/shadow or an SSH authorized key.",
+      "cve": "CVE-2021-31800",
+      "specs": [
+        "<=0.9.22"
       ]
     }
   ],
@@ -5915,6 +5955,24 @@
       "cve": "CVE-2019-19010",
       "specs": [
         "<2019.11.09"
+      ]
+    }
+  ],
+  "localstack": [
+    {
+      "id": "pyup.io-localstack:CVE-2021-32090",
+      "advisory": "The dashboard component of StackLift LocalStack 0.12.6 allows attackers to inject arbitrary shell commands via the functionName parameter.",
+      "cve": "CVE-2021-32090",
+      "specs": [
+        "==0.12.6"
+      ]
+    },
+    {
+      "id": "pyup.io-localstack:CVE-2021-32091",
+      "advisory": "A Cross-site scripting (XSS) vulnerability exists in StackLift LocalStack 0.12.6.",
+      "cve": "CVE-2021-32091",
+      "specs": [
+        "==0.12.6"
       ]
     }
   ],
@@ -50412,6 +50470,16 @@
       ]
     }
   ],
+  "tendenci": [
+    {
+      "id": "pyup.io-tendenci:CVE-2020-14942",
+      "advisory": "Tendenci 12.0.10 allows unrestricted deserialization in apps\\helpdesk\\views\\staff.py.",
+      "cve": "CVE-2020-14942",
+      "specs": [
+        "==12.0.10"
+      ]
+    }
+  ],
   "tensorflow": [
     {
       "id": "pyup.io-tensorflow:CVE-2018-10055",
@@ -56040,6 +56108,14 @@
       "cve": "CVE-2018-1000518",
       "specs": [
         "==4.0"
+      ]
+    },
+    {
+      "id": "pyup.io-websockets:CVE-2021-33880",
+      "advisory": "The aaugustin websockets library before 9.1 for Python has an Observable Timing Discrepancy on servers when HTTP Basic Authentication is enabled with basic_auth_protocol_factory(credentials=...). An attacker may be able to guess a password via a timing attack.",
+      "cve": "CVE-2021-33880",
+      "specs": [
+        "<9.1"
       ]
     }
   ],
