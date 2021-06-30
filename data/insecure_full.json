@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1624573657
+    "timestamp": 1625018139
   },
   "aiohttp": [
     {
@@ -134,6 +134,14 @@
       "cve": "CVE-2021-21399",
       "specs": [
         "<4.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-ampache:CVE-2021-32644",
+      "advisory": "Ampache is an open source web based audio/video streaming application and file manager. Due to a lack of input filtering versions 4.x.y are vulnerable to code injection in random.php. The attack requires user authentication to access the random.php page unless the site is running in demo mode. This issue has been resolved in 4.4.3.",
+      "cve": "CVE-2021-32644",
+      "specs": [
+        "==4.4.2"
       ]
     }
   ],
