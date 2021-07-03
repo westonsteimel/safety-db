@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1625018139
+    "timestamp": 1625276741
   },
   "aiohttp": [
     {
@@ -15967,6 +15967,14 @@
       "specs": [
         "<=5.2.4"
       ]
+    },
+    {
+      "id": "pyup.io-plone:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
+      ]
     }
   ],
   "plone.app.dexterity": [
@@ -20357,6 +20365,14 @@
       "cve": "CVE-2021-33513",
       "specs": [
         "<=5.2.4"
+      ]
+    },
+    {
+      "id": "pyup.io-plone.app.dexterity:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
       ]
     }
   ],
@@ -24749,6 +24765,14 @@
       "specs": [
         "<=5.2.4"
       ]
+    },
+    {
+      "id": "pyup.io-plone.app.event:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
+      ]
     }
   ],
   "plone.app.theming": [
@@ -29139,6 +29163,14 @@
       "cve": "CVE-2021-33513",
       "specs": [
         "<=5.2.4"
+      ]
+    },
+    {
+      "id": "pyup.io-plone.app.theming:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
       ]
     }
   ],
@@ -33531,6 +33563,14 @@
       "specs": [
         "<=5.2.4"
       ]
+    },
+    {
+      "id": "pyup.io-plone.app.users:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
+      ]
     }
   ],
   "plone.supermodel": [
@@ -37921,6 +37961,14 @@
       "cve": "CVE-2021-33513",
       "specs": [
         "<=5.2.4"
+      ]
+    },
+    {
+      "id": "pyup.io-plone.supermodel:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
       ]
     }
   ],
@@ -42313,6 +42361,14 @@
       "specs": [
         "<=5.2.4"
       ]
+    },
+    {
+      "id": "pyup.io-products.cmfplone:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
+      ]
     }
   ],
   "products.genericsetup": [
@@ -46681,6 +46737,14 @@
       "cve": "CVE-2021-33513",
       "specs": [
         "<=5.2.4"
+      ]
+    },
+    {
+      "id": "pyup.io-products.passwordresettool:CVE-2021-35959",
+      "advisory": "In Plone 5.0 through 5.2.4, Editors are vulnerable to XSS in the folder contents view, if a Contributor has created a folder with a SCRIPT tag in the description field.",
+      "cve": "CVE-2021-35959",
+      "specs": [
+        ">=5.0,<=5.2.4"
       ]
     }
   ],
@@ -55933,6 +55997,14 @@
       "cve": "CVE-2021-28363",
       "specs": [
         ">=1.26.0,<1.26.4"
+      ]
+    },
+    {
+      "id": "pyup.io-urllib3:CVE-2021-33503",
+      "advisory": "An issue was discovered in urllib3 before 1.26.5. When provided with a URL containing many @ characters in the authority component, the authority regular expression exhibits catastrophic backtracking, causing a denial of service if a URL were passed as a parameter or redirected to via an HTTP redirect.",
+      "cve": "CVE-2021-33503",
+      "specs": [
+        "<1.26.5"
       ]
     }
   ],

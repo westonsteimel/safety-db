@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1625018139
+    "timestamp": 1625276741
   },
   "aiohttp": [
     "<3.7.4"
@@ -4653,6 +4653,7 @@
     "<1.23",
     "<1.24.2",
     "<1.25.9",
+    "<1.26.5",
     "<=1.24.2",
     "==1.17",
     "==1.18",
