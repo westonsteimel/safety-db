@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1625276741
+    "timestamp": 1625622712
   },
   "aiohttp": [
     {
@@ -10740,6 +10740,14 @@
         ">=2.2.0,<2.2.3",
         ">=2.3.0,<2.3.3",
         ">=2.4.0,<2.4.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-35958",
+      "advisory": "** DISPUTED ** TensorFlow through 2.5.0 allows attackers to overwrite arbitrary files via a crafted archive when tf.keras.utils.get_file is used with extract=True. NOTE: the vendor's position is that tf.keras.utils.get_file is not intended for untrusted archives.",
+      "cve": "CVE-2021-35958",
+      "specs": [
+        "<=2.5.0"
       ]
     }
   ],
@@ -52155,6 +52163,14 @@
         ">=2.3.0,<2.3.3",
         ">=2.4.0,<2.4.2"
       ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-35958",
+      "advisory": "** DISPUTED ** TensorFlow through 2.5.0 allows attackers to overwrite arbitrary files via a crafted archive when tf.keras.utils.get_file is used with extract=True. NOTE: the vendor's position is that tf.keras.utils.get_file is not intended for untrusted archives.",
+      "cve": "CVE-2021-35958",
+      "specs": [
+        "<=2.5.0"
+      ]
     }
   ],
   "tensorflow-cpu": [
@@ -53760,6 +53776,14 @@
         ">=2.3.0,<2.3.3",
         ">=2.4.0,<2.4.2"
       ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-35958",
+      "advisory": "** DISPUTED ** TensorFlow through 2.5.0 allows attackers to overwrite arbitrary files via a crafted archive when tf.keras.utils.get_file is used with extract=True. NOTE: the vendor's position is that tf.keras.utils.get_file is not intended for untrusted archives.",
+      "cve": "CVE-2021-35958",
+      "specs": [
+        "<=2.5.0"
+      ]
     }
   ],
   "tensorflow-gpu": [
@@ -55364,6 +55388,14 @@
         ">=2.2.0,<2.2.3",
         ">=2.3.0,<2.3.3",
         ">=2.4.0,<2.4.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-35958",
+      "advisory": "** DISPUTED ** TensorFlow through 2.5.0 allows attackers to overwrite arbitrary files via a crafted archive when tf.keras.utils.get_file is used with extract=True. NOTE: the vendor's position is that tf.keras.utils.get_file is not intended for untrusted archives.",
+      "cve": "CVE-2021-35958",
+      "specs": [
+        "<=2.5.0"
       ]
     }
   ],
