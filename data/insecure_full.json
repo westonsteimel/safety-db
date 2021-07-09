@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1625622712
+    "timestamp": 1625795611
   },
   "aiohttp": [
     {
@@ -3819,6 +3819,15 @@
         ">=2.2,<2.2.24",
         ">=3.0,<3.1.12",
         ">=3.2,<3.2.4"
+      ]
+    },
+    {
+      "id": "pyup.io-django:CVE-2021-35042",
+      "advisory": "Django 3.1.x before 3.1.13 and 3.2.x before 3.2.5 allows QuerySet.order_by SQL injection if order_by is untrusted input from a client of a web application.",
+      "cve": "CVE-2021-35042",
+      "specs": [
+        ">=3.1,<3.1.13",
+        ">=3.2,<3.2.5"
       ]
     }
   ],
