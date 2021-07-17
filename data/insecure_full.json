@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1625795611
+    "timestamp": 1626486524
   },
   "aiohttp": [
     {
@@ -11550,6 +11550,15 @@
       "cve": "CVE-2021-28678",
       "specs": [
         "<8.2.0"
+      ]
+    },
+    {
+      "id": "pyup.io-pillow:CVE-2021-34552",
+      "advisory": "Pillow through 8.2.0 and PIL (aka Python Imaging Library) through 1.1.7 allow an attacker to pass controlled parameters directly into a convert function to trigger a buffer overflow in Convert.c.",
+      "cve": "CVE-2021-34552",
+      "specs": [
+        ">=1.0,<=1.1.7",
+        ">=1.2,<=8.2.0"
       ]
     }
   ],
