@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1626486524
+    "timestamp": 1627351057
   },
   "aiohttp": [
     {
@@ -9581,9 +9581,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Calling TF operations with tensors of non-numeric types when the operations expect numeric tensors result in null pointer dereferences. The conversion from Python array to C++ array(https://github.com/tensorflow/tensorflow/blob/ff70c47a396ef1e3cb73c90513da4f5cb71bebba/tensorflow/python/lib/core/ndarray_tensor.cc#L113-L169) is vulnerable to a type confusion. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29513",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9594,7 +9598,9 @@
       "specs": [
         "<=2.1.4",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9788,9 +9794,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can force accesses outside the bounds of heap allocated arrays by passing in invalid tensor values to `tf.raw_ops.RaggedCross`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/efea03b38fb8d3b81762237dc85e579cc5fc6e87/tensorflow/core/kernels/ragged_cross_op.cc#L456-L487) lacks validation for the user supplied arguments. Each of the above branches call a helper function after accessing array elements via a `*_list[next_*]` pattern, followed by incrementing the `next_*` index. However, as there is no validation that the `next_*` values are in the valid range for the corresponding `*_list` arrays, this results in heap OOB reads. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29532",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9821,9 +9831,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedMul` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/87cf4d3ea9949051e50ca3f071fc909538a51cd0/tensorflow/core/kernels/quantized_mul_op.cc#L287-L290) assumes that the 4 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29535",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9832,9 +9846,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedReshape` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/a324ac84e573fba362a5e53d4e74d5de6729933e/tensorflow/core/kernels/quantized_reshape_op.cc#L38-L55) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29536",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9843,9 +9861,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedResizeBilinear` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/50711818d2e61ccce012591eeb4fdf93a8496726/tensorflow/core/kernels/quantized_resize_bilinear_op.cc#L705-L706) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29537",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9876,9 +9898,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow to occur in `Conv2DBackpropFilter`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/1b0296c3b8dd9bd948f924aa8cd62f87dbb7c3da/tensorflow/core/kernels/conv_grad_filter_ops.cc#L495-L497) computes the size of the filter tensor but does not validate that it matches the number of elements in `filter_sizes`. Later, when reading/writing to this buffer, code uses the value computed here, instead of the number of elements in the tensor. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29540",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -9942,9 +9968,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger an integer division by zero undefined behavior in `tf.raw_ops.QuantizedBiasAdd`. This is because the implementation of the Eigen kernel(https://github.com/tensorflow/tensorflow/blob/61bca8bd5ba8a68b2d97435ddfafcdf2b85672cd/tensorflow/core/kernels/quantization_utils.h#L812-L849) does a division by the number of elements of the smaller input (based on shape) without checking that this is not zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29546",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10075,8 +10105,11 @@
       "cve": "CVE-2021-29558",
       "specs": [
         "<2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10096,9 +10129,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `tf.raw_ops.RaggedTensorToTensor`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/d94227d43aa125ad8b54115c03cece54f6a1977b/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L219-L222) uses the same index to access two arrays in parallel. Since the user controls the shape of the input arguments, an attacker could trigger a heap OOB access when `parent_output_index` is shorter than `row_split`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29560",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10162,9 +10199,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can write outside the bounds of heap allocated arrays by passing invalid arguments to `tf.raw_ops.Dilation2DBackpropInput`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/afd954e65f15aea4d438d0a219136fc4a63a573d/tensorflow/core/kernels/dilation_ops.cc#L321-L322) does not validate before writing to the output array. The values for `h_out` and `w_out` are guaranteed to be in range for `out_backprop` (as they are loop indices bounded by the size of the array). However, there are no similar guarantees relating `h_in_max`/`w_in_max` and `in_backprop`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29566",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10184,9 +10225,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger undefined behavior by binding to null pointer in `tf.raw_ops.ParameterizedTruncatedNormal`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/3f6fe4dfef6f57e768260b48166c27d148f3015f/tensorflow/core/kernels/parameterized_truncated_normal_op.cc#L630) does not validate input arguments before accessing the first element of `shape`. If `shape` argument is empty, then `shape_tensor.flat<T>()` is an empty array. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29568",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10217,9 +10262,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.MaxPoolGradWithArgmax` can cause reads outside of bounds of heap allocated data if attacker supplies specially crafted inputs. The implementation(https://github.com/tensorflow/tensorflow/blob/31bd5026304677faa8a0b77602c6154171b9aec1/tensorflow/core/kernels/image/draw_bounding_box_op.cc#L116-L130) assumes that the last element of `boxes` input is 4, as required by [the op](https://www.tensorflow.org/api_docs/python/tf/raw_ops/DrawBoundingBoxesV2). Since this is not checked attackers passing values less than 4 can write outside of bounds of heap allocated objects and cause memory corruption. If the last dimension in `boxes` is less than 4, accesses similar to `tboxes(b, bb, 3)` will access data outside of bounds. Further during code execution there are also writes to these indices. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29571",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10349,9 +10398,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.FusedBatchNorm` is vulnerable to a heap buffer overflow. If the tensors are empty, the same implementation can trigger undefined behavior by dereferencing null pointers. The implementation(https://github.com/tensorflow/tensorflow/blob/57d86e0db5d1365f19adcce848dfc1bf89fdd4c7/tensorflow/core/kernels/fused_batch_norm_op.cc) fails to validate that `scale`, `offset`, `mean` and `variance` (the last two only when required) all have the same number of elements as the number of channels of `x`. This results in heap out of bounds reads when the buffers backing these tensors are indexed past their boundary. If the tensors are empty, the validation mentioned in the above paragraph would also trigger and prevent the undefined behavior. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29583",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10371,9 +10424,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The TFLite computation for size of output after padding, `ComputeOutSize`(https://github.com/tensorflow/tensorflow/blob/0c9692ae7b1671c983569e5d3de5565843d500cf/tensorflow/lite/kernels/padding.h#L43-L55), does not check that the `stride` argument is not 0 before doing the division. Users can craft special models such that `ComputeOutSize` is called with `stride` set to 0. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29585",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10393,9 +10450,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The `Prepare` step of the `SpaceToDepth` TFLite operator does not check for 0 before division(https://github.com/tensorflow/tensorflow/blob/5f7975d09eac0f10ed8a17dbb6f5964977725adc/tensorflow/lite/kernels/space_to_depth.cc#L63-L67). An attacker can craft a model such that `params->block_size` would be zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29587",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10415,9 +10476,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The reference implementation of the `GatherNd` TFLite operator is vulnerable to a division by zero error(https://github.com/tensorflow/tensorflow/blob/0d45ea1ca641b21b73bcf9c00e0179cda284e7e7/tensorflow/lite/kernels/internal/reference/reference_ops.h#L966). An attacker can craft a model such that `params` input would be an empty tensor. In turn, `params_shape.Dims(.)` would be zero, in at least one dimension. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29589",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10483,7 +10548,9 @@
       "specs": [
         "<2.1.4",
         ">=2.2.0,<2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10624,9 +10691,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Due to lack of validation in `tf.raw_ops.RaggedTensorToTensor`, an attacker can exploit an undefined behavior if input arguments are empty. The implementation(https://github.com/tensorflow/tensorflow/blob/656e7673b14acd7835dc778867f84916c6d1cac2/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L356-L360) only checks that one of the tensors is not empty, but does not check for the other ones. There are multiple `DCHECK` validations to prevent heap OOB, but these are no-op in release builds, hence they don't prevent anything. The fix will be included in TensorFlow 2.5.0. We will also cherrypick these commits on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29608",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10646,9 +10717,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The validation in `tf.raw_ops.QuantizeAndDequantizeV2` allows invalid values for `axis` argument:. The validation(https://github.com/tensorflow/tensorflow/blob/eccb7ec454e6617738554a255d77f08e60ee0808/tensorflow/core/kernels/quantize_and_dequantize_op.cc#L74-L77) uses `||` to mix two different conditions. If `axis_ < -1` the condition in `OP_REQUIRES` will still be true, but this value of `axis_` results in heap underflow. This allows attackers to read/write to other data on the heap. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29610",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -10712,9 +10787,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of TrySimplify(https://github.com/tensorflow/tensorflow/blob/c22d88d6ff33031aa113e48aa3fc9aa74ed79595/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc#L390-L401) has undefined behavior due to dereferencing a null pointer in corner cases that result in optimizing a node with no inputs. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29616",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51012,9 +51091,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Calling TF operations with tensors of non-numeric types when the operations expect numeric tensors result in null pointer dereferences. The conversion from Python array to C++ array(https://github.com/tensorflow/tensorflow/blob/ff70c47a396ef1e3cb73c90513da4f5cb71bebba/tensorflow/python/lib/core/ndarray_tensor.cc#L113-L169) is vulnerable to a type confusion. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29513",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51025,7 +51108,9 @@
       "specs": [
         "<=2.1.4",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51219,9 +51304,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can force accesses outside the bounds of heap allocated arrays by passing in invalid tensor values to `tf.raw_ops.RaggedCross`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/efea03b38fb8d3b81762237dc85e579cc5fc6e87/tensorflow/core/kernels/ragged_cross_op.cc#L456-L487) lacks validation for the user supplied arguments. Each of the above branches call a helper function after accessing array elements via a `*_list[next_*]` pattern, followed by incrementing the `next_*` index. However, as there is no validation that the `next_*` values are in the valid range for the corresponding `*_list` arrays, this results in heap OOB reads. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29532",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51252,9 +51341,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedMul` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/87cf4d3ea9949051e50ca3f071fc909538a51cd0/tensorflow/core/kernels/quantized_mul_op.cc#L287-L290) assumes that the 4 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29535",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51263,9 +51356,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedReshape` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/a324ac84e573fba362a5e53d4e74d5de6729933e/tensorflow/core/kernels/quantized_reshape_op.cc#L38-L55) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29536",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51274,9 +51371,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedResizeBilinear` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/50711818d2e61ccce012591eeb4fdf93a8496726/tensorflow/core/kernels/quantized_resize_bilinear_op.cc#L705-L706) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29537",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51307,9 +51408,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow to occur in `Conv2DBackpropFilter`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/1b0296c3b8dd9bd948f924aa8cd62f87dbb7c3da/tensorflow/core/kernels/conv_grad_filter_ops.cc#L495-L497) computes the size of the filter tensor but does not validate that it matches the number of elements in `filter_sizes`. Later, when reading/writing to this buffer, code uses the value computed here, instead of the number of elements in the tensor. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29540",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51373,9 +51478,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger an integer division by zero undefined behavior in `tf.raw_ops.QuantizedBiasAdd`. This is because the implementation of the Eigen kernel(https://github.com/tensorflow/tensorflow/blob/61bca8bd5ba8a68b2d97435ddfafcdf2b85672cd/tensorflow/core/kernels/quantization_utils.h#L812-L849) does a division by the number of elements of the smaller input (based on shape) without checking that this is not zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29546",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51506,8 +51615,11 @@
       "cve": "CVE-2021-29558",
       "specs": [
         "<2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51527,9 +51639,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `tf.raw_ops.RaggedTensorToTensor`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/d94227d43aa125ad8b54115c03cece54f6a1977b/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L219-L222) uses the same index to access two arrays in parallel. Since the user controls the shape of the input arguments, an attacker could trigger a heap OOB access when `parent_output_index` is shorter than `row_split`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29560",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51593,9 +51709,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can write outside the bounds of heap allocated arrays by passing invalid arguments to `tf.raw_ops.Dilation2DBackpropInput`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/afd954e65f15aea4d438d0a219136fc4a63a573d/tensorflow/core/kernels/dilation_ops.cc#L321-L322) does not validate before writing to the output array. The values for `h_out` and `w_out` are guaranteed to be in range for `out_backprop` (as they are loop indices bounded by the size of the array). However, there are no similar guarantees relating `h_in_max`/`w_in_max` and `in_backprop`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29566",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51615,9 +51735,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger undefined behavior by binding to null pointer in `tf.raw_ops.ParameterizedTruncatedNormal`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/3f6fe4dfef6f57e768260b48166c27d148f3015f/tensorflow/core/kernels/parameterized_truncated_normal_op.cc#L630) does not validate input arguments before accessing the first element of `shape`. If `shape` argument is empty, then `shape_tensor.flat<T>()` is an empty array. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29568",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51648,9 +51772,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.MaxPoolGradWithArgmax` can cause reads outside of bounds of heap allocated data if attacker supplies specially crafted inputs. The implementation(https://github.com/tensorflow/tensorflow/blob/31bd5026304677faa8a0b77602c6154171b9aec1/tensorflow/core/kernels/image/draw_bounding_box_op.cc#L116-L130) assumes that the last element of `boxes` input is 4, as required by [the op](https://www.tensorflow.org/api_docs/python/tf/raw_ops/DrawBoundingBoxesV2). Since this is not checked attackers passing values less than 4 can write outside of bounds of heap allocated objects and cause memory corruption. If the last dimension in `boxes` is less than 4, accesses similar to `tboxes(b, bb, 3)` will access data outside of bounds. Further during code execution there are also writes to these indices. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29571",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51780,9 +51908,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.FusedBatchNorm` is vulnerable to a heap buffer overflow. If the tensors are empty, the same implementation can trigger undefined behavior by dereferencing null pointers. The implementation(https://github.com/tensorflow/tensorflow/blob/57d86e0db5d1365f19adcce848dfc1bf89fdd4c7/tensorflow/core/kernels/fused_batch_norm_op.cc) fails to validate that `scale`, `offset`, `mean` and `variance` (the last two only when required) all have the same number of elements as the number of channels of `x`. This results in heap out of bounds reads when the buffers backing these tensors are indexed past their boundary. If the tensors are empty, the validation mentioned in the above paragraph would also trigger and prevent the undefined behavior. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29583",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51802,9 +51934,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The TFLite computation for size of output after padding, `ComputeOutSize`(https://github.com/tensorflow/tensorflow/blob/0c9692ae7b1671c983569e5d3de5565843d500cf/tensorflow/lite/kernels/padding.h#L43-L55), does not check that the `stride` argument is not 0 before doing the division. Users can craft special models such that `ComputeOutSize` is called with `stride` set to 0. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29585",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51824,9 +51960,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The `Prepare` step of the `SpaceToDepth` TFLite operator does not check for 0 before division(https://github.com/tensorflow/tensorflow/blob/5f7975d09eac0f10ed8a17dbb6f5964977725adc/tensorflow/lite/kernels/space_to_depth.cc#L63-L67). An attacker can craft a model such that `params->block_size` would be zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29587",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51846,9 +51986,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The reference implementation of the `GatherNd` TFLite operator is vulnerable to a division by zero error(https://github.com/tensorflow/tensorflow/blob/0d45ea1ca641b21b73bcf9c00e0179cda284e7e7/tensorflow/lite/kernels/internal/reference/reference_ops.h#L966). An attacker can craft a model such that `params` input would be an empty tensor. In turn, `params_shape.Dims(.)` would be zero, in at least one dimension. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29589",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -51914,7 +52058,9 @@
       "specs": [
         "<2.1.4",
         ">=2.2.0,<2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52055,9 +52201,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Due to lack of validation in `tf.raw_ops.RaggedTensorToTensor`, an attacker can exploit an undefined behavior if input arguments are empty. The implementation(https://github.com/tensorflow/tensorflow/blob/656e7673b14acd7835dc778867f84916c6d1cac2/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L356-L360) only checks that one of the tensors is not empty, but does not check for the other ones. There are multiple `DCHECK` validations to prevent heap OOB, but these are no-op in release builds, hence they don't prevent anything. The fix will be included in TensorFlow 2.5.0. We will also cherrypick these commits on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29608",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52077,9 +52227,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The validation in `tf.raw_ops.QuantizeAndDequantizeV2` allows invalid values for `axis` argument:. The validation(https://github.com/tensorflow/tensorflow/blob/eccb7ec454e6617738554a255d77f08e60ee0808/tensorflow/core/kernels/quantize_and_dequantize_op.cc#L74-L77) uses `||` to mix two different conditions. If `axis_ < -1` the condition in `OP_REQUIRES` will still be true, but this value of `axis_` results in heap underflow. This allows attackers to read/write to other data on the heap. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29610",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52143,9 +52297,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of TrySimplify(https://github.com/tensorflow/tensorflow/blob/c22d88d6ff33031aa113e48aa3fc9aa74ed79595/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc#L390-L401) has undefined behavior due to dereferencing a null pointer in corner cases that result in optimizing a node with no inputs. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29616",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52625,9 +52783,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Calling TF operations with tensors of non-numeric types when the operations expect numeric tensors result in null pointer dereferences. The conversion from Python array to C++ array(https://github.com/tensorflow/tensorflow/blob/ff70c47a396ef1e3cb73c90513da4f5cb71bebba/tensorflow/python/lib/core/ndarray_tensor.cc#L113-L169) is vulnerable to a type confusion. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29513",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52638,7 +52800,9 @@
       "specs": [
         "<=2.1.4",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52832,9 +52996,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can force accesses outside the bounds of heap allocated arrays by passing in invalid tensor values to `tf.raw_ops.RaggedCross`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/efea03b38fb8d3b81762237dc85e579cc5fc6e87/tensorflow/core/kernels/ragged_cross_op.cc#L456-L487) lacks validation for the user supplied arguments. Each of the above branches call a helper function after accessing array elements via a `*_list[next_*]` pattern, followed by incrementing the `next_*` index. However, as there is no validation that the `next_*` values are in the valid range for the corresponding `*_list` arrays, this results in heap OOB reads. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29532",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52865,9 +53033,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedMul` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/87cf4d3ea9949051e50ca3f071fc909538a51cd0/tensorflow/core/kernels/quantized_mul_op.cc#L287-L290) assumes that the 4 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29535",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52876,9 +53048,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedReshape` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/a324ac84e573fba362a5e53d4e74d5de6729933e/tensorflow/core/kernels/quantized_reshape_op.cc#L38-L55) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29536",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52887,9 +53063,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedResizeBilinear` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/50711818d2e61ccce012591eeb4fdf93a8496726/tensorflow/core/kernels/quantized_resize_bilinear_op.cc#L705-L706) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29537",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52920,9 +53100,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow to occur in `Conv2DBackpropFilter`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/1b0296c3b8dd9bd948f924aa8cd62f87dbb7c3da/tensorflow/core/kernels/conv_grad_filter_ops.cc#L495-L497) computes the size of the filter tensor but does not validate that it matches the number of elements in `filter_sizes`. Later, when reading/writing to this buffer, code uses the value computed here, instead of the number of elements in the tensor. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29540",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -52986,9 +53170,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger an integer division by zero undefined behavior in `tf.raw_ops.QuantizedBiasAdd`. This is because the implementation of the Eigen kernel(https://github.com/tensorflow/tensorflow/blob/61bca8bd5ba8a68b2d97435ddfafcdf2b85672cd/tensorflow/core/kernels/quantization_utils.h#L812-L849) does a division by the number of elements of the smaller input (based on shape) without checking that this is not zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29546",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53119,8 +53307,11 @@
       "cve": "CVE-2021-29558",
       "specs": [
         "<2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53140,9 +53331,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `tf.raw_ops.RaggedTensorToTensor`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/d94227d43aa125ad8b54115c03cece54f6a1977b/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L219-L222) uses the same index to access two arrays in parallel. Since the user controls the shape of the input arguments, an attacker could trigger a heap OOB access when `parent_output_index` is shorter than `row_split`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29560",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53206,9 +53401,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can write outside the bounds of heap allocated arrays by passing invalid arguments to `tf.raw_ops.Dilation2DBackpropInput`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/afd954e65f15aea4d438d0a219136fc4a63a573d/tensorflow/core/kernels/dilation_ops.cc#L321-L322) does not validate before writing to the output array. The values for `h_out` and `w_out` are guaranteed to be in range for `out_backprop` (as they are loop indices bounded by the size of the array). However, there are no similar guarantees relating `h_in_max`/`w_in_max` and `in_backprop`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29566",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53228,9 +53427,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger undefined behavior by binding to null pointer in `tf.raw_ops.ParameterizedTruncatedNormal`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/3f6fe4dfef6f57e768260b48166c27d148f3015f/tensorflow/core/kernels/parameterized_truncated_normal_op.cc#L630) does not validate input arguments before accessing the first element of `shape`. If `shape` argument is empty, then `shape_tensor.flat<T>()` is an empty array. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29568",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53261,9 +53464,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.MaxPoolGradWithArgmax` can cause reads outside of bounds of heap allocated data if attacker supplies specially crafted inputs. The implementation(https://github.com/tensorflow/tensorflow/blob/31bd5026304677faa8a0b77602c6154171b9aec1/tensorflow/core/kernels/image/draw_bounding_box_op.cc#L116-L130) assumes that the last element of `boxes` input is 4, as required by [the op](https://www.tensorflow.org/api_docs/python/tf/raw_ops/DrawBoundingBoxesV2). Since this is not checked attackers passing values less than 4 can write outside of bounds of heap allocated objects and cause memory corruption. If the last dimension in `boxes` is less than 4, accesses similar to `tboxes(b, bb, 3)` will access data outside of bounds. Further during code execution there are also writes to these indices. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29571",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53393,9 +53600,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.FusedBatchNorm` is vulnerable to a heap buffer overflow. If the tensors are empty, the same implementation can trigger undefined behavior by dereferencing null pointers. The implementation(https://github.com/tensorflow/tensorflow/blob/57d86e0db5d1365f19adcce848dfc1bf89fdd4c7/tensorflow/core/kernels/fused_batch_norm_op.cc) fails to validate that `scale`, `offset`, `mean` and `variance` (the last two only when required) all have the same number of elements as the number of channels of `x`. This results in heap out of bounds reads when the buffers backing these tensors are indexed past their boundary. If the tensors are empty, the validation mentioned in the above paragraph would also trigger and prevent the undefined behavior. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29583",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53415,9 +53626,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The TFLite computation for size of output after padding, `ComputeOutSize`(https://github.com/tensorflow/tensorflow/blob/0c9692ae7b1671c983569e5d3de5565843d500cf/tensorflow/lite/kernels/padding.h#L43-L55), does not check that the `stride` argument is not 0 before doing the division. Users can craft special models such that `ComputeOutSize` is called with `stride` set to 0. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29585",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53437,9 +53652,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The `Prepare` step of the `SpaceToDepth` TFLite operator does not check for 0 before division(https://github.com/tensorflow/tensorflow/blob/5f7975d09eac0f10ed8a17dbb6f5964977725adc/tensorflow/lite/kernels/space_to_depth.cc#L63-L67). An attacker can craft a model such that `params->block_size` would be zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29587",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53459,9 +53678,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The reference implementation of the `GatherNd` TFLite operator is vulnerable to a division by zero error(https://github.com/tensorflow/tensorflow/blob/0d45ea1ca641b21b73bcf9c00e0179cda284e7e7/tensorflow/lite/kernels/internal/reference/reference_ops.h#L966). An attacker can craft a model such that `params` input would be an empty tensor. In turn, `params_shape.Dims(.)` would be zero, in at least one dimension. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29589",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53527,7 +53750,9 @@
       "specs": [
         "<2.1.4",
         ">=2.2.0,<2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53668,9 +53893,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Due to lack of validation in `tf.raw_ops.RaggedTensorToTensor`, an attacker can exploit an undefined behavior if input arguments are empty. The implementation(https://github.com/tensorflow/tensorflow/blob/656e7673b14acd7835dc778867f84916c6d1cac2/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L356-L360) only checks that one of the tensors is not empty, but does not check for the other ones. There are multiple `DCHECK` validations to prevent heap OOB, but these are no-op in release builds, hence they don't prevent anything. The fix will be included in TensorFlow 2.5.0. We will also cherrypick these commits on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29608",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53690,9 +53919,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The validation in `tf.raw_ops.QuantizeAndDequantizeV2` allows invalid values for `axis` argument:. The validation(https://github.com/tensorflow/tensorflow/blob/eccb7ec454e6617738554a255d77f08e60ee0808/tensorflow/core/kernels/quantize_and_dequantize_op.cc#L74-L77) uses `||` to mix two different conditions. If `axis_ < -1` the condition in `OP_REQUIRES` will still be true, but this value of `axis_` results in heap underflow. This allows attackers to read/write to other data on the heap. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29610",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -53756,9 +53989,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of TrySimplify(https://github.com/tensorflow/tensorflow/blob/c22d88d6ff33031aa113e48aa3fc9aa74ed79595/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc#L390-L401) has undefined behavior due to dereferencing a null pointer in corner cases that result in optimizing a node with no inputs. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29616",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54238,9 +54475,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Calling TF operations with tensors of non-numeric types when the operations expect numeric tensors result in null pointer dereferences. The conversion from Python array to C++ array(https://github.com/tensorflow/tensorflow/blob/ff70c47a396ef1e3cb73c90513da4f5cb71bebba/tensorflow/python/lib/core/ndarray_tensor.cc#L113-L169) is vulnerable to a type confusion. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29513",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54251,7 +54492,9 @@
       "specs": [
         "<=2.1.4",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54445,9 +54688,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can force accesses outside the bounds of heap allocated arrays by passing in invalid tensor values to `tf.raw_ops.RaggedCross`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/efea03b38fb8d3b81762237dc85e579cc5fc6e87/tensorflow/core/kernels/ragged_cross_op.cc#L456-L487) lacks validation for the user supplied arguments. Each of the above branches call a helper function after accessing array elements via a `*_list[next_*]` pattern, followed by incrementing the `next_*` index. However, as there is no validation that the `next_*` values are in the valid range for the corresponding `*_list` arrays, this results in heap OOB reads. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29532",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54478,9 +54725,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedMul` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/87cf4d3ea9949051e50ca3f071fc909538a51cd0/tensorflow/core/kernels/quantized_mul_op.cc#L287-L290) assumes that the 4 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29535",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54489,9 +54740,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedReshape` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/a324ac84e573fba362a5e53d4e74d5de6729933e/tensorflow/core/kernels/quantized_reshape_op.cc#L38-L55) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. However, if any of these tensors is empty, then `.flat<T>()` is an empty buffer and accessing the element at position 0 results in overflow. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29536",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54500,9 +54755,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `QuantizedResizeBilinear` by passing in invalid thresholds for the quantization. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/50711818d2e61ccce012591eeb4fdf93a8496726/tensorflow/core/kernels/quantized_resize_bilinear_op.cc#L705-L706) assumes that the 2 arguments are always valid scalars and tries to access the numeric value directly. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29537",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54533,9 +54792,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow to occur in `Conv2DBackpropFilter`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/1b0296c3b8dd9bd948f924aa8cd62f87dbb7c3da/tensorflow/core/kernels/conv_grad_filter_ops.cc#L495-L497) computes the size of the filter tensor but does not validate that it matches the number of elements in `filter_sizes`. Later, when reading/writing to this buffer, code uses the value computed here, instead of the number of elements in the tensor. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29540",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54599,9 +54862,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger an integer division by zero undefined behavior in `tf.raw_ops.QuantizedBiasAdd`. This is because the implementation of the Eigen kernel(https://github.com/tensorflow/tensorflow/blob/61bca8bd5ba8a68b2d97435ddfafcdf2b85672cd/tensorflow/core/kernels/quantization_utils.h#L812-L849) does a division by the number of elements of the smaller input (based on shape) without checking that this is not zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29546",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54732,8 +54999,11 @@
       "cve": "CVE-2021-29558",
       "specs": [
         "<2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54753,9 +55023,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can cause a heap buffer overflow in `tf.raw_ops.RaggedTensorToTensor`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/d94227d43aa125ad8b54115c03cece54f6a1977b/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L219-L222) uses the same index to access two arrays in parallel. Since the user controls the shape of the input arguments, an attacker could trigger a heap OOB access when `parent_output_index` is shorter than `row_split`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29560",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54819,9 +55093,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can write outside the bounds of heap allocated arrays by passing invalid arguments to `tf.raw_ops.Dilation2DBackpropInput`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/afd954e65f15aea4d438d0a219136fc4a63a573d/tensorflow/core/kernels/dilation_ops.cc#L321-L322) does not validate before writing to the output array. The values for `h_out` and `w_out` are guaranteed to be in range for `out_backprop` (as they are loop indices bounded by the size of the array). However, there are no similar guarantees relating `h_in_max`/`w_in_max` and `in_backprop`. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29566",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54841,9 +55119,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. An attacker can trigger undefined behavior by binding to null pointer in `tf.raw_ops.ParameterizedTruncatedNormal`. This is because the implementation(https://github.com/tensorflow/tensorflow/blob/3f6fe4dfef6f57e768260b48166c27d148f3015f/tensorflow/core/kernels/parameterized_truncated_normal_op.cc#L630) does not validate input arguments before accessing the first element of `shape`. If `shape` argument is empty, then `shape_tensor.flat<T>()` is an empty array. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29568",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -54874,9 +55156,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.MaxPoolGradWithArgmax` can cause reads outside of bounds of heap allocated data if attacker supplies specially crafted inputs. The implementation(https://github.com/tensorflow/tensorflow/blob/31bd5026304677faa8a0b77602c6154171b9aec1/tensorflow/core/kernels/image/draw_bounding_box_op.cc#L116-L130) assumes that the last element of `boxes` input is 4, as required by [the op](https://www.tensorflow.org/api_docs/python/tf/raw_ops/DrawBoundingBoxesV2). Since this is not checked attackers passing values less than 4 can write outside of bounds of heap allocated objects and cause memory corruption. If the last dimension in `boxes` is less than 4, accesses similar to `tboxes(b, bb, 3)` will access data outside of bounds. Further during code execution there are also writes to these indices. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29571",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55006,9 +55292,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of `tf.raw_ops.FusedBatchNorm` is vulnerable to a heap buffer overflow. If the tensors are empty, the same implementation can trigger undefined behavior by dereferencing null pointers. The implementation(https://github.com/tensorflow/tensorflow/blob/57d86e0db5d1365f19adcce848dfc1bf89fdd4c7/tensorflow/core/kernels/fused_batch_norm_op.cc) fails to validate that `scale`, `offset`, `mean` and `variance` (the last two only when required) all have the same number of elements as the number of channels of `x`. This results in heap out of bounds reads when the buffers backing these tensors are indexed past their boundary. If the tensors are empty, the validation mentioned in the above paragraph would also trigger and prevent the undefined behavior. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29583",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55028,9 +55318,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The TFLite computation for size of output after padding, `ComputeOutSize`(https://github.com/tensorflow/tensorflow/blob/0c9692ae7b1671c983569e5d3de5565843d500cf/tensorflow/lite/kernels/padding.h#L43-L55), does not check that the `stride` argument is not 0 before doing the division. Users can craft special models such that `ComputeOutSize` is called with `stride` set to 0. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29585",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55050,9 +55344,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The `Prepare` step of the `SpaceToDepth` TFLite operator does not check for 0 before division(https://github.com/tensorflow/tensorflow/blob/5f7975d09eac0f10ed8a17dbb6f5964977725adc/tensorflow/lite/kernels/space_to_depth.cc#L63-L67). An attacker can craft a model such that `params->block_size` would be zero. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29587",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55072,9 +55370,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The reference implementation of the `GatherNd` TFLite operator is vulnerable to a division by zero error(https://github.com/tensorflow/tensorflow/blob/0d45ea1ca641b21b73bcf9c00e0179cda284e7e7/tensorflow/lite/kernels/internal/reference/reference_ops.h#L966). An attacker can craft a model such that `params` input would be an empty tensor. In turn, `params_shape.Dims(.)` would be zero, in at least one dimension. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29589",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55140,7 +55442,9 @@
       "specs": [
         "<2.1.4",
         ">=2.2.0,<2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55281,9 +55585,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. Due to lack of validation in `tf.raw_ops.RaggedTensorToTensor`, an attacker can exploit an undefined behavior if input arguments are empty. The implementation(https://github.com/tensorflow/tensorflow/blob/656e7673b14acd7835dc778867f84916c6d1cac2/tensorflow/core/kernels/ragged_tensor_to_tensor_op.cc#L356-L360) only checks that one of the tensors is not empty, but does not check for the other ones. There are multiple `DCHECK` validations to prevent heap OOB, but these are no-op in release builds, hence they don't prevent anything. The fix will be included in TensorFlow 2.5.0. We will also cherrypick these commits on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29608",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55303,9 +55611,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The validation in `tf.raw_ops.QuantizeAndDequantizeV2` allows invalid values for `axis` argument:. The validation(https://github.com/tensorflow/tensorflow/blob/eccb7ec454e6617738554a255d77f08e60ee0808/tensorflow/core/kernels/quantize_and_dequantize_op.cc#L74-L77) uses `||` to mix two different conditions. If `axis_ < -1` the condition in `OP_REQUIRES` will still be true, but this value of `axis_` results in heap underflow. This allows attackers to read/write to other data on the heap. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29610",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
@@ -55369,9 +55681,13 @@
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. The implementation of TrySimplify(https://github.com/tensorflow/tensorflow/blob/c22d88d6ff33031aa113e48aa3fc9aa74ed79595/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc#L390-L401) has undefined behavior due to dereferencing a null pointer in corner cases that result in optimizing a node with no inputs. The fix will be included in TensorFlow 2.5.0. We will also cherrypick this commit on TensorFlow 2.4.2, TensorFlow 2.3.3, TensorFlow 2.2.3 and TensorFlow 2.1.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-29616",
       "specs": [
+        "<2.1.4",
         "<=2.1.4",
+        ">=2.2.0,<2.2.3",
         ">=2.2.0,<=2.2.3",
+        ">=2.3.0,<2.3.3",
         ">=2.3.0,<=2.3.3",
+        ">=2.4.0,<2.4.2",
         ">=2.4.0,<=2.4.2"
       ]
     },
