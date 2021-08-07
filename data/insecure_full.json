@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1628042000
+    "timestamp": 1628300727
   },
   "aiohttp": [
     {
@@ -945,6 +945,14 @@
       "specs": [
         ">=1.0.0,<1.10.15",
         ">=2.0.0,<2.0.2"
+      ]
+    },
+    {
+      "id": "pyup.io-apache-airflow:CVE-2021-29621",
+      "advisory": "Flask-AppBuilder is a development framework, built on top of Flask. User enumeration in database authentication in Flask-AppBuilder <= 3.2.3. Allows for a non authenticated user to enumerate existing accounts by timing the response time from the server when you are logging in. Upgrade to version 3.3.0 or higher to resolve.",
+      "cve": "CVE-2021-29621",
+      "specs": [
+        "==1.10.0"
       ]
     }
   ],
