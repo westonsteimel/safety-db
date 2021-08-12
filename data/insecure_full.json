@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1628300727
+    "timestamp": 1628733024
   },
   "aiohttp": [
     {
@@ -57154,6 +57154,15 @@
       ]
     },
     {
+      "id": "pyup.io-zope:CVE-2021-32811",
+      "advisory": "Zope is an open-source web application server. Zope versions prior to versions 4.6.3 and 5.3 have a remote code execution security issue. In order to be affected, one must use Python 3 for one's Zope deployment, run Zope 4 below version 4.6.3 or Zope 5 below version 5.3, and have the optional `Products.PythonScripts` add-on package installed. By default, one must have the admin-level Zope \"Manager\" role to add or edit Script (Python) objects through the web. Only sites that allow untrusted users to add/edit these scripts through the web are at risk. Zope releases 4.6.3 and 5.3 are not vulnerable. As a workaround, a site administrator can restrict adding/editing Script (Python) objects through the web using the standard Zope user/role permission mechanisms. Untrusted users should not be assigned the Zope Manager role and adding/editing these scripts through the web should be restricted to trusted users only. This is the default configuration in Zope.",
+      "cve": "CVE-2021-32811",
+      "specs": [
+        ">=4.0,<4.6.3",
+        ">=5.0,<5.3"
+      ]
+    },
+    {
       "id": "pyup.io-zope:CVE-2021-33507",
       "advisory": "Zope Products.CMFCore before 2.5.1 and Products.PluggableAuthService before 2.6.2, as used in Plone through 5.2.4 and other products, allow Reflected XSS.",
       "cve": "CVE-2021-33507",
@@ -57941,6 +57950,15 @@
       "specs": [
         "<4.6.1",
         ">=5.0.0,<5.2.1"
+      ]
+    },
+    {
+      "id": "pyup.io-zope2:CVE-2021-32811",
+      "advisory": "Zope is an open-source web application server. Zope versions prior to versions 4.6.3 and 5.3 have a remote code execution security issue. In order to be affected, one must use Python 3 for one's Zope deployment, run Zope 4 below version 4.6.3 or Zope 5 below version 5.3, and have the optional `Products.PythonScripts` add-on package installed. By default, one must have the admin-level Zope \"Manager\" role to add or edit Script (Python) objects through the web. Only sites that allow untrusted users to add/edit these scripts through the web are at risk. Zope releases 4.6.3 and 5.3 are not vulnerable. As a workaround, a site administrator can restrict adding/editing Script (Python) objects through the web using the standard Zope user/role permission mechanisms. Untrusted users should not be assigned the Zope Manager role and adding/editing these scripts through the web should be restricted to trusted users only. This is the default configuration in Zope.",
+      "cve": "CVE-2021-32811",
+      "specs": [
+        ">=4.0,<4.6.3",
+        ">=5.0,<5.3"
       ]
     },
     {
