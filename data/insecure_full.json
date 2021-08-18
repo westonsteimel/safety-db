@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1628733024
+    "timestamp": 1629251326
   },
   "aiohttp": [
     {
@@ -8795,6 +8795,15 @@
       "cve": "CVE-2020-26215",
       "specs": [
         "<6.1.5"
+      ]
+    },
+    {
+      "id": "pyup.io-notebook:CVE-2021-32798",
+      "advisory": "The Jupyter notebook is a web-based notebook environment for interactive computing. In affected versions untrusted notebook can execute code on load. Jupyter Notebook uses a deprecated version of Google Caja to sanitize user inputs. A public Caja bypass can be used to trigger an XSS when a victim opens a malicious ipynb document in Jupyter Notebook. The XSS allows an attacker to execute arbitrary code on the victim computer using Jupyter APIs.",
+      "cve": "CVE-2021-32798",
+      "specs": [
+        "==6.4.0",
+        ">=5.7.0,<5.7.11"
       ]
     }
   ],
