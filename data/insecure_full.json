@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1629337276
+    "timestamp": 1629424032
   },
   "aiohttp": [
     {
@@ -11147,9 +11147,35 @@
       ]
     },
     {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37663",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in `tf.raw_ops.QuantizeV2`, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/quantize_op.cc#L59) has some validation but does not check that `min_range` and `max_range` both have the same non-zero number of elements. If `axis` is provided (i.e., not `-1`), then validation should check that it is a value in range for the rank of `input` tensor and then the lengths of `min_range` and `max_range` inputs match the `axis` dimension of the `input` tensor. We have patched the issue in GitHub commit 6da6620efad397c85493b8f8667b821403516708. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37663",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-37664",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `BoostedTreesSparseCalculateBestFeatureSplit`. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/boosted_trees/stats_ops.cc) needs to validate that each value in `stats_summary_indices` is in range. We have patched the issue in GitHub commit e84c975313e8e8e38bb2ea118196369c45c51378. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37664",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37665",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in MKL implementation of requantization, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantization_range_per_channel_op.cc) does not validate the dimensions of the `input` tensor. A similar issue occurs in `MklRequantizePerChannelOp`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantize_per_channel_op.cc) does not perform full validation for all the input arguments. We have patched the issue in GitHub commit 9e62869465573cb2d9b5053f1fa02a81fce21d69 and in the Github commit 203214568f5bc237603dbab6e1fd389f1572f5c9. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37665",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -11186,9 +11212,87 @@
       ]
     },
     {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37668",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.UnravelIndex` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/unravel_index_op.cc#L36) does not check that the tensor subsumed by `dims` is not empty. Hence, if one element of `dims` is 0, the implementation does a division by 0. We have patched the issue in GitHub commit a776040a5e7ebf76eeb7eb923bf1ae417dd4d233. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37668",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37669",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.NonMaxSuppressionV5` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/image/non_max_suppression_op.cc#L170-L271) uses a user controlled argument to resize a `std::vector`. However, as `std::vector::resize` takes the size argument as a `size_t` and `output_size` is an `int`, there is an implicit conversion to unsigned. If the attacker supplies a negative value, this conversion results in a crash. A similar issue occurs in `CombinedNonMaxSuppression`. We have patched the issue in GitHub commit 3a7362750d5c372420aa8f0caf7bf5b5c3d0f52d and commit [b5cdbf12ffcaaffecf98f22a6be5a64bb96e4f58. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37669",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37670",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.UpperBound`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/searchsorted_op.cc#L85-L104) does not validate the rank of `sorted_input` argument. A similar issue occurs in `tf.raw_ops.LowerBound`. We have patched the issue in GitHub commit 42459e4273c2e47a3232cc16c4f4fff3b3a35c38. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37670",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-37671",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause undefined behavior via binding a reference to null pointer in `tf.raw_ops.Map*` and `tf.raw_ops.OrderedMap*` operations. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L222-L248) has a check in place to ensure that `indices` is in ascending order, but does not check that `indices` is not empty. We have patched the issue in GitHub commit 532f5c5a547126c634fefd43bbad1dc6417678ac. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37671",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37672",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.SdcaOptimizerV2`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/sdca_internal.cc#L320-L353) does not check that the length of `example_labels` is the same as the number of examples. We have patched the issue in GitHub commit a4e138660270e7599793fa438cd7b2fc2ce215a6. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37672",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37673",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a `CHECK`-fail in `tf.raw_ops.MapStage`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L513) does not check that the `key` input is a valid non-empty tensor. We have patched the issue in GitHub commit d7de67733925de196ec8863a33445b73f9562d1d. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37673",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37674",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a segmentation fault in `tf.raw_ops.MaxPoolGrad` caused by missing validation. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/maxpooling_op.cc) misses some validation for the `orig_input` and `orig_output` tensors. The fixes for CVE-2021-29579 were incomplete. We have patched the issue in GitHub commit 136b51f10903e044308cf77117c0ed9871350475. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37674",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -11225,6 +11329,45 @@
       ]
     },
     {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37677",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the shape inference code for `tf.raw_ops.Dequantize` has a vulnerability that could trigger a denial of service via a segfault if an attacker provides invalid arguments. The shape inference [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/ops/array_ops.cc#L2999-L3014) uses `axis` to select between two different values for `minmax_rank` which is then used to retrieve tensor dimensions. However, code assumes that `axis` can be either `-1` or a value greater than `-1`, with no validation for the other values. We have patched the issue in GitHub commit da857cfa0fde8f79ad0afdbc94e88b5d4bbec764. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37677",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37678",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions TensorFlow and Keras can be tricked to perform arbitrary code execution when deserializing a Keras model from YAML format. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/python/keras/saving/model_config.py#L66-L104) uses `yaml.unsafe_load` which can perform arbitrary code execution on the input. Given that YAML format support requires a significant amount of work, we have removed it for now. We have patched the issue in GitHub commit 23d6383eb6c14084a8fc3bdf164043b974818012. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37678",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37679",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions it is possible to nest a `tf.map_fn` within another `tf.map_fn` call. However, if the input tensor is a `RaggedTensor` and there is no function signature provided, code assumes the output is a fully specified tensor and fills output buffer with uninitialized contents from the heap. The `t` and `z` outputs should be identical, however this is not the case. The last row of `t` contains data from the heap which can be used to leak other memory information. The bug lies in the conversion from a `Variant` tensor to a `RaggedTensor`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/ragged_tensor_from_variant_op.cc#L177-L190) does not check that all inner shapes match and this results in the additional dimensions. The same implementation can result in data loss, if input tensor is tweaked. We have patched the issue in GitHub commit 4e2565483d0ffcadc719bd44893fb7f609bb5f12. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37679",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-37680",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of fully connected layers in TFLite is [vulnerable to a division by zero error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/fully_connected.cc#L226). We have patched the issue in GitHub commit 718721986aa137691ee23f03638867151f74935f. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37680",
@@ -11241,6 +11384,19 @@
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-37681",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of SVDF in TFLite is [vulnerable to a null pointer error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/svdf.cc#L300-L313). The [`GetVariableInput` function](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L115-L119) can return a null pointer but `GetTensorData` assumes that the argument is always a valid tensor. Furthermore, because `GetVariableInput` calls [`GetMutableInput`](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L82-L90) which might return `nullptr`, the `tensor->is_variable` expression can also trigger a null pointer exception. We have patched the issue in GitHub commit 5b048e87e4e55990dae6b547add4dae59f4e1c76. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37681",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37682",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions all TFLite operations that use quantization can be made to use unitialized values. [For example](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/depthwise_conv.cc#L198-L200). The issue stems from the fact that `quantization.params` is only valid if `quantization.type` is different that `kTfLiteNoQuantization`. However, these checks are missing in large parts of the code. We have patched the issue in GitHub commits 537bc7c723439b9194a358f64d871dd326c18887, 4a91f2069f7145aab6ba2d8cfe41be8a110c18a5 and 8933b8a21280696ab119b63263babdb54c298538. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37682",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -11332,6 +11488,19 @@
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-37689",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can craft a TFLite model that would trigger a null pointer dereference, which would result in a crash and denial of service. This is caused by the MLIR optimization of `L2NormalizeReduceAxis` operator. The [implementation](https://github.com/tensorflow/tensorflow/blob/149562d49faa709ea80df1d99fc41d005b81082a/tensorflow/compiler/mlir/lite/transforms/optimize.cc#L67-L70) unconditionally dereferences a pointer to an iterator to a vector without checking that the vector has elements. We have patched the issue in GitHub commit d6b57f461b39fd1aa8c1b870f1b974aac3554955. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37689",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-37690",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions when running shape functions, some functions (such as `MutableHashTableShape`) produce extra output information in the form of a `ShapeAndType` struct. The shapes embedded in this struct are owned by an inference context that is cleaned up almost immediately; if the upstream code attempts to access this shape information, it can trigger a segfault. `ShapeRefiner` is mitigating this for normal output shapes by cloning them (and thus putting the newly created shape under ownership of an inference context that will not die), but we were not doing the same for shapes and types. This commit fixes that by doing similar logic on output shapes and types. We have patched the issue in GitHub commit ee119d4a498979525046fba1c3dd3f13a039fbb1. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37690",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -53168,9 +53337,35 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow:CVE-2021-37663",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in `tf.raw_ops.QuantizeV2`, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/quantize_op.cc#L59) has some validation but does not check that `min_range` and `max_range` both have the same non-zero number of elements. If `axis` is provided (i.e., not `-1`), then validation should check that it is a value in range for the rank of `input` tensor and then the lengths of `min_range` and `max_range` inputs match the `axis` dimension of the `input` tensor. We have patched the issue in GitHub commit 6da6620efad397c85493b8f8667b821403516708. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37663",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow:CVE-2021-37664",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `BoostedTreesSparseCalculateBestFeatureSplit`. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/boosted_trees/stats_ops.cc) needs to validate that each value in `stats_summary_indices` is in range. We have patched the issue in GitHub commit e84c975313e8e8e38bb2ea118196369c45c51378. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37664",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37665",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in MKL implementation of requantization, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantization_range_per_channel_op.cc) does not validate the dimensions of the `input` tensor. A similar issue occurs in `MklRequantizePerChannelOp`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantize_per_channel_op.cc) does not perform full validation for all the input arguments. We have patched the issue in GitHub commit 9e62869465573cb2d9b5053f1fa02a81fce21d69 and in the Github commit 203214568f5bc237603dbab6e1fd389f1572f5c9. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37665",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -53207,9 +53402,87 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow:CVE-2021-37668",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.UnravelIndex` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/unravel_index_op.cc#L36) does not check that the tensor subsumed by `dims` is not empty. Hence, if one element of `dims` is 0, the implementation does a division by 0. We have patched the issue in GitHub commit a776040a5e7ebf76eeb7eb923bf1ae417dd4d233. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37668",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37669",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.NonMaxSuppressionV5` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/image/non_max_suppression_op.cc#L170-L271) uses a user controlled argument to resize a `std::vector`. However, as `std::vector::resize` takes the size argument as a `size_t` and `output_size` is an `int`, there is an implicit conversion to unsigned. If the attacker supplies a negative value, this conversion results in a crash. A similar issue occurs in `CombinedNonMaxSuppression`. We have patched the issue in GitHub commit 3a7362750d5c372420aa8f0caf7bf5b5c3d0f52d and commit [b5cdbf12ffcaaffecf98f22a6be5a64bb96e4f58. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37669",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37670",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.UpperBound`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/searchsorted_op.cc#L85-L104) does not validate the rank of `sorted_input` argument. A similar issue occurs in `tf.raw_ops.LowerBound`. We have patched the issue in GitHub commit 42459e4273c2e47a3232cc16c4f4fff3b3a35c38. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37670",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow:CVE-2021-37671",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause undefined behavior via binding a reference to null pointer in `tf.raw_ops.Map*` and `tf.raw_ops.OrderedMap*` operations. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L222-L248) has a check in place to ensure that `indices` is in ascending order, but does not check that `indices` is not empty. We have patched the issue in GitHub commit 532f5c5a547126c634fefd43bbad1dc6417678ac. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37671",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37672",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.SdcaOptimizerV2`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/sdca_internal.cc#L320-L353) does not check that the length of `example_labels` is the same as the number of examples. We have patched the issue in GitHub commit a4e138660270e7599793fa438cd7b2fc2ce215a6. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37672",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37673",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a `CHECK`-fail in `tf.raw_ops.MapStage`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L513) does not check that the `key` input is a valid non-empty tensor. We have patched the issue in GitHub commit d7de67733925de196ec8863a33445b73f9562d1d. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37673",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37674",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a segmentation fault in `tf.raw_ops.MaxPoolGrad` caused by missing validation. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/maxpooling_op.cc) misses some validation for the `orig_input` and `orig_output` tensors. The fixes for CVE-2021-29579 were incomplete. We have patched the issue in GitHub commit 136b51f10903e044308cf77117c0ed9871350475. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37674",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -53246,6 +53519,45 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow:CVE-2021-37677",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the shape inference code for `tf.raw_ops.Dequantize` has a vulnerability that could trigger a denial of service via a segfault if an attacker provides invalid arguments. The shape inference [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/ops/array_ops.cc#L2999-L3014) uses `axis` to select between two different values for `minmax_rank` which is then used to retrieve tensor dimensions. However, code assumes that `axis` can be either `-1` or a value greater than `-1`, with no validation for the other values. We have patched the issue in GitHub commit da857cfa0fde8f79ad0afdbc94e88b5d4bbec764. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37677",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37678",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions TensorFlow and Keras can be tricked to perform arbitrary code execution when deserializing a Keras model from YAML format. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/python/keras/saving/model_config.py#L66-L104) uses `yaml.unsafe_load` which can perform arbitrary code execution on the input. Given that YAML format support requires a significant amount of work, we have removed it for now. We have patched the issue in GitHub commit 23d6383eb6c14084a8fc3bdf164043b974818012. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37678",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37679",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions it is possible to nest a `tf.map_fn` within another `tf.map_fn` call. However, if the input tensor is a `RaggedTensor` and there is no function signature provided, code assumes the output is a fully specified tensor and fills output buffer with uninitialized contents from the heap. The `t` and `z` outputs should be identical, however this is not the case. The last row of `t` contains data from the heap which can be used to leak other memory information. The bug lies in the conversion from a `Variant` tensor to a `RaggedTensor`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/ragged_tensor_from_variant_op.cc#L177-L190) does not check that all inner shapes match and this results in the additional dimensions. The same implementation can result in data loss, if input tensor is tweaked. We have patched the issue in GitHub commit 4e2565483d0ffcadc719bd44893fb7f609bb5f12. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37679",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow:CVE-2021-37680",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of fully connected layers in TFLite is [vulnerable to a division by zero error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/fully_connected.cc#L226). We have patched the issue in GitHub commit 718721986aa137691ee23f03638867151f74935f. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37680",
@@ -53262,6 +53574,19 @@
       "id": "pyup.io-tensorflow:CVE-2021-37681",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of SVDF in TFLite is [vulnerable to a null pointer error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/svdf.cc#L300-L313). The [`GetVariableInput` function](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L115-L119) can return a null pointer but `GetTensorData` assumes that the argument is always a valid tensor. Furthermore, because `GetVariableInput` calls [`GetMutableInput`](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L82-L90) which might return `nullptr`, the `tensor->is_variable` expression can also trigger a null pointer exception. We have patched the issue in GitHub commit 5b048e87e4e55990dae6b547add4dae59f4e1c76. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37681",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37682",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions all TFLite operations that use quantization can be made to use unitialized values. [For example](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/depthwise_conv.cc#L198-L200). The issue stems from the fact that `quantization.params` is only valid if `quantization.type` is different that `kTfLiteNoQuantization`. However, these checks are missing in large parts of the code. We have patched the issue in GitHub commits 537bc7c723439b9194a358f64d871dd326c18887, 4a91f2069f7145aab6ba2d8cfe41be8a110c18a5 and 8933b8a21280696ab119b63263babdb54c298538. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37682",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -53353,6 +53678,19 @@
       "id": "pyup.io-tensorflow:CVE-2021-37689",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can craft a TFLite model that would trigger a null pointer dereference, which would result in a crash and denial of service. This is caused by the MLIR optimization of `L2NormalizeReduceAxis` operator. The [implementation](https://github.com/tensorflow/tensorflow/blob/149562d49faa709ea80df1d99fc41d005b81082a/tensorflow/compiler/mlir/lite/transforms/optimize.cc#L67-L70) unconditionally dereferences a pointer to an iterator to a vector without checking that the vector has elements. We have patched the issue in GitHub commit d6b57f461b39fd1aa8c1b870f1b974aac3554955. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37689",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-37690",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions when running shape functions, some functions (such as `MutableHashTableShape`) produce extra output information in the form of a `ShapeAndType` struct. The shapes embedded in this struct are owned by an inference context that is cleaned up almost immediately; if the upstream code attempts to access this shape information, it can trigger a segfault. `ShapeRefiner` is mitigating this for normal output shapes by cloning them (and thus putting the newly created shape under ownership of an inference context that will not die), but we were not doing the same for shapes and types. This commit fixes that by doing similar logic on output shapes and types. We have patched the issue in GitHub commit ee119d4a498979525046fba1c3dd3f13a039fbb1. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37690",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -55361,9 +55699,35 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37663",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in `tf.raw_ops.QuantizeV2`, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/quantize_op.cc#L59) has some validation but does not check that `min_range` and `max_range` both have the same non-zero number of elements. If `axis` is provided (i.e., not `-1`), then validation should check that it is a value in range for the rank of `input` tensor and then the lengths of `min_range` and `max_range` inputs match the `axis` dimension of the `input` tensor. We have patched the issue in GitHub commit 6da6620efad397c85493b8f8667b821403516708. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37663",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-cpu:CVE-2021-37664",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `BoostedTreesSparseCalculateBestFeatureSplit`. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/boosted_trees/stats_ops.cc) needs to validate that each value in `stats_summary_indices` is in range. We have patched the issue in GitHub commit e84c975313e8e8e38bb2ea118196369c45c51378. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37664",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37665",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in MKL implementation of requantization, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantization_range_per_channel_op.cc) does not validate the dimensions of the `input` tensor. A similar issue occurs in `MklRequantizePerChannelOp`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantize_per_channel_op.cc) does not perform full validation for all the input arguments. We have patched the issue in GitHub commit 9e62869465573cb2d9b5053f1fa02a81fce21d69 and in the Github commit 203214568f5bc237603dbab6e1fd389f1572f5c9. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37665",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -55400,9 +55764,87 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37668",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.UnravelIndex` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/unravel_index_op.cc#L36) does not check that the tensor subsumed by `dims` is not empty. Hence, if one element of `dims` is 0, the implementation does a division by 0. We have patched the issue in GitHub commit a776040a5e7ebf76eeb7eb923bf1ae417dd4d233. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37668",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37669",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.NonMaxSuppressionV5` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/image/non_max_suppression_op.cc#L170-L271) uses a user controlled argument to resize a `std::vector`. However, as `std::vector::resize` takes the size argument as a `size_t` and `output_size` is an `int`, there is an implicit conversion to unsigned. If the attacker supplies a negative value, this conversion results in a crash. A similar issue occurs in `CombinedNonMaxSuppression`. We have patched the issue in GitHub commit 3a7362750d5c372420aa8f0caf7bf5b5c3d0f52d and commit [b5cdbf12ffcaaffecf98f22a6be5a64bb96e4f58. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37669",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37670",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.UpperBound`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/searchsorted_op.cc#L85-L104) does not validate the rank of `sorted_input` argument. A similar issue occurs in `tf.raw_ops.LowerBound`. We have patched the issue in GitHub commit 42459e4273c2e47a3232cc16c4f4fff3b3a35c38. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37670",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-cpu:CVE-2021-37671",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause undefined behavior via binding a reference to null pointer in `tf.raw_ops.Map*` and `tf.raw_ops.OrderedMap*` operations. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L222-L248) has a check in place to ensure that `indices` is in ascending order, but does not check that `indices` is not empty. We have patched the issue in GitHub commit 532f5c5a547126c634fefd43bbad1dc6417678ac. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37671",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37672",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.SdcaOptimizerV2`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/sdca_internal.cc#L320-L353) does not check that the length of `example_labels` is the same as the number of examples. We have patched the issue in GitHub commit a4e138660270e7599793fa438cd7b2fc2ce215a6. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37672",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37673",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a `CHECK`-fail in `tf.raw_ops.MapStage`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L513) does not check that the `key` input is a valid non-empty tensor. We have patched the issue in GitHub commit d7de67733925de196ec8863a33445b73f9562d1d. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37673",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37674",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a segmentation fault in `tf.raw_ops.MaxPoolGrad` caused by missing validation. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/maxpooling_op.cc) misses some validation for the `orig_input` and `orig_output` tensors. The fixes for CVE-2021-29579 were incomplete. We have patched the issue in GitHub commit 136b51f10903e044308cf77117c0ed9871350475. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37674",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -55439,6 +55881,45 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37677",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the shape inference code for `tf.raw_ops.Dequantize` has a vulnerability that could trigger a denial of service via a segfault if an attacker provides invalid arguments. The shape inference [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/ops/array_ops.cc#L2999-L3014) uses `axis` to select between two different values for `minmax_rank` which is then used to retrieve tensor dimensions. However, code assumes that `axis` can be either `-1` or a value greater than `-1`, with no validation for the other values. We have patched the issue in GitHub commit da857cfa0fde8f79ad0afdbc94e88b5d4bbec764. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37677",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37678",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions TensorFlow and Keras can be tricked to perform arbitrary code execution when deserializing a Keras model from YAML format. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/python/keras/saving/model_config.py#L66-L104) uses `yaml.unsafe_load` which can perform arbitrary code execution on the input. Given that YAML format support requires a significant amount of work, we have removed it for now. We have patched the issue in GitHub commit 23d6383eb6c14084a8fc3bdf164043b974818012. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37678",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37679",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions it is possible to nest a `tf.map_fn` within another `tf.map_fn` call. However, if the input tensor is a `RaggedTensor` and there is no function signature provided, code assumes the output is a fully specified tensor and fills output buffer with uninitialized contents from the heap. The `t` and `z` outputs should be identical, however this is not the case. The last row of `t` contains data from the heap which can be used to leak other memory information. The bug lies in the conversion from a `Variant` tensor to a `RaggedTensor`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/ragged_tensor_from_variant_op.cc#L177-L190) does not check that all inner shapes match and this results in the additional dimensions. The same implementation can result in data loss, if input tensor is tweaked. We have patched the issue in GitHub commit 4e2565483d0ffcadc719bd44893fb7f609bb5f12. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37679",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-cpu:CVE-2021-37680",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of fully connected layers in TFLite is [vulnerable to a division by zero error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/fully_connected.cc#L226). We have patched the issue in GitHub commit 718721986aa137691ee23f03638867151f74935f. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37680",
@@ -55455,6 +55936,19 @@
       "id": "pyup.io-tensorflow-cpu:CVE-2021-37681",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of SVDF in TFLite is [vulnerable to a null pointer error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/svdf.cc#L300-L313). The [`GetVariableInput` function](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L115-L119) can return a null pointer but `GetTensorData` assumes that the argument is always a valid tensor. Furthermore, because `GetVariableInput` calls [`GetMutableInput`](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L82-L90) which might return `nullptr`, the `tensor->is_variable` expression can also trigger a null pointer exception. We have patched the issue in GitHub commit 5b048e87e4e55990dae6b547add4dae59f4e1c76. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37681",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37682",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions all TFLite operations that use quantization can be made to use unitialized values. [For example](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/depthwise_conv.cc#L198-L200). The issue stems from the fact that `quantization.params` is only valid if `quantization.type` is different that `kTfLiteNoQuantization`. However, these checks are missing in large parts of the code. We have patched the issue in GitHub commits 537bc7c723439b9194a358f64d871dd326c18887, 4a91f2069f7145aab6ba2d8cfe41be8a110c18a5 and 8933b8a21280696ab119b63263babdb54c298538. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37682",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -55546,6 +56040,19 @@
       "id": "pyup.io-tensorflow-cpu:CVE-2021-37689",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can craft a TFLite model that would trigger a null pointer dereference, which would result in a crash and denial of service. This is caused by the MLIR optimization of `L2NormalizeReduceAxis` operator. The [implementation](https://github.com/tensorflow/tensorflow/blob/149562d49faa709ea80df1d99fc41d005b81082a/tensorflow/compiler/mlir/lite/transforms/optimize.cc#L67-L70) unconditionally dereferences a pointer to an iterator to a vector without checking that the vector has elements. We have patched the issue in GitHub commit d6b57f461b39fd1aa8c1b870f1b974aac3554955. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37689",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-37690",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions when running shape functions, some functions (such as `MutableHashTableShape`) produce extra output information in the form of a `ShapeAndType` struct. The shapes embedded in this struct are owned by an inference context that is cleaned up almost immediately; if the upstream code attempts to access this shape information, it can trigger a segfault. `ShapeRefiner` is mitigating this for normal output shapes by cloning them (and thus putting the newly created shape under ownership of an inference context that will not die), but we were not doing the same for shapes and types. This commit fixes that by doing similar logic on output shapes and types. We have patched the issue in GitHub commit ee119d4a498979525046fba1c3dd3f13a039fbb1. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37690",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -57554,9 +58061,35 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37663",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in `tf.raw_ops.QuantizeV2`, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/quantize_op.cc#L59) has some validation but does not check that `min_range` and `max_range` both have the same non-zero number of elements. If `axis` is provided (i.e., not `-1`), then validation should check that it is a value in range for the rank of `input` tensor and then the lengths of `min_range` and `max_range` inputs match the `axis` dimension of the `input` tensor. We have patched the issue in GitHub commit 6da6620efad397c85493b8f8667b821403516708. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37663",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-gpu:CVE-2021-37664",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `BoostedTreesSparseCalculateBestFeatureSplit`. The [implementation](https://github.com/tensorflow/tensorflow/blob/84d053187cb80d975ef2b9684d4b61981bca0c41/tensorflow/core/kernels/boosted_trees/stats_ops.cc) needs to validate that each value in `stats_summary_indices` is in range. We have patched the issue in GitHub commit e84c975313e8e8e38bb2ea118196369c45c51378. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37664",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37665",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions due to incomplete validation in MKL implementation of requantization, an attacker can trigger undefined behavior via binding a reference to a null pointer or can access data outside the bounds of heap allocated arrays. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantization_range_per_channel_op.cc) does not validate the dimensions of the `input` tensor. A similar issue occurs in `MklRequantizePerChannelOp`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/mkl/mkl_requantize_per_channel_op.cc) does not perform full validation for all the input arguments. We have patched the issue in GitHub commit 9e62869465573cb2d9b5053f1fa02a81fce21d69 and in the Github commit 203214568f5bc237603dbab6e1fd389f1572f5c9. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37665",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -57593,9 +58126,87 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37668",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.UnravelIndex` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/unravel_index_op.cc#L36) does not check that the tensor subsumed by `dims` is not empty. Hence, if one element of `dims` is 0, the implementation does a division by 0. We have patched the issue in GitHub commit a776040a5e7ebf76eeb7eb923bf1ae417dd4d233. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37668",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37669",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause denial of service in applications serving models using `tf.raw_ops.NonMaxSuppressionV5` by triggering a division by 0. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/image/non_max_suppression_op.cc#L170-L271) uses a user controlled argument to resize a `std::vector`. However, as `std::vector::resize` takes the size argument as a `size_t` and `output_size` is an `int`, there is an implicit conversion to unsigned. If the attacker supplies a negative value, this conversion results in a crash. A similar issue occurs in `CombinedNonMaxSuppression`. We have patched the issue in GitHub commit 3a7362750d5c372420aa8f0caf7bf5b5c3d0f52d and commit [b5cdbf12ffcaaffecf98f22a6be5a64bb96e4f58. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37669",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37670",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.UpperBound`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/searchsorted_op.cc#L85-L104) does not validate the rank of `sorted_input` argument. A similar issue occurs in `tf.raw_ops.LowerBound`. We have patched the issue in GitHub commit 42459e4273c2e47a3232cc16c4f4fff3b3a35c38. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37670",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-gpu:CVE-2021-37671",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can cause undefined behavior via binding a reference to null pointer in `tf.raw_ops.Map*` and `tf.raw_ops.OrderedMap*` operations. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L222-L248) has a check in place to ensure that `indices` is in ascending order, but does not check that `indices` is not empty. We have patched the issue in GitHub commit 532f5c5a547126c634fefd43bbad1dc6417678ac. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37671",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37672",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can read from outside of bounds of heap allocated data by sending specially crafted illegal arguments to `tf.raw_ops.SdcaOptimizerV2`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/sdca_internal.cc#L320-L353) does not check that the length of `example_labels` is the same as the number of examples. We have patched the issue in GitHub commit a4e138660270e7599793fa438cd7b2fc2ce215a6. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37672",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37673",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a `CHECK`-fail in `tf.raw_ops.MapStage`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/map_stage_op.cc#L513) does not check that the `key` input is a valid non-empty tensor. We have patched the issue in GitHub commit d7de67733925de196ec8863a33445b73f9562d1d. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37673",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37674",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can trigger a denial of service via a segmentation fault in `tf.raw_ops.MaxPoolGrad` caused by missing validation. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/maxpooling_op.cc) misses some validation for the `orig_input` and `orig_output` tensors. The fixes for CVE-2021-29579 were incomplete. We have patched the issue in GitHub commit 136b51f10903e044308cf77117c0ed9871350475. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37674",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -57632,6 +58243,45 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37677",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the shape inference code for `tf.raw_ops.Dequantize` has a vulnerability that could trigger a denial of service via a segfault if an attacker provides invalid arguments. The shape inference [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/ops/array_ops.cc#L2999-L3014) uses `axis` to select between two different values for `minmax_rank` which is then used to retrieve tensor dimensions. However, code assumes that `axis` can be either `-1` or a value greater than `-1`, with no validation for the other values. We have patched the issue in GitHub commit da857cfa0fde8f79ad0afdbc94e88b5d4bbec764. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37677",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37678",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions TensorFlow and Keras can be tricked to perform arbitrary code execution when deserializing a Keras model from YAML format. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/python/keras/saving/model_config.py#L66-L104) uses `yaml.unsafe_load` which can perform arbitrary code execution on the input. Given that YAML format support requires a significant amount of work, we have removed it for now. We have patched the issue in GitHub commit 23d6383eb6c14084a8fc3bdf164043b974818012. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37678",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37679",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions it is possible to nest a `tf.map_fn` within another `tf.map_fn` call. However, if the input tensor is a `RaggedTensor` and there is no function signature provided, code assumes the output is a fully specified tensor and fills output buffer with uninitialized contents from the heap. The `t` and `z` outputs should be identical, however this is not the case. The last row of `t` contains data from the heap which can be used to leak other memory information. The bug lies in the conversion from a `Variant` tensor to a `RaggedTensor`. The [implementation](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/core/kernels/ragged_tensor_from_variant_op.cc#L177-L190) does not check that all inner shapes match and this results in the additional dimensions. The same implementation can result in data loss, if input tensor is tweaked. We have patched the issue in GitHub commit 4e2565483d0ffcadc719bd44893fb7f609bb5f12. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37679",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-gpu:CVE-2021-37680",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of fully connected layers in TFLite is [vulnerable to a division by zero error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/fully_connected.cc#L226). We have patched the issue in GitHub commit 718721986aa137691ee23f03638867151f74935f. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37680",
@@ -57648,6 +58298,19 @@
       "id": "pyup.io-tensorflow-gpu:CVE-2021-37681",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions the implementation of SVDF in TFLite is [vulnerable to a null pointer error](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/svdf.cc#L300-L313). The [`GetVariableInput` function](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L115-L119) can return a null pointer but `GetTensorData` assumes that the argument is always a valid tensor. Furthermore, because `GetVariableInput` calls [`GetMutableInput`](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/kernel_util.cc#L82-L90) which might return `nullptr`, the `tensor->is_variable` expression can also trigger a null pointer exception. We have patched the issue in GitHub commit 5b048e87e4e55990dae6b547add4dae59f4e1c76. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37681",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37682",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions all TFLite operations that use quantization can be made to use unitialized values. [For example](https://github.com/tensorflow/tensorflow/blob/460e000de3a83278fb00b61a16d161b1964f15f4/tensorflow/lite/kernels/depthwise_conv.cc#L198-L200). The issue stems from the fact that `quantization.params` is only valid if `quantization.type` is different that `kTfLiteNoQuantization`. However, these checks are missing in large parts of the code. We have patched the issue in GitHub commits 537bc7c723439b9194a358f64d871dd326c18887, 4a91f2069f7145aab6ba2d8cfe41be8a110c18a5 and 8933b8a21280696ab119b63263babdb54c298538. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37682",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
@@ -57739,6 +58402,19 @@
       "id": "pyup.io-tensorflow-gpu:CVE-2021-37689",
       "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions an attacker can craft a TFLite model that would trigger a null pointer dereference, which would result in a crash and denial of service. This is caused by the MLIR optimization of `L2NormalizeReduceAxis` operator. The [implementation](https://github.com/tensorflow/tensorflow/blob/149562d49faa709ea80df1d99fc41d005b81082a/tensorflow/compiler/mlir/lite/transforms/optimize.cc#L67-L70) unconditionally dereferences a pointer to an iterator to a vector without checking that the vector has elements. We have patched the issue in GitHub commit d6b57f461b39fd1aa8c1b870f1b974aac3554955. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-37689",
+      "specs": [
+        "==2.5.0",
+        "==2.6.0-rc0",
+        "==2.6.0-rc1",
+        "==2.6.0-rc2",
+        ">=2.3.0,<2.3.4",
+        ">=2.4.0,<2.4.3"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-37690",
+      "advisory": "TensorFlow is an end-to-end open source platform for machine learning. In affected versions when running shape functions, some functions (such as `MutableHashTableShape`) produce extra output information in the form of a `ShapeAndType` struct. The shapes embedded in this struct are owned by an inference context that is cleaned up almost immediately; if the upstream code attempts to access this shape information, it can trigger a segfault. `ShapeRefiner` is mitigating this for normal output shapes by cloning them (and thus putting the newly created shape under ownership of an inference context that will not die), but we were not doing the same for shapes and types. This commit fixes that by doing similar logic on output shapes and types. We have patched the issue in GitHub commit ee119d4a498979525046fba1c3dd3f13a039fbb1. The fix will be included in TensorFlow 2.6.0. We will also cherrypick this commit on TensorFlow 2.5.1, TensorFlow 2.4.3, and TensorFlow 2.3.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-37690",
       "specs": [
         "==2.5.0",
         "==2.6.0-rc0",
