@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1629424032
+    "timestamp": 1629856054
   },
   "aiohttp": [
     {
@@ -953,6 +953,14 @@
       "cve": "CVE-2021-29621",
       "specs": [
         "==1.10.0"
+      ]
+    },
+    {
+      "id": "pyup.io-apache-airflow:CVE-2021-35936",
+      "advisory": "If remote logging is not used, the worker (in the case of CeleryExecutor) or the scheduler (in the case of LocalExecutor) runs a Flask logging server and is listening on a specific port and also binds on 0.0.0.0 by default. This logging server had no authentication and allows reading log files of DAG jobs. This issue affects Apache Airflow < 2.1.2.",
+      "cve": "CVE-2021-35936",
+      "specs": [
+        "<2.1.2"
       ]
     }
   ],
