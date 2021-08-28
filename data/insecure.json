@@ -1,8 +1,12 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1629856054
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
+    "timestamp": 1630114988
   },
+  "accesscontrol": [
+    ">=4.0,<4.3",
+    ">=5.0,<5.2"
+  ],
   "aiohttp": [
     "<3.7.4"
   ],
@@ -875,6 +879,9 @@
   "gerapy": [
     ">=0.0.0,<0.9.3"
   ],
+  "glances": [
+    "<3.2.1"
+  ],
   "google-appengine": [
     "<1.5.4",
     "<=1.5.3",
@@ -1677,6 +1684,9 @@
     "==1.9.4",
     "==1.9.5",
     "==1.9.8"
+  ],
+  "mpmath": [
+    "==1.0.0"
   ],
   "mpxj": [
     "<8.3.5",
@@ -3206,6 +3216,9 @@
   "products.genericsetup": [
     "<2.1.1"
   ],
+  "products.isurlinportal": [
+    "<1.2.0"
+  ],
   "products.passwordresettool": [
     "<5.2.3",
     "<5.2.4",
@@ -3781,6 +3794,9 @@
   "pywbem": [
     "<=0.7"
   ],
+  "pywin32": [
+    "<b301"
+  ],
   "pyxdg": [
     "<0.26",
     "==0.25"
@@ -4085,6 +4101,12 @@
   ],
   "safety": [
     "<=1.8.6"
+  ],
+  "saleor": [
+    "<2.10.3",
+    "==2.7.0",
+    ">=2.0.0,<2.3.1",
+    ">=2.0.0,<2.9.1"
   ],
   "salt": [
     "<2015.8.10",
@@ -4758,8 +4780,14 @@
     "<0.11.6",
     "<0.15.3"
   ],
+  "xml2dict": [
+    "==0.2.2"
+  ],
   "xmpp-http-upload": [
     "<0.4.0"
+  ],
+  "yamale": [
+    "<3.0.8"
   ],
   "zodb": [
     "<=3.8.1",

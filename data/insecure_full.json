@@ -1,8 +1,28 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/cdc85e7f4682b5b9819bd52b086f00349cb65adf",
-    "timestamp": 1629856054
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
+    "timestamp": 1630114988
   },
+  "accesscontrol": [
+    {
+      "id": "pyup.io-accesscontrol:CVE-2021-32807",
+      "advisory": "The module `AccessControl` defines security policies for Python code used in restricted code within Zope applications. Restricted code is any code that resides in Zope's object database, such as the contents of `Script (Python)` objects. The policies defined in `AccessControl` severely restrict access to Python modules and only exempt a few that are deemed safe, such as Python's `string` module. However, full access to the `string` module also allows access to the class `Formatter`, which can be overridden and extended within `Script (Python)` in a way that provides access to other unsafe Python libraries. Those unsafe Python libraries can be used for remote code execution. By default, you need to have the admin-level Zope \"Manager\" role to add or edit `Script (Python)` objects through the web. Only sites that allow untrusted users to add/edit these scripts through the web - which would be a very unusual configuration to begin with - are at risk. The problem has been fixed in AccessControl 4.3 and 5.2. Only AccessControl versions 4 and 5 are vulnerable, and only on Python 3, not Python 2.7. As a workaround, a site administrator can restrict adding/editing `Script (Python)` objects through the web using the standard Zope user/role permission mechanisms. Untrusted users should not be assigned the Zope Manager role and adding/editing these scripts through the web should be restricted to trusted users only. This is the default configuration in Zope.",
+      "cve": "CVE-2021-32807",
+      "specs": [
+        ">=4.0,<4.3",
+        ">=5.0,<5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-accesscontrol:CVE-2021-32811",
+      "advisory": "Zope is an open-source web application server. Zope versions prior to versions 4.6.3 and 5.3 have a remote code execution security issue. In order to be affected, one must use Python 3 for one's Zope deployment, run Zope 4 below version 4.6.3 or Zope 5 below version 5.3, and have the optional `Products.PythonScripts` add-on package installed. By default, one must have the admin-level Zope \"Manager\" role to add or edit Script (Python) objects through the web. Only sites that allow untrusted users to add/edit these scripts through the web are at risk. Zope releases 4.6.3 and 5.3 are not vulnerable. As a workaround, a site administrator can restrict adding/editing Script (Python) objects through the web using the standard Zope user/role permission mechanisms. Untrusted users should not be assigned the Zope Manager role and adding/editing these scripts through the web should be restricted to trusted users only. This is the default configuration in Zope.",
+      "cve": "CVE-2021-32811",
+      "specs": [
+        ">=4.0,<4.3",
+        ">=5.0,<5.2"
+      ]
+    }
+  ],
   "aiohttp": [
     {
       "id": "pyup.io-aiohttp:CVE-2021-21330",
@@ -4582,6 +4602,16 @@
       ]
     }
   ],
+  "glances": [
+    {
+      "id": "pyup.io-glances:CVE-2021-23418",
+      "advisory": "The package glances before 3.2.1 are vulnerable to XML External Entity (XXE) Injection via the use of Fault to parse untrusted XML data, which is known to be vulnerable to XML attacks.",
+      "cve": "CVE-2021-23418",
+      "specs": [
+        "<3.2.1"
+      ]
+    }
+  ],
   "google-appengine": [
     {
       "id": "pyup.io-google-appengine:CVE-2011-1364",
@@ -8370,6 +8400,16 @@
       "cve": "CVE-2020-25074",
       "specs": [
         "<=1.9.10"
+      ]
+    }
+  ],
+  "mpmath": [
+    {
+      "id": "pyup.io-mpmath:CVE-2021-29063",
+      "advisory": "A Regular Expression Denial of Service (ReDOS) vulnerability was discovered in Mpmath v1.0.0 when the mpmathify function is called.",
+      "cve": "CVE-2021-29063",
+      "specs": [
+        "==1.0.0"
       ]
     }
   ],
@@ -43192,6 +43232,16 @@
       ]
     }
   ],
+  "products.isurlinportal": [
+    {
+      "id": "pyup.io-products.isurlinportal:CVE-2021-32806",
+      "advisory": "Products.isurlinportal is a replacement for isURLInPortal method in Plone. Versions of Products.isurlinportal prior to 1.2.0 have an Open Redirect vulnerability. Various parts of Plone use the 'is url in portal' check for security, mostly to see if it is safe to redirect to a url. A url like `https://example.org` is not in the portal. The url `https:example.org` without slashes is considered to be in the portal. When redirecting, some browsers go to `https://example.org`, others give an error. Attackers may use this to redirect victims to their site, especially as part of a phishing attack. The problem has been patched in Products.isurlinportal 1.2.0.",
+      "cve": "CVE-2021-32806",
+      "specs": [
+        "<1.2.0"
+      ]
+    }
+  ],
   "products.passwordresettool": [
     {
       "id": "pyup.io-products.passwordresettool:CVE-2006-1711",
@@ -49211,6 +49261,16 @@
       ]
     }
   ],
+  "pywin32": [
+    {
+      "id": "pyup.io-pywin32:CVE-2021-32559",
+      "advisory": "An integer overflow exists in pywin32 prior to version b301 when adding an access control entry (ACE) to an access control list (ACL) that would cause the size to be greater than 65535 bytes. An attacker who successfully exploited this vulnerability could crash the vulnerable process.",
+      "cve": "CVE-2021-32559",
+      "specs": [
+        "<b301"
+      ]
+    }
+  ],
   "pyxdg": [
     {
       "id": "pyup.io-pyxdg:CVE-2014-1624",
@@ -50246,6 +50306,40 @@
       "cve": "CVE-2020-5252",
       "specs": [
         "<=1.8.6"
+      ]
+    }
+  ],
+  "saleor": [
+    {
+      "id": "pyup.io-saleor:CVE-2019-1010304",
+      "advisory": "Saleor Issue was introduced by merge commit: e1b01bad0703afd08d297ed3f1f472248312cc9c. This commit was released as part of 2.0.0 release is affected by: Incorrect Access Control. The impact is: Important. The component is: ProductVariant type in GraphQL API. The attack vector is: Unauthenticated user can access the GraphQL API (which is by default publicly exposed under `/graphql/` URL) and fetch products data which may include admin-restricted shop's revenue data. The fixed version is: 2.3.1.",
+      "cve": "CVE-2019-1010304",
+      "specs": [
+        ">=2.0.0,<2.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-saleor:CVE-2019-13594",
+      "advisory": "In Mirumee Saleor 2.7.0 (fixed in 2.8.0), CSRF protection middleware was accidentally disabled, which allowed attackers to send a POST request without a valid CSRF token and be accepted by the server.",
+      "cve": "CVE-2019-13594",
+      "specs": [
+        "==2.7.0"
+      ]
+    },
+    {
+      "id": "pyup.io-saleor:CVE-2020-15085",
+      "advisory": "In Saleor Storefront before version 2.10.3, request data used to authenticate customers was inadvertently cached in the browser's local storage mechanism, including credentials. A malicious user with direct access to the browser could extract the email and password. In versions prior to 2.10.0 persisted the cache even after the user logged out. This is fixed in version 2.10.3. A workaround is to manually clear application data (browser's local storage) after logging into Saleor Storefront.",
+      "cve": "CVE-2020-15085",
+      "specs": [
+        "<2.10.3"
+      ]
+    },
+    {
+      "id": "pyup.io-saleor:CVE-2020-7964",
+      "advisory": "An issue was discovered in Mirumee Saleor 2.x before 2.9.1. Incorrect access control in the checkoutCustomerAttach mutations allows attackers to attach their checkouts to any user ID and consequently leak user data (e.g., name, address, and previous orders of any other customer).",
+      "cve": "CVE-2020-7964",
+      "specs": [
+        ">=2.0.0,<2.9.1"
       ]
     }
   ],
@@ -59317,6 +59411,16 @@
       ]
     }
   ],
+  "xml2dict": [
+    {
+      "id": "pyup.io-xml2dict:CVE-2021-25951",
+      "advisory": "XXE vulnerability in 'XML2Dict' version 0.2.2 allows an attacker to cause a denial of service.",
+      "cve": "CVE-2021-25951",
+      "specs": [
+        "==0.2.2"
+      ]
+    }
+  ],
   "xmpp-http-upload": [
     {
       "id": "pyup.io-xmpp-http-upload:CVE-2020-15239",
@@ -59324,6 +59428,16 @@
       "cve": "CVE-2020-15239",
       "specs": [
         "<0.4.0"
+      ]
+    }
+  ],
+  "yamale": [
+    {
+      "id": "pyup.io-yamale:CVE-2021-38305",
+      "advisory": "23andMe Yamale before 3.0.8 allows remote attackers to execute arbitrary code via a crafted schema file. The schema parser uses eval as part of its processing, and tries to protect from malicious expressions by limiting the builtins that are passed to the eval. When processing the schema, each line is run through Python's eval function to make the validator available. A well-constructed string within the schema rules can execute system commands; thus, by exploiting the vulnerability, an attacker can run arbitrary code on the image that invokes Yamale.",
+      "cve": "CVE-2021-38305",
+      "specs": [
+        "<3.0.8"
       ]
     }
   ],
