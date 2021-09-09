@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1630547388
+    "timestamp": 1631152387
   },
   "accesscontrol": [
     {
@@ -8748,6 +8748,16 @@
         "<16.4.1",
         "==18.0.0",
         ">=17.0.0,<17.1.3"
+      ]
+    },
+    {
+      "id": "pyup.io-neutron:CVE-2021-40085",
+      "advisory": "An issue was discovered in OpenStack Neutron before 16.4.1, 17.x before 17.2.1, and 18.x before 18.1.1. Authenticated attackers can reconfigure dnsmasq via a crafted extra_dhcp_opts value.",
+      "cve": "CVE-2021-40085",
+      "specs": [
+        "<16.4.1",
+        ">=17.0.0,<17.2.1",
+        ">=18.0.0,<18.1.1"
       ]
     }
   ],
