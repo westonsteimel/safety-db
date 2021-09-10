@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1631152387
+    "timestamp": 1631238780
   },
   "accesscontrol": [
     {
@@ -7078,6 +7078,22 @@
       "cve": "CVE-2021-29471",
       "specs": [
         "<1.33.2"
+      ]
+    },
+    {
+      "id": "pyup.io-matrix-synapse:CVE-2021-39163",
+      "advisory": "Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. In versions 1.41.0 and prior, unauthorised users can access the name, avatar, topic and number of members of a room if they know the ID of the room. This vulnerability is limited to homeservers where the vulnerable homeserver is in the room and untrusted users are permitted to create groups (communities). By default, only homeserver administrators can create groups. However, homeserver administrators can already access this information in the database or using the admin API. As a result, only homeservers where the configuration setting `enable_group_creation` has been set to `true` are impacted. Server administrators should upgrade to 1.41.1 or higher to patch the vulnerability. There are two potential workarounds. Server administrators can set `enable_group_creation` to `false` in their homeserver configuration (this is the default value) to prevent creation of groups by non-administrators. Administrators that are using a reverse proxy could, with partial loss of group functionality, block the endpoints `/_matrix/client/r0/groups/{group_id}/rooms` and `/_matrix/client/unstable/groups/{group_id}/rooms`.",
+      "cve": "CVE-2021-39163",
+      "specs": [
+        "<1.41.1"
+      ]
+    },
+    {
+      "id": "pyup.io-matrix-synapse:CVE-2021-39164",
+      "advisory": "Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. In versions 1.41.0 and prior, unauthorised users can access the membership (list of members, with their display names) of a room if they know the ID of the room. The vulnerability is limited to rooms with `shared` history visibility. Furthermore, the unauthorised user must be using an account on a vulnerable homeserver that is in the room. Server administrators should upgrade to 1.41.1 or later in order to receive the patch. One workaround is available. Administrators of servers that use a reverse proxy could, with potentially unacceptable loss of functionality, block the endpoints: `/_matrix/client/r0/rooms/{room_id}/members` with `at` query parameter, and `/_matrix/client/unstable/rooms/{room_id}/members` with `at` query parameter.",
+      "cve": "CVE-2021-39164",
+      "specs": [
+        "<1.41.1"
       ]
     }
   ],
