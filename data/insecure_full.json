@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1631238780
+    "timestamp": 1631324888
   },
   "accesscontrol": [
     {
@@ -12294,6 +12294,14 @@
       "cve": "CVE-2020-5313",
       "specs": [
         "<6.2.2"
+      ]
+    },
+    {
+      "id": "pyup.io-pillow:CVE-2021-23437",
+      "advisory": "The package pillow from 0 and before 8.3.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the getrgb function.",
+      "cve": "CVE-2021-23437",
+      "specs": [
+        "<8.3.2"
       ]
     },
     {
@@ -48862,16 +48870,6 @@
       "cve": "CVE-2015-1326",
       "specs": [
         "<0.15.1"
-      ]
-    }
-  ],
-  "python-docx": [
-    {
-      "id": "pyup.io-python-docx:CVE-2016-5851",
-      "advisory": "python-docx before 0.8.6 allows context-dependent attackers to conduct XML External Entity (XXE) attacks via a crafted document.",
-      "cve": "CVE-2016-5851",
-      "specs": [
-        "<=0.8.5"
       ]
     }
   ],
