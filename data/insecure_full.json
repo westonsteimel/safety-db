@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1631324888
+    "timestamp": 1631584325
   },
   "accesscontrol": [
     {
@@ -50314,7 +50314,8 @@
       "advisory": "It was found that python-rsa is vulnerable to Bleichenbacher timing attacks. An attacker can use this flaw via the RSA decryption API to decrypt parts of the cipher text encrypted with RSA.",
       "cve": "CVE-2020-25658",
       "specs": [
-        ">=2.1"
+        ">=2.1",
+        ">=2.1,<4.7"
       ]
     }
   ],

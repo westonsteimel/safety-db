@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1631324888
+    "timestamp": 1631584325
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -4099,7 +4099,8 @@
   "rsa": [
     "<3.3",
     "==4.0",
-    ">=2.1"
+    ">=2.1",
+    ">=2.1,<4.7"
   ],
   "rtslib-fb": [
     "<=2.1.72"
