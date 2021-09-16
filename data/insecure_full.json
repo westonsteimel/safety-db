@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1631670686
+    "timestamp": 1631757428
   },
   "accesscontrol": [
     {
@@ -4512,6 +4512,14 @@
       "specs": [
         "<=3.2.3"
       ]
+    },
+    {
+      "id": "pyup.io-flask-appbuilder:CVE-2021-32805",
+      "advisory": "Flask-AppBuilder is an application development framework, built on top of Flask. In affected versions if using Flask-AppBuilder OAuth, an attacker can share a carefully crafted URL with a trusted domain for an application built with Flask-AppBuilder, this URL can redirect a user to a malicious site. This is an open redirect vulnerability. To resolve this issue upgrade to Flask-AppBuilder 3.2.2 or above. If upgrading is infeasible users may filter HTTP traffic containing `?next={next-site}` where the `next-site` domain is different from the application you are protecting as a workaround.",
+      "cve": "CVE-2021-32805",
+      "specs": [
+        "<3.3.2"
+      ]
     }
   ],
   "flask-caching": [
@@ -8770,6 +8778,16 @@
       "id": "pyup.io-neutron:CVE-2021-40085",
       "advisory": "An issue was discovered in OpenStack Neutron before 16.4.1, 17.x before 17.2.1, and 18.x before 18.1.1. Authenticated attackers can reconfigure dnsmasq via a crafted extra_dhcp_opts value.",
       "cve": "CVE-2021-40085",
+      "specs": [
+        "<16.4.1",
+        ">=17.0.0,<17.2.1",
+        ">=18.0.0,<18.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-neutron:CVE-2021-40797",
+      "advisory": "An issue was discovered in the routes middleware in OpenStack Neutron before 16.4.1, 17.x before 17.2.1, and 18.x before 18.1.1. By making API requests involving nonexistent controllers, an authenticated user may cause the API worker to consume increasing amounts of memory, resulting in API performance degradation or denial of service.",
+      "cve": "CVE-2021-40797",
       "specs": [
         "<16.4.1",
         ">=17.0.0,<17.2.1",
