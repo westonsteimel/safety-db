@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1631757428
+    "timestamp": 1632189196
   },
   "accesscontrol": [
     {
@@ -50852,6 +50852,14 @@
         ">=3000,<3000.6",
         ">=3001,<3001.4",
         ">=3002,<3002.5"
+      ]
+    },
+    {
+      "id": "pyup.io-salt:CVE-2021-21996",
+      "advisory": "An issue was discovered in SaltStack Salt before 3003.3. A user who has control of the source, and source_hash URLs can gain full file system access as root on a salt minion.",
+      "cve": "CVE-2021-21996",
+      "specs": [
+        "<3000.3"
       ]
     },
     {
