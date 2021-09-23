@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/058bf5c19aa080dd2cedcb1acdd37a736a80d0b5",
-    "timestamp": 1632275676
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/8bbd05e575780d624ec1de97d02a3681393964a5",
+    "timestamp": 1632362293
   },
   "accesscontrol": [
     {
@@ -4071,6 +4071,16 @@
       "cve": "CVE-2020-5224",
       "specs": [
         "<1.7.1"
+      ]
+    }
+  ],
+  "django-widgy": [
+    {
+      "id": "pyup.io-django-widgy:CVE-2020-18704",
+      "advisory": "Unrestricted Upload of File with Dangerous Type in Django-Widgy v0.8.4 allows remote attackers to execute arbitrary code via the 'image' widget in the component 'Change Widgy Page'.",
+      "cve": "CVE-2020-18704",
+      "specs": [
+        "==0.8.4"
       ]
     }
   ],
@@ -8534,6 +8544,16 @@
       ]
     }
   ],
+  "nbgitpuller": [
+    {
+      "id": "pyup.io-nbgitpuller:CVE-2021-39160",
+      "advisory": "nbgitpuller is a Jupyter server extension to sync a git repository one-way to a local path. Due to unsanitized input, visiting maliciously crafted links could result in arbitrary code execution in the user environment. This has been resolved in version 0.10.2 and all users are advised to upgrade. No work around exist for users who can not upgrade.",
+      "cve": "CVE-2021-39160",
+      "specs": [
+        ">=0.9.0,<0.10.2"
+      ]
+    }
+  ],
   "netius": [
     {
       "id": "pyup.io-netius:CVE-2020-7655",
@@ -11823,6 +11843,16 @@
       ]
     }
   ],
+  "onefuzz": [
+    {
+      "id": "pyup.io-onefuzz:CVE-2021-37705",
+      "advisory": "OneFuzz is an open source self-hosted Fuzzing-As-A-Service platform. Starting with OneFuzz 2.12.0 or greater, an incomplete authorization check allows an authenticated user from any Azure Active Directory tenant to make authorized API calls to a vulnerable OneFuzz instance. To be vulnerable, a OneFuzz deployment must be both version 2.12.0 or greater and deployed with the non-default --multi_tenant_domain option. This can result in read/write access to private data such as software vulnerability and crash information, security testing tools and proprietary code and symbols. Via authorized API calls, this also enables tampering with existing data and unauthorized code execution on Azure compute resources. This issue is resolved starting in release 2.31.0, via the addition of application-level check of the bearer token's `issuer` against an administrator-configured allowlist. As a workaround users can restrict access to the tenant of a deployed OneFuzz instance < 2.31.0 by redeploying in the default configuration, which omits the `--multi_tenant_domain` option.",
+      "cve": "CVE-2021-37705",
+      "specs": [
+        ">=2.12.0,<2.31.0"
+      ]
+    }
+  ],
   "openapi-python-client": [
     {
       "id": "pyup.io-openapi-python-client:CVE-2020-15141",
@@ -12324,7 +12354,7 @@
     },
     {
       "id": "pyup.io-pillow:CVE-2021-23437",
-      "advisory": "The package pillow from 0 and before 8.3.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the getrgb function.",
+      "advisory": "The package pillow 5.2.0 and before 8.3.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the getrgb function.",
       "cve": "CVE-2021-23437",
       "specs": [
         "<8.3.2"
@@ -49307,6 +49337,16 @@
       ]
     }
   ],
+  "pywb": [
+    {
+      "id": "pyup.io-pywb:CVE-2021-39286",
+      "advisory": "Webrecorder pywb before 2.6.0 allows XSS because it does not ensure that Jinja2 templates are autoescaped.",
+      "cve": "CVE-2021-39286",
+      "specs": [
+        "<2.6.0"
+      ]
+    }
+  ],
   "pywbem": [
     {
       "id": "pyup.io-pywbem:CVE-2013-6418",
@@ -49332,6 +49372,17 @@
       "cve": "CVE-2021-32559",
       "specs": [
         "<b301"
+      ]
+    }
+  ],
+  "pywps": [
+    {
+      "id": "pyup.io-pywps:CVE-2021-39371",
+      "advisory": "An XML external entity (XXE) injection in PyWPS before 4.4.5 allows an attacker to view files on the application server filesystem by assigning a path to the entity. OWSLib 0.24.1 may also be affected.",
+      "cve": "CVE-2021-39371",
+      "specs": [
+        "<4.4.5",
+        "==0.24.1"
       ]
     }
   ],
@@ -49384,6 +49435,32 @@
       "cve": "CVE-2020-1747",
       "specs": [
         ">=5.1,<5.3.1"
+      ]
+    }
+  ],
+  "quokka": [
+    {
+      "id": "pyup.io-quokka:CVE-2020-18702",
+      "advisory": "Cross Site Scripting (XSS) in Quokka v0.4.0 allows remote attackers to execute arbitrary code via the 'Username' parameter in the component 'quokka/admin/actions.py'.",
+      "cve": "CVE-2020-18702",
+      "specs": [
+        "==0.4.0"
+      ]
+    },
+    {
+      "id": "pyup.io-quokka:CVE-2020-18703",
+      "advisory": "XML External Entities (XXE) in Quokka v0.4.0 allows remote attackers to execute arbitrary code via the component 'quokka/utils/atom.py'.",
+      "cve": "CVE-2020-18703",
+      "specs": [
+        "==0.4.0"
+      ]
+    },
+    {
+      "id": "pyup.io-quokka:CVE-2020-18705",
+      "advisory": "XML External Entities (XXE) in Quokka v0.4.0 allows remote attackers to execute arbitrary code via the component 'quokka/core/content/views.py'.",
+      "cve": "CVE-2020-18705",
+      "specs": [
+        "==0.4.0"
       ]
     }
   ],
@@ -51136,6 +51213,24 @@
         "==10.0.11-dev1",
         "==9.3.54-dev1",
         ">=9.3.55,<=10.0.11"
+      ]
+    }
+  ],
+  "simiki": [
+    {
+      "id": "pyup.io-simiki:CVE-2020-19000",
+      "advisory": "Cross Site Scripting (XSS) in Simiki v1.6.2.1 and prior allows remote attackers to execute arbitrary code via line 54 of the component 'simiki/blob/master/simiki/generators.py'.",
+      "cve": "CVE-2020-19000",
+      "specs": [
+        "==1.6.2.1"
+      ]
+    },
+    {
+      "id": "pyup.io-simiki:CVE-2020-19001",
+      "advisory": "Command Injection in Simiki v1.6.2.1 and prior allows remote attackers to execute arbitrary system commands via line 64 of the component 'simiki/blob/master/simiki/config.py'.",
+      "cve": "CVE-2020-19001",
+      "specs": [
+        "==1.6.2.1"
       ]
     }
   ],
