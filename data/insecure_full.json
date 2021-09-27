@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/8bbd05e575780d624ec1de97d02a3681393964a5",
-    "timestamp": 1632362293
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
+    "timestamp": 1632707572
   },
   "accesscontrol": [
     {
@@ -1220,6 +1220,16 @@
       "cve": "CVE-2020-35678",
       "specs": [
         "<20.12.3"
+      ]
+    }
+  ],
+  "aws-encryption-sdk": [
+    {
+      "id": "pyup.io-aws-encryption-sdk:CVE-2020-8897",
+      "advisory": "A weak robustness vulnerability exists in the AWS Encryption SDKs for Java, Python, C and Javalcript prior to versions 2.0.0. Due to the non-committing property of AES-GCM (and other AEAD ciphers such as AES-GCM-SIV or (X)ChaCha20Poly1305) used by the SDKs to encrypt messages, an attacker can craft a unique cyphertext which will decrypt to multiple different results, and becomes especially relevant in a multi-recipient setting. We recommend users update their SDK to 2.0.0 or later.",
+      "cve": "CVE-2020-8897",
+      "specs": [
+        "<2.0.0"
       ]
     }
   ],
@@ -6058,6 +6068,32 @@
       ]
     }
   ],
+  "lin-cms": [
+    {
+      "id": "pyup.io-lin-cms:CVE-2020-18698",
+      "advisory": "Improper Authentication in Lin-CMS-Flask v0.1.1 allows remote attackers to launch brute force login attempts without restriction via the 'login' function in the component 'app/api/cms/user.py'.",
+      "cve": "CVE-2020-18698",
+      "specs": [
+        "==0.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-lin-cms:CVE-2020-18699",
+      "advisory": "Cross Site Scripting (XSS) in Lin-CMS-Flask v0.1.1 allows remote attackers to execute arbitrary code by entering scripts in the the 'Username' parameter of the in component 'app/api/cms/user.py'.",
+      "cve": "CVE-2020-18699",
+      "specs": [
+        "==0.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-lin-cms:CVE-2020-18701",
+      "advisory": "Incorrect Access Control in Lin-CMS-Flask v0.1.1 allows remote attackers to obtain sensitive information and/or gain privileges due to the application not invalidating a user's authentication token upon logout, which allows for replaying packets.",
+      "cve": "CVE-2020-18701",
+      "specs": [
+        "==0.1.1"
+      ]
+    }
+  ],
   "localstack": [
     {
       "id": "pyup.io-localstack:CVE-2021-32090",
@@ -6111,6 +6147,16 @@
       "cve": "CVE-2018-1000843",
       "specs": [
         "<2.8.0"
+      ]
+    }
+  ],
+  "lxdui": [
+    {
+      "id": "pyup.io-lxdui:CVE-2021-40494",
+      "advisory": "A Hardcoded JWT Secret Key in metadata.py in AdaptiveScale LXDUI through 2.1.3 allows attackers to gain admin access to the host system.",
+      "cve": "CVE-2021-40494",
+      "specs": [
+        "<=2.1.3"
       ]
     }
   ],
