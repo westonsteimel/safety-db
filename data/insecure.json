@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1632707572
+    "timestamp": 1632880018
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -1583,6 +1583,7 @@
     "==0.7.4"
   ],
   "mitmproxy": [
+    "<=7.0.2",
     "==4.0.3"
   ],
   "mitogen": [

@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1632707572
+    "timestamp": 1632880018
   },
   "accesscontrol": [
     {
@@ -7412,6 +7412,14 @@
       "cve": "CVE-2018-14505",
       "specs": [
         "==4.0.3"
+      ]
+    },
+    {
+      "id": "pyup.io-mitmproxy:CVE-2021-39214",
+      "advisory": "mitmproxy is an interactive, SSL/TLS-capable intercepting proxy. In mitmproxy 7.0.2 and below, a malicious client or server is able to perform HTTP request smuggling attacks through mitmproxy. This means that a malicious client/server could smuggle a request/response through mitmproxy as part of another request/response's HTTP message body. While a smuggled request is still captured as part of another request's body, it does not appear in the request list and does not go through the usual mitmproxy event hooks, where users may have implemented custom access control checks or input sanitization. Unless one uses mitmproxy to protect an HTTP/1 service, no action is required. The vulnerability has been fixed in mitmproxy 7.0.3 and above.",
+      "cve": "CVE-2021-39214",
+      "specs": [
+        "<=7.0.2"
       ]
     }
   ],
