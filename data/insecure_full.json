@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1632880018
+    "timestamp": 1632967157
   },
   "accesscontrol": [
     {
@@ -49480,7 +49480,8 @@
       "advisory": "A vulnerability was discovered in the PyYAML library in versions before 5.4, where it is susceptible to arbitrary code execution when it processes untrusted YAML files through the full_load method or with the FullLoader loader. Applications that use the library to process untrusted input may be vulnerable to this flaw. This flaw allows an attacker to execute arbitrary code on the system by abusing the python/object/new constructor. This flaw is due to an incomplete fix for CVE-2020-1747.",
       "cve": "CVE-2020-14343",
       "specs": [
-        ">=5.1,<5.3.1"
+        ">=5.1,<5.3.1",
+        ">=5.1,<5.4"
       ]
     },
     {

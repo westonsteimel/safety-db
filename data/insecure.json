@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1632880018
+    "timestamp": 1632967157
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -3839,6 +3839,7 @@
   "pyyaml": [
     "<5.1",
     ">=5.1,<5.3.1",
+    ">=5.1,<5.4",
     ">=5.1,<=5.1.2"
   ],
   "quokka": [
