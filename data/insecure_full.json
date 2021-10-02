@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1633053542
+    "timestamp": 1633139475
   },
   "accesscontrol": [
     {
@@ -8884,6 +8884,14 @@
       "cve": "CVE-2019-14751",
       "specs": [
         "<3.4.5"
+      ]
+    },
+    {
+      "id": "pyup.io-nltk:CVE-2021-3828",
+      "advisory": "nltk is vulnerable to Inefficient Regular Expression Complexity",
+      "cve": "CVE-2021-3828",
+      "specs": [
+        "<=3.6.3"
       ]
     }
   ],
