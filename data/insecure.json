@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1633139475
+    "timestamp": 1633485254
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -63,6 +63,7 @@
     "<2.7.17",
     "<2.8.19",
     "<2.9.18",
+    "<2.9.23",
     "<2.9.6",
     "<=1.2.2",
     "<=1.6.5",

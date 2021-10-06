@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/453b7c35b5e6d6a1c8f9dd004123a323b629d71a",
-    "timestamp": 1633139475
+    "timestamp": 1633485254
   },
   "accesscontrol": [
     {
@@ -760,6 +760,14 @@
       "cve": "CVE-2021-3533",
       "specs": [
         "==2.0"
+      ]
+    },
+    {
+      "id": "pyup.io-ansible:CVE-2021-3583",
+      "advisory": "A flaw was found in Ansible, where a user's controller is vulnerable to template injection. This issue can occur through facts used in the template if the user is trying to put templates in multi-line YAML strings and the facts being handled do not routinely include special template characters. This flaw allows attackers to perform command injection, which discloses sensitive information. The highest threat from this vulnerability is to confidentiality and integrity.",
+      "cve": "CVE-2021-3583",
+      "specs": [
+        "<2.9.23"
       ]
     }
   ],
