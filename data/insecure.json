@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/2915b6506daf7bd1f090bdecd099de5eb021ef9f",
-    "timestamp": 1633571863
+    "timestamp": 1634090275
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -385,6 +385,7 @@
   "cobbler": [
     "<=2.2.1",
     "<=2.8.2",
+    "<=3.3.0",
     "==2.4.0",
     "==2.4.0-1",
     "==2.4.1",

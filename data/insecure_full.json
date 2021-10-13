@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/2915b6506daf7bd1f090bdecd099de5eb021ef9f",
-    "timestamp": 1633571863
+    "timestamp": 1634090275
   },
   "accesscontrol": [
     {
@@ -1758,6 +1758,30 @@
       "cve": "CVE-2018-10931",
       "specs": [
         ">=2.6.0,<=2.6.11"
+      ]
+    },
+    {
+      "id": "pyup.io-cobbler:CVE-2021-40323",
+      "advisory": "Cobbler before 3.3.0 allows log poisoning, and resultant Remote Code Execution, via an XMLRPC method that logs to the logfile for template injection.",
+      "cve": "CVE-2021-40323",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-cobbler:CVE-2021-40324",
+      "advisory": "Cobbler before 3.3.0 allows arbitrary file write operations via upload_log_data.",
+      "cve": "CVE-2021-40324",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-cobbler:CVE-2021-40325",
+      "advisory": "Cobbler before 3.3.0 allows authorization bypass for modification of settings.",
+      "cve": "CVE-2021-40325",
+      "specs": [
+        "<=3.3.0"
       ]
     }
   ],
