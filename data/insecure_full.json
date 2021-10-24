@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/2915b6506daf7bd1f090bdecd099de5eb021ef9f",
-    "timestamp": 1634954195
+    "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fed75d616ba631aac199acf3bebbbef154112259",
+    "timestamp": 1635040440
   },
   "accesscontrol": [
     {
@@ -4160,6 +4160,24 @@
       ]
     }
   ],
+  "django-unicorn": [
+    {
+      "id": "pyup.io-django-unicorn:CVE-2021-42053",
+      "advisory": "The Unicorn framework through 0.35.3 for Django allows XSS via component.name.",
+      "cve": "CVE-2021-42053",
+      "specs": [
+        "<=0.35.3"
+      ]
+    },
+    {
+      "id": "pyup.io-django-unicorn:CVE-2021-42134",
+      "advisory": "The Unicorn framework before 0.36.1 for Django allows XSS via a component. NOTE: this issue exists because of an incomplete fix for CVE-2021-42053.",
+      "cve": "CVE-2021-42134",
+      "specs": [
+        "<0.36.1"
+      ]
+    }
+  ],
   "django-user-sessions": [
     {
       "id": "pyup.io-django-user-sessions:CVE-2020-5224",
@@ -4721,6 +4739,16 @@
       "cve": "CVE-2020-15101",
       "specs": [
         "<0.1.1"
+      ]
+    }
+  ],
+  "gateone": [
+    {
+      "id": "pyup.io-gateone:CVE-2020-19003",
+      "advisory": "An issue in Gate One 1.2.0 allows attackers to bypass to the verification check done by the origins list and connect to Gate One instances used by hosts not on the origins list.",
+      "cve": "CVE-2020-19003",
+      "specs": [
+        "==1.2.0"
       ]
     }
   ],
@@ -7536,6 +7564,16 @@
       "cve": "CVE-2019-15149",
       "specs": [
         "<0.2.8"
+      ]
+    }
+  ],
+  "mkdocs": [
+    {
+      "id": "pyup.io-mkdocs:CVE-2021-40978",
+      "advisory": "** DISPUTED ** The mkdocs 1.2.2 built-in dev-server allows directory traversal using the port 8000, enabling remote exploitation to obtain :sensitive information. NOTE: the vendor has disputed this as described in https://github.com/mkdocs/mkdocs/issues/2601.] and https://github.com/nisdn/CVE-2021-40978/issues/1.",
+      "cve": "CVE-2021-40978",
+      "specs": [
+        "==1.2.2"
       ]
     }
   ],
@@ -11891,6 +11929,16 @@
       ]
     }
   ],
+  "omero-figure": [
+    {
+      "id": "pyup.io-omero-figure:CVE-2021-41132",
+      "advisory": "OMERO.web provides a web based client and plugin infrastructure. In versions prior to 5.11.0, a variety of templates do not perform proper sanitization through HTML escaping. Due to the lack of sanitization and use of ``jQuery.html()``, there are a whole host of cross-site scripting possibilities with specially crafted input to a variety of fields. This issue is patched in version 5.11.0. There are no known workarounds aside from upgrading.",
+      "cve": "CVE-2021-41132",
+      "specs": [
+        "<4.4.1"
+      ]
+    }
+  ],
   "omero-py": [
     {
       "id": "pyup.io-omero-py:CVE-2014-7198",
@@ -11999,6 +12047,14 @@
       "specs": [
         "<5.9.0"
       ]
+    },
+    {
+      "id": "pyup.io-omero-web:CVE-2021-41132",
+      "advisory": "OMERO.web provides a web based client and plugin infrastructure. In versions prior to 5.11.0, a variety of templates do not perform proper sanitization through HTML escaping. Due to the lack of sanitization and use of ``jQuery.html()``, there are a whole host of cross-site scripting possibilities with specially crafted input to a variety of fields. This issue is patched in version 5.11.0. There are no known workarounds aside from upgrading.",
+      "cve": "CVE-2021-41132",
+      "specs": [
+        "<5.11.0"
+      ]
     }
   ],
   "oncall": [
@@ -12036,6 +12092,1306 @@
       "cve": "CVE-2020-15142",
       "specs": [
         "<0.5.3"
+      ]
+    }
+  ],
+  "opencv-contrib-python": [
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2016-1516",
+      "advisory": "OpenCV 3.0.0 has a double free issue that allows attackers to execute arbitrary code.",
+      "cve": "CVE-2016-1516",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2016-1517",
+      "advisory": "OpenCV 3.0.0 allows remote attackers to cause a denial of service (segfault) via vectors involving corrupt chunks.",
+      "cve": "CVE-2016-1517",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-1000450",
+      "advisory": "In opencv/modules/imgcodecs/src/utils.cpp, functions FillUniColor and FillUniGray do not check the input length, which can lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-1000450",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12597",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12597",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12598",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the cv::RBaseStream::readBlock function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 8-opencv-invalid-read-fread test case.",
+      "cve": "CVE-2017-12598",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12599",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the function icvCvt_BGRA2BGR_8u_C4C3R when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12599",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12600",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (CPU consumption) issue, as demonstrated by the 11-opencv-dos-cpu-exhaust test case.",
+      "cve": "CVE-2017-12600",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12601",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a buffer overflow in the cv::BmpDecoder::readData function in modules/imgcodecs/src/grfmt_bmp.cpp when reading an image file by using cv::imread, as demonstrated by the 4-buf-overflow-readData-memcpy test case.",
+      "cve": "CVE-2017-12601",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12602",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (memory consumption) issue, as demonstrated by the 10-opencv-dos-memory-exhaust test case.",
+      "cve": "CVE-2017-12602",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12603",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an invalid write in the cv::RLByteStream::getBytes function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 2-opencv-heapoverflow-fseek test case.",
+      "cve": "CVE-2017-12603",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12604",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillUniColor function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12604",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12605",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillColorRow8 function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12605",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12606",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow4 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12606",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12862",
+      "advisory": "In modules/imgcodecs/src/grfmt_pxm.cpp, the length of buffer AutoBuffer _src is small than expected, which will cause copy buffer overflow later. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12862",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12863",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function PxMDecoder::readData has an integer overflow when calculate src_pitch. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12863",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-12864",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function ReadNumber did not checkout the input length, which lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12864",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-14136",
+      "advisory": "OpenCV (Open Source Computer Vision Library) 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread. NOTE: this vulnerability exists because of an incomplete fix for CVE-2017-12597.",
+      "cve": "CVE-2017-14136",
+      "specs": [
+        "==3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-17760",
+      "advisory": "OpenCV 3.3.1 has a Buffer Overflow in the cv::PxMDecoder::readData function in grfmt_pxm.cpp, because an incorrect size value is used.",
+      "cve": "CVE-2017-17760",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2017-18009",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer over-read exists in the function cv::HdrDecoder::checkSignature in modules/imgcodecs/src/grfmt_hdr.cpp.",
+      "cve": "CVE-2017-18009",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2018-5268",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer overflow happens in cv::Jpeg2KDecoder::readComponent8u in modules/imgcodecs/src/grfmt_jpeg2000.cpp when parsing a crafted image file.",
+      "cve": "CVE-2018-5268",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2018-5269",
+      "advisory": "In OpenCV 3.3.1, an assertion failure happens in cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because of an incorrect integer cast.",
+      "cve": "CVE-2018-5269",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2018-7712",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.height <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7712",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2018-7713",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.width <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7713",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2018-7714",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (pixels <= (1<<30)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7714",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-14491",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read in the function cv::predictOrdered<cv::HaarEvaluator> in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14491",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-14492",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read/write in the function HaarEvaluator::OptFeature::calc in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14492",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-14493",
+      "advisory": "An issue was discovered in OpenCV before 4.1.1. There is a NULL pointer dereference in the function cv::XMLParser::parse at modules/core/src/persistence.cpp.",
+      "cve": "CVE-2019-14493",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-15939",
+      "advisory": "An issue was discovered in OpenCV 4.1.0. There is a divide-by-zero error in cv::HOGDescriptor::getDescriptorSize in modules/objdetect/src/hog.cpp.",
+      "cve": "CVE-2019-15939",
+      "specs": [
+        "<=4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-16249",
+      "advisory": "OpenCV 4.1.1 has an out-of-bounds read in hal_baseline::v_load in core/hal/intrin_sse.hpp when called from computeSSDMeanNorm in modules/video/src/dis_flow.cpp.",
+      "cve": "CVE-2019-16249",
+      "specs": [
+        "==4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-19624",
+      "advisory": "An out-of-bounds read was discovered in OpenCV before 4.1.1. Specifically, variable coarsest_scale is assumed to be greater than or equal to finest_scale within the calc()/ocl_calc() functions in dis_flow.cpp. However, this is not true when dealing with small images, leading to an out-of-bounds read of the heap-allocated arrays Ux and Uy.",
+      "cve": "CVE-2019-19624",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-5063",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV 4.1.0. A specially crafted XML file can cause a buffer overflow, resulting in multiple heap corruptions and potential code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5063",
+      "specs": [
+        "==4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python:CVE-2019-5064",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV, before version 4.2.0. A specially crafted JSON file can cause a buffer overflow, resulting in multiple heap corruptions and potentially code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5064",
+      "specs": [
+        ">=4.0.0,<4.2.0"
+      ]
+    }
+  ],
+  "opencv-contrib-python-headless": [
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2016-1516",
+      "advisory": "OpenCV 3.0.0 has a double free issue that allows attackers to execute arbitrary code.",
+      "cve": "CVE-2016-1516",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2016-1517",
+      "advisory": "OpenCV 3.0.0 allows remote attackers to cause a denial of service (segfault) via vectors involving corrupt chunks.",
+      "cve": "CVE-2016-1517",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-1000450",
+      "advisory": "In opencv/modules/imgcodecs/src/utils.cpp, functions FillUniColor and FillUniGray do not check the input length, which can lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-1000450",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12597",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12597",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12598",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the cv::RBaseStream::readBlock function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 8-opencv-invalid-read-fread test case.",
+      "cve": "CVE-2017-12598",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12599",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the function icvCvt_BGRA2BGR_8u_C4C3R when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12599",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12600",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (CPU consumption) issue, as demonstrated by the 11-opencv-dos-cpu-exhaust test case.",
+      "cve": "CVE-2017-12600",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12601",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a buffer overflow in the cv::BmpDecoder::readData function in modules/imgcodecs/src/grfmt_bmp.cpp when reading an image file by using cv::imread, as demonstrated by the 4-buf-overflow-readData-memcpy test case.",
+      "cve": "CVE-2017-12601",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12602",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (memory consumption) issue, as demonstrated by the 10-opencv-dos-memory-exhaust test case.",
+      "cve": "CVE-2017-12602",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12603",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an invalid write in the cv::RLByteStream::getBytes function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 2-opencv-heapoverflow-fseek test case.",
+      "cve": "CVE-2017-12603",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12604",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillUniColor function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12604",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12605",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillColorRow8 function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12605",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12606",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow4 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12606",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12862",
+      "advisory": "In modules/imgcodecs/src/grfmt_pxm.cpp, the length of buffer AutoBuffer _src is small than expected, which will cause copy buffer overflow later. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12862",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12863",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function PxMDecoder::readData has an integer overflow when calculate src_pitch. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12863",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-12864",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function ReadNumber did not checkout the input length, which lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12864",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-14136",
+      "advisory": "OpenCV (Open Source Computer Vision Library) 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread. NOTE: this vulnerability exists because of an incomplete fix for CVE-2017-12597.",
+      "cve": "CVE-2017-14136",
+      "specs": [
+        "==3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-17760",
+      "advisory": "OpenCV 3.3.1 has a Buffer Overflow in the cv::PxMDecoder::readData function in grfmt_pxm.cpp, because an incorrect size value is used.",
+      "cve": "CVE-2017-17760",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2017-18009",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer over-read exists in the function cv::HdrDecoder::checkSignature in modules/imgcodecs/src/grfmt_hdr.cpp.",
+      "cve": "CVE-2017-18009",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2018-5268",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer overflow happens in cv::Jpeg2KDecoder::readComponent8u in modules/imgcodecs/src/grfmt_jpeg2000.cpp when parsing a crafted image file.",
+      "cve": "CVE-2018-5268",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2018-5269",
+      "advisory": "In OpenCV 3.3.1, an assertion failure happens in cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because of an incorrect integer cast.",
+      "cve": "CVE-2018-5269",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2018-7712",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.height <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7712",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2018-7713",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.width <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7713",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2018-7714",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (pixels <= (1<<30)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7714",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-14491",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read in the function cv::predictOrdered<cv::HaarEvaluator> in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14491",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-14492",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read/write in the function HaarEvaluator::OptFeature::calc in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14492",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-14493",
+      "advisory": "An issue was discovered in OpenCV before 4.1.1. There is a NULL pointer dereference in the function cv::XMLParser::parse at modules/core/src/persistence.cpp.",
+      "cve": "CVE-2019-14493",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-15939",
+      "advisory": "An issue was discovered in OpenCV 4.1.0. There is a divide-by-zero error in cv::HOGDescriptor::getDescriptorSize in modules/objdetect/src/hog.cpp.",
+      "cve": "CVE-2019-15939",
+      "specs": [
+        "<=4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-16249",
+      "advisory": "OpenCV 4.1.1 has an out-of-bounds read in hal_baseline::v_load in core/hal/intrin_sse.hpp when called from computeSSDMeanNorm in modules/video/src/dis_flow.cpp.",
+      "cve": "CVE-2019-16249",
+      "specs": [
+        "==4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-19624",
+      "advisory": "An out-of-bounds read was discovered in OpenCV before 4.1.1. Specifically, variable coarsest_scale is assumed to be greater than or equal to finest_scale within the calc()/ocl_calc() functions in dis_flow.cpp. However, this is not true when dealing with small images, leading to an out-of-bounds read of the heap-allocated arrays Ux and Uy.",
+      "cve": "CVE-2019-19624",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-5063",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV 4.1.0. A specially crafted XML file can cause a buffer overflow, resulting in multiple heap corruptions and potential code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5063",
+      "specs": [
+        "==4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-contrib-python-headless:CVE-2019-5064",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV, before version 4.2.0. A specially crafted JSON file can cause a buffer overflow, resulting in multiple heap corruptions and potentially code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5064",
+      "specs": [
+        ">=4.0.0,<4.2.0"
+      ]
+    }
+  ],
+  "opencv-opencv-contrib-python-headless": [
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2016-1516",
+      "advisory": "OpenCV 3.0.0 has a double free issue that allows attackers to execute arbitrary code.",
+      "cve": "CVE-2016-1516",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2016-1517",
+      "advisory": "OpenCV 3.0.0 allows remote attackers to cause a denial of service (segfault) via vectors involving corrupt chunks.",
+      "cve": "CVE-2016-1517",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-1000450",
+      "advisory": "In opencv/modules/imgcodecs/src/utils.cpp, functions FillUniColor and FillUniGray do not check the input length, which can lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-1000450",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12597",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12597",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12598",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the cv::RBaseStream::readBlock function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 8-opencv-invalid-read-fread test case.",
+      "cve": "CVE-2017-12598",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12599",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the function icvCvt_BGRA2BGR_8u_C4C3R when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12599",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12600",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (CPU consumption) issue, as demonstrated by the 11-opencv-dos-cpu-exhaust test case.",
+      "cve": "CVE-2017-12600",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12601",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a buffer overflow in the cv::BmpDecoder::readData function in modules/imgcodecs/src/grfmt_bmp.cpp when reading an image file by using cv::imread, as demonstrated by the 4-buf-overflow-readData-memcpy test case.",
+      "cve": "CVE-2017-12601",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12602",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (memory consumption) issue, as demonstrated by the 10-opencv-dos-memory-exhaust test case.",
+      "cve": "CVE-2017-12602",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12603",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an invalid write in the cv::RLByteStream::getBytes function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 2-opencv-heapoverflow-fseek test case.",
+      "cve": "CVE-2017-12603",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12604",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillUniColor function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12604",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12605",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillColorRow8 function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12605",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12606",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow4 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12606",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12862",
+      "advisory": "In modules/imgcodecs/src/grfmt_pxm.cpp, the length of buffer AutoBuffer _src is small than expected, which will cause copy buffer overflow later. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12862",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12863",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function PxMDecoder::readData has an integer overflow when calculate src_pitch. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12863",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-12864",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function ReadNumber did not checkout the input length, which lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12864",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-14136",
+      "advisory": "OpenCV (Open Source Computer Vision Library) 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread. NOTE: this vulnerability exists because of an incomplete fix for CVE-2017-12597.",
+      "cve": "CVE-2017-14136",
+      "specs": [
+        "==3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-17760",
+      "advisory": "OpenCV 3.3.1 has a Buffer Overflow in the cv::PxMDecoder::readData function in grfmt_pxm.cpp, because an incorrect size value is used.",
+      "cve": "CVE-2017-17760",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2017-18009",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer over-read exists in the function cv::HdrDecoder::checkSignature in modules/imgcodecs/src/grfmt_hdr.cpp.",
+      "cve": "CVE-2017-18009",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2018-5268",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer overflow happens in cv::Jpeg2KDecoder::readComponent8u in modules/imgcodecs/src/grfmt_jpeg2000.cpp when parsing a crafted image file.",
+      "cve": "CVE-2018-5268",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2018-5269",
+      "advisory": "In OpenCV 3.3.1, an assertion failure happens in cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because of an incorrect integer cast.",
+      "cve": "CVE-2018-5269",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2018-7712",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.height <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7712",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2018-7713",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.width <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7713",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2018-7714",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (pixels <= (1<<30)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7714",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-14491",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read in the function cv::predictOrdered<cv::HaarEvaluator> in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14491",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-14492",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read/write in the function HaarEvaluator::OptFeature::calc in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14492",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-14493",
+      "advisory": "An issue was discovered in OpenCV before 4.1.1. There is a NULL pointer dereference in the function cv::XMLParser::parse at modules/core/src/persistence.cpp.",
+      "cve": "CVE-2019-14493",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-15939",
+      "advisory": "An issue was discovered in OpenCV 4.1.0. There is a divide-by-zero error in cv::HOGDescriptor::getDescriptorSize in modules/objdetect/src/hog.cpp.",
+      "cve": "CVE-2019-15939",
+      "specs": [
+        "<=4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-16249",
+      "advisory": "OpenCV 4.1.1 has an out-of-bounds read in hal_baseline::v_load in core/hal/intrin_sse.hpp when called from computeSSDMeanNorm in modules/video/src/dis_flow.cpp.",
+      "cve": "CVE-2019-16249",
+      "specs": [
+        "==4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-19624",
+      "advisory": "An out-of-bounds read was discovered in OpenCV before 4.1.1. Specifically, variable coarsest_scale is assumed to be greater than or equal to finest_scale within the calc()/ocl_calc() functions in dis_flow.cpp. However, this is not true when dealing with small images, leading to an out-of-bounds read of the heap-allocated arrays Ux and Uy.",
+      "cve": "CVE-2019-19624",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-5063",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV 4.1.0. A specially crafted XML file can cause a buffer overflow, resulting in multiple heap corruptions and potential code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5063",
+      "specs": [
+        "==4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-opencv-contrib-python-headless:CVE-2019-5064",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV, before version 4.2.0. A specially crafted JSON file can cause a buffer overflow, resulting in multiple heap corruptions and potentially code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5064",
+      "specs": [
+        ">=4.0.0,<4.2.0"
+      ]
+    }
+  ],
+  "opencv-python": [
+    {
+      "id": "pyup.io-opencv-python:CVE-2016-1516",
+      "advisory": "OpenCV 3.0.0 has a double free issue that allows attackers to execute arbitrary code.",
+      "cve": "CVE-2016-1516",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2016-1517",
+      "advisory": "OpenCV 3.0.0 allows remote attackers to cause a denial of service (segfault) via vectors involving corrupt chunks.",
+      "cve": "CVE-2016-1517",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-1000450",
+      "advisory": "In opencv/modules/imgcodecs/src/utils.cpp, functions FillUniColor and FillUniGray do not check the input length, which can lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-1000450",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12597",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12597",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12598",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the cv::RBaseStream::readBlock function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 8-opencv-invalid-read-fread test case.",
+      "cve": "CVE-2017-12598",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12599",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the function icvCvt_BGRA2BGR_8u_C4C3R when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12599",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12600",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (CPU consumption) issue, as demonstrated by the 11-opencv-dos-cpu-exhaust test case.",
+      "cve": "CVE-2017-12600",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12601",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a buffer overflow in the cv::BmpDecoder::readData function in modules/imgcodecs/src/grfmt_bmp.cpp when reading an image file by using cv::imread, as demonstrated by the 4-buf-overflow-readData-memcpy test case.",
+      "cve": "CVE-2017-12601",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12602",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (memory consumption) issue, as demonstrated by the 10-opencv-dos-memory-exhaust test case.",
+      "cve": "CVE-2017-12602",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12603",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an invalid write in the cv::RLByteStream::getBytes function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 2-opencv-heapoverflow-fseek test case.",
+      "cve": "CVE-2017-12603",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12604",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillUniColor function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12604",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12605",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillColorRow8 function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12605",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12606",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow4 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12606",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12862",
+      "advisory": "In modules/imgcodecs/src/grfmt_pxm.cpp, the length of buffer AutoBuffer _src is small than expected, which will cause copy buffer overflow later. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12862",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12863",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function PxMDecoder::readData has an integer overflow when calculate src_pitch. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12863",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-12864",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function ReadNumber did not checkout the input length, which lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12864",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-14136",
+      "advisory": "OpenCV (Open Source Computer Vision Library) 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread. NOTE: this vulnerability exists because of an incomplete fix for CVE-2017-12597.",
+      "cve": "CVE-2017-14136",
+      "specs": [
+        "==3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-17760",
+      "advisory": "OpenCV 3.3.1 has a Buffer Overflow in the cv::PxMDecoder::readData function in grfmt_pxm.cpp, because an incorrect size value is used.",
+      "cve": "CVE-2017-17760",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2017-18009",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer over-read exists in the function cv::HdrDecoder::checkSignature in modules/imgcodecs/src/grfmt_hdr.cpp.",
+      "cve": "CVE-2017-18009",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2018-5268",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer overflow happens in cv::Jpeg2KDecoder::readComponent8u in modules/imgcodecs/src/grfmt_jpeg2000.cpp when parsing a crafted image file.",
+      "cve": "CVE-2018-5268",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2018-5269",
+      "advisory": "In OpenCV 3.3.1, an assertion failure happens in cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because of an incorrect integer cast.",
+      "cve": "CVE-2018-5269",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2018-7712",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.height <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7712",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2018-7713",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.width <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7713",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2018-7714",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (pixels <= (1<<30)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7714",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-14491",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read in the function cv::predictOrdered<cv::HaarEvaluator> in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14491",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-14492",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read/write in the function HaarEvaluator::OptFeature::calc in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14492",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-14493",
+      "advisory": "An issue was discovered in OpenCV before 4.1.1. There is a NULL pointer dereference in the function cv::XMLParser::parse at modules/core/src/persistence.cpp.",
+      "cve": "CVE-2019-14493",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-15939",
+      "advisory": "An issue was discovered in OpenCV 4.1.0. There is a divide-by-zero error in cv::HOGDescriptor::getDescriptorSize in modules/objdetect/src/hog.cpp.",
+      "cve": "CVE-2019-15939",
+      "specs": [
+        "<=4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-16249",
+      "advisory": "OpenCV 4.1.1 has an out-of-bounds read in hal_baseline::v_load in core/hal/intrin_sse.hpp when called from computeSSDMeanNorm in modules/video/src/dis_flow.cpp.",
+      "cve": "CVE-2019-16249",
+      "specs": [
+        "==4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-19624",
+      "advisory": "An out-of-bounds read was discovered in OpenCV before 4.1.1. Specifically, variable coarsest_scale is assumed to be greater than or equal to finest_scale within the calc()/ocl_calc() functions in dis_flow.cpp. However, this is not true when dealing with small images, leading to an out-of-bounds read of the heap-allocated arrays Ux and Uy.",
+      "cve": "CVE-2019-19624",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-5063",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV 4.1.0. A specially crafted XML file can cause a buffer overflow, resulting in multiple heap corruptions and potential code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5063",
+      "specs": [
+        "==4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python:CVE-2019-5064",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV, before version 4.2.0. A specially crafted JSON file can cause a buffer overflow, resulting in multiple heap corruptions and potentially code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5064",
+      "specs": [
+        ">=4.0.0,<4.2.0"
+      ]
+    }
+  ],
+  "opencv-python-headless": [
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2016-1516",
+      "advisory": "OpenCV 3.0.0 has a double free issue that allows attackers to execute arbitrary code.",
+      "cve": "CVE-2016-1516",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2016-1517",
+      "advisory": "OpenCV 3.0.0 allows remote attackers to cause a denial of service (segfault) via vectors involving corrupt chunks.",
+      "cve": "CVE-2016-1517",
+      "specs": [
+        "==3.0.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-1000450",
+      "advisory": "In opencv/modules/imgcodecs/src/utils.cpp, functions FillUniColor and FillUniGray do not check the input length, which can lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-1000450",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12597",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12597",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12598",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the cv::RBaseStream::readBlock function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 8-opencv-invalid-read-fread test case.",
+      "cve": "CVE-2017-12598",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12599",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds read error in the function icvCvt_BGRA2BGR_8u_C4C3R when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12599",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12600",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (CPU consumption) issue, as demonstrated by the 11-opencv-dos-cpu-exhaust test case.",
+      "cve": "CVE-2017-12600",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12601",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a buffer overflow in the cv::BmpDecoder::readData function in modules/imgcodecs/src/grfmt_bmp.cpp when reading an image file by using cv::imread, as demonstrated by the 4-buf-overflow-readData-memcpy test case.",
+      "cve": "CVE-2017-12601",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12602",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has a denial of service (memory consumption) issue, as demonstrated by the 10-opencv-dos-memory-exhaust test case.",
+      "cve": "CVE-2017-12602",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12603",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an invalid write in the cv::RLByteStream::getBytes function in modules/imgcodecs/src/bitstrm.cpp when reading an image file by using cv::imread, as demonstrated by the 2-opencv-heapoverflow-fseek test case.",
+      "cve": "CVE-2017-12603",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12604",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillUniColor function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12604",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12605",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the FillColorRow8 function in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12605",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12606",
+      "advisory": "OpenCV (Open Source Computer Vision Library) through 3.3 has an out-of-bounds write error in the function FillColorRow4 in utils.cpp when reading an image file by using cv::imread.",
+      "cve": "CVE-2017-12606",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12862",
+      "advisory": "In modules/imgcodecs/src/grfmt_pxm.cpp, the length of buffer AutoBuffer _src is small than expected, which will cause copy buffer overflow later. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12862",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12863",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function PxMDecoder::readData has an integer overflow when calculate src_pitch. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12863",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-12864",
+      "advisory": "In opencv/modules/imgcodecs/src/grfmt_pxm.cpp, function ReadNumber did not checkout the input length, which lead to integer overflow. If the image is from remote, may lead to remote code execution or denial of service. This affects Opencv 3.3 and earlier.",
+      "cve": "CVE-2017-12864",
+      "specs": [
+        "<=3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-14136",
+      "advisory": "OpenCV (Open Source Computer Vision Library) 3.3 has an out-of-bounds write error in the function FillColorRow1 in utils.cpp when reading an image file by using cv::imread. NOTE: this vulnerability exists because of an incomplete fix for CVE-2017-12597.",
+      "cve": "CVE-2017-14136",
+      "specs": [
+        "==3.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-17760",
+      "advisory": "OpenCV 3.3.1 has a Buffer Overflow in the cv::PxMDecoder::readData function in grfmt_pxm.cpp, because an incorrect size value is used.",
+      "cve": "CVE-2017-17760",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2017-18009",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer over-read exists in the function cv::HdrDecoder::checkSignature in modules/imgcodecs/src/grfmt_hdr.cpp.",
+      "cve": "CVE-2017-18009",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2018-5268",
+      "advisory": "In OpenCV 3.3.1, a heap-based buffer overflow happens in cv::Jpeg2KDecoder::readComponent8u in modules/imgcodecs/src/grfmt_jpeg2000.cpp when parsing a crafted image file.",
+      "cve": "CVE-2018-5268",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2018-5269",
+      "advisory": "In OpenCV 3.3.1, an assertion failure happens in cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because of an incorrect integer cast.",
+      "cve": "CVE-2018-5269",
+      "specs": [
+        "==3.3.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2018-7712",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.height <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7712",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2018-7713",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (size.width <= (1<<20)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7713",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2018-7714",
+      "advisory": "** DISPUTED ** The validateInputImageSize function in modules/imgcodecs/src/loadsave.cpp in OpenCV 3.4.1 allows remote attackers to cause a denial of service (assertion failure) because (pixels <= (1<<30)) may be false. Note: \u201cOpenCV CV_Assert is not an assertion (C-like assert()), it is regular C++ exception which can raised in case of invalid or non-supported parameters.\u201d",
+      "cve": "CVE-2018-7714",
+      "specs": [
+        "==3.4.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-14491",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read in the function cv::predictOrdered<cv::HaarEvaluator> in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14491",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-14492",
+      "advisory": "An issue was discovered in OpenCV before 3.4.7 and 4.x before 4.1.1. There is an out of bounds read/write in the function HaarEvaluator::OptFeature::calc in modules/objdetect/src/cascadedetect.hpp, which leads to denial of service.",
+      "cve": "CVE-2019-14492",
+      "specs": [
+        "<3.4.7",
+        ">=4.0.0,<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-14493",
+      "advisory": "An issue was discovered in OpenCV before 4.1.1. There is a NULL pointer dereference in the function cv::XMLParser::parse at modules/core/src/persistence.cpp.",
+      "cve": "CVE-2019-14493",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-15939",
+      "advisory": "An issue was discovered in OpenCV 4.1.0. There is a divide-by-zero error in cv::HOGDescriptor::getDescriptorSize in modules/objdetect/src/hog.cpp.",
+      "cve": "CVE-2019-15939",
+      "specs": [
+        "<=4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-16249",
+      "advisory": "OpenCV 4.1.1 has an out-of-bounds read in hal_baseline::v_load in core/hal/intrin_sse.hpp when called from computeSSDMeanNorm in modules/video/src/dis_flow.cpp.",
+      "cve": "CVE-2019-16249",
+      "specs": [
+        "==4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-19624",
+      "advisory": "An out-of-bounds read was discovered in OpenCV before 4.1.1. Specifically, variable coarsest_scale is assumed to be greater than or equal to finest_scale within the calc()/ocl_calc() functions in dis_flow.cpp. However, this is not true when dealing with small images, leading to an out-of-bounds read of the heap-allocated arrays Ux and Uy.",
+      "cve": "CVE-2019-19624",
+      "specs": [
+        "<4.1.1"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-5063",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV 4.1.0. A specially crafted XML file can cause a buffer overflow, resulting in multiple heap corruptions and potential code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5063",
+      "specs": [
+        "==4.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-opencv-python-headless:CVE-2019-5064",
+      "advisory": "An exploitable heap buffer overflow vulnerability exists in the data structure persistence functionality of OpenCV, before version 4.2.0. A specially crafted JSON file can cause a buffer overflow, resulting in multiple heap corruptions and potentially code execution. An attacker can provide a specially crafted file to trigger this vulnerability.",
+      "cve": "CVE-2019-5064",
+      "specs": [
+        ">=4.0.0,<4.2.0"
       ]
     }
   ],
@@ -48026,6 +49382,16 @@
       ]
     }
   ],
+  "pybluemonday": [
+    {
+      "id": "pyup.io-pybluemonday:CVE-2021-42576",
+      "advisory": "The bluemonday sanitizer before 1.0.16 for Go, and before 0.0.8 for Python (in pybluemonday), does not properly enforce policies associated with the SELECT, STYLE, and OPTION elements.",
+      "cve": "CVE-2021-42576",
+      "specs": [
+        "<0.0.8"
+      ]
+    }
+  ],
   "pycares": [
     {
       "id": "pyup.io-pycares:CVE-2016-5180",
@@ -51362,6 +52728,35 @@
       ]
     }
   ],
+  "scrapy": [
+    {
+      "id": "pyup.io-scrapy:CVE-2017-14158",
+      "advisory": "Scrapy 1.4 allows remote attackers to cause a denial of service (memory consumption) via large files because arbitrarily many files are read into memory, which is especially problematic if the files are then individually written in a separate thread to a slow storage resource, as demonstrated by interaction between dataReceived (in core/downloader/handlers/http11.py) and S3FilesStore.",
+      "cve": "CVE-2017-14158",
+      "specs": [
+        "==1.4"
+      ]
+    },
+    {
+      "id": "pyup.io-scrapy:CVE-2021-41125",
+      "advisory": "Scrapy is a high-level web crawling and scraping framework for Python. If you use `HttpAuthMiddleware` (i.e. the `http_user` and `http_pass` spider attributes) for HTTP authentication, all requests will expose your credentials to the request target. This includes requests generated by Scrapy components, such as `robots.txt` requests sent by Scrapy when the `ROBOTSTXT_OBEY` setting is set to `True`, or as requests reached through redirects. Upgrade to Scrapy 2.5.1 and use the new `http_auth_domain` spider attribute to control which domains are allowed to receive the configured HTTP authentication credentials. If you are using Scrapy 1.8 or a lower version, and upgrading to Scrapy 2.5.1 is not an option, you may upgrade to Scrapy 1.8.1 instead. If you cannot upgrade, set your HTTP authentication credentials on a per-request basis, using for example the `w3lib.http.basic_auth_header` function to convert your credentials into a value that you can assign to the `Authorization` header of your request, instead of defining your credentials globally using `HttpAuthMiddleware`.",
+      "cve": "CVE-2021-41125",
+      "specs": [
+        "<1.8.1",
+        ">=2.0.0,<2.5.1"
+      ]
+    }
+  ],
+  "scrapy-splash": [
+    {
+      "id": "pyup.io-scrapy-splash:CVE-2021-41124",
+      "advisory": "Scrapy-splash is a library which provides Scrapy and JavaScript integration. In affected versions users who use [`HttpAuthMiddleware`](http://doc.scrapy.org/en/latest/topics/downloader-middleware.html#module-scrapy.downloadermiddlewares.httpauth) (i.e. the `http_user` and `http_pass` spider attributes) for Splash authentication will have any non-Splash request expose your credentials to the request target. This includes `robots.txt` requests sent by Scrapy when the `ROBOTSTXT_OBEY` setting is set to `True`. Upgrade to scrapy-splash 0.8.0 and use the new `SPLASH_USER` and `SPLASH_PASS` settings instead to set your Splash authentication credentials safely. If you cannot upgrade, set your Splash request credentials on a per-request basis, [using the `splash_headers` request parameter](https://github.com/scrapy-plugins/scrapy-splash/tree/0.8.x#http-basic-auth), instead of defining them globally using the [`HttpAuthMiddleware`](http://doc.scrapy.org/en/latest/topics/downloader-middleware.html#module-scrapy.downloadermiddlewares.httpauth). Alternatively, make sure all your requests go through Splash. That includes disabling the [robots.txt middleware](https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#topics-dlmw-robots).",
+      "cve": "CVE-2021-41124",
+      "specs": [
+        "<0.8.0"
+      ]
+    }
+  ],
   "setuptools": [
     {
       "id": "pyup.io-setuptools:CVE-2013-1633",
@@ -51379,6 +52774,24 @@
         "==0.6.47",
         "==0.6.48",
         "==0.6.49"
+      ]
+    }
+  ],
+  "shuup": [
+    {
+      "id": "pyup.io-shuup:CVE-2021-25962",
+      "advisory": "\u201cShuup\u201d application in versions 0.4.2 to 2.10.8 is affected by the \u201cFormula Injection\u201d vulnerability. A customer can inject payloads in the name input field in the billing address while buying a product. When a store administrator accesses the reports page to export the data as an Excel file and opens it, the payload gets executed.",
+      "cve": "CVE-2021-25962",
+      "specs": [
+        ">=0.4.2,<2.11.0"
+      ]
+    },
+    {
+      "id": "pyup.io-shuup:CVE-2021-25963",
+      "advisory": "In Shuup, versions 1.6.0 through 2.10.8 are vulnerable to reflected Cross-Site Scripting (XSS) that allows execution of arbitrary javascript code on a victim browser. This vulnerability exists due to the error page contents not escaped.",
+      "cve": "CVE-2021-25963",
+      "specs": [
+        ">=1.6.0,<=2.10.8"
       ]
     }
   ],
@@ -51437,6 +52850,16 @@
       "cve": "CVE-2014-4616",
       "specs": [
         "<2.6.1"
+      ]
+    }
+  ],
+  "slo-generator": [
+    {
+      "id": "pyup.io-slo-generator:CVE-2021-22557",
+      "advisory": "SLO generator allows for loading of YAML files that if crafted in a specific format can allow for code execution within the context of the SLO Generator. We recommend upgrading SLO Generator past https://github.com/google/slo-generator/pull/173",
+      "cve": "CVE-2021-22557",
+      "specs": [
+        "<2.0.1"
       ]
     }
   ],
@@ -61976,6 +63399,24 @@
         "==1.4.6",
         "==1.4.7",
         "==1.4.8"
+      ]
+    }
+  ],
+  "vyper": [
+    {
+      "id": "pyup.io-vyper:CVE-2021-41121",
+      "advisory": "Vyper is a Pythonic Smart Contract Language for the EVM. In affected versions when performing a function call inside a literal struct, there is a memory corruption issue that occurs because of an incorrect pointer to the the top of the stack. This issue has been resolved in version 0.3.0.",
+      "cve": "CVE-2021-41121",
+      "specs": [
+        "<0.3.0"
+      ]
+    },
+    {
+      "id": "pyup.io-vyper:CVE-2021-41122",
+      "advisory": "Vyper is a Pythonic Smart Contract Language for the EVM. In affected versions external functions did not properly validate the bounds of decimal arguments. The can lead to logic errors. This issue has been resolved in version 0.3.0.",
+      "cve": "CVE-2021-41122",
+      "specs": [
+        "<0.3.0"
       ]
     }
   ],
