@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fed75d616ba631aac199acf3bebbbef154112259",
-    "timestamp": 1635040440
+    "timestamp": 1635299393
   },
   "accesscontrol": [
     {
@@ -6992,6 +6992,22 @@
       "cve": "CVE-2020-15011",
       "specs": [
         "<2.1.33"
+      ]
+    },
+    {
+      "id": "pyup.io-mailman:CVE-2021-42096",
+      "advisory": "GNU Mailman before 2.1.35 may allow remote Privilege Escalation. A certain csrf_token value is derived from the admin password, and may be useful in conducting a brute-force attack against that password.",
+      "cve": "CVE-2021-42096",
+      "specs": [
+        "<2.1.35"
+      ]
+    },
+    {
+      "id": "pyup.io-mailman:CVE-2021-42097",
+      "advisory": "GNU Mailman before 2.1.35 may allow remote Privilege Escalation. A csrf_token value is not specific to a single user account. An attacker can obtain a value within the context of an unprivileged user account, and then use that value in a CSRF attack against an admin (e.g., for account takeover).",
+      "cve": "CVE-2021-42097",
+      "specs": [
+        "<2.1.35"
       ]
     }
   ],
