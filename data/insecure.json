@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fed75d616ba631aac199acf3bebbbef154112259",
-    "timestamp": 1635299393
+    "timestamp": 1635385854
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -3544,9 +3544,6 @@
   "pyarrow": [
     ">=0.12.0,<=0.14.1",
     ">=0.14.0,<=0.14.1"
-  ],
-  "pybluemonday": [
-    "<0.0.8"
   ],
   "pycares": [
     "<1.16.0",

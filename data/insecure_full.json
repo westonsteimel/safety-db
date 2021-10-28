@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fed75d616ba631aac199acf3bebbbef154112259",
-    "timestamp": 1635299393
+    "timestamp": 1635385854
   },
   "accesscontrol": [
     {
@@ -49395,16 +49395,6 @@
       "cve": "CVE-2019-12410",
       "specs": [
         ">=0.12.0,<=0.14.1"
-      ]
-    }
-  ],
-  "pybluemonday": [
-    {
-      "id": "pyup.io-pybluemonday:CVE-2021-42576",
-      "advisory": "The bluemonday sanitizer before 1.0.16 for Go, and before 0.0.8 for Python (in pybluemonday), does not properly enforce policies associated with the SELECT, STYLE, and OPTION elements.",
-      "cve": "CVE-2021-42576",
-      "specs": [
-        "<0.0.8"
       ]
     }
   ],
