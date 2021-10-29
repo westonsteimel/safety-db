@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fed75d616ba631aac199acf3bebbbef154112259",
-    "timestamp": 1635385854
+    "timestamp": 1635472227
   },
   "accesscontrol": [
     {
@@ -51045,6 +51045,15 @@
       "cve": "CVE-2020-11054",
       "specs": [
         "<1.11.0"
+      ]
+    },
+    {
+      "id": "pyup.io-qutebrowser:CVE-2021-41146",
+      "advisory": "qutebrowser is an open source keyboard-focused browser with a minimal GUI. Starting with qutebrowser v1.7.0, the Windows installer for qutebrowser registers a `qutebrowserurl:` URL handler. With certain applications, opening a specially crafted `qutebrowserurl:...` URL can lead to execution of qutebrowser commands, which in turn allows arbitrary code execution via commands such as `:spawn` or `:debug-pyeval`. Only Windows installs where qutebrowser is registered as URL handler are affected. The issue has been fixed in qutebrowser v2.4.0. The fix also adds additional hardening for potential similar issues on Linux (by adding the new --untrusted-args flag to the .desktop file), though no such vulnerabilities are known.",
+      "cve": "CVE-2021-41146",
+      "specs": [
+        "<=1.7.0",
+        ">=2.0.0,<2.4.0"
       ]
     }
   ],
