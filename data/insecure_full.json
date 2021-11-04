@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/fed75d616ba631aac199acf3bebbbef154112259",
-    "timestamp": 1635904274
+    "timestamp": 1635990823
   },
   "accesscontrol": [
     {
@@ -573,7 +573,6 @@
       "advisory": "An Improper Output Neutralization for Logs flaw was found in Ansible when using the uri module, where sensitive data is exposed to content and json output. This flaw allows an attacker to access the logs or outputs of performed tasks to read keys used in playbooks from other users within the uri module. The highest threat from this vulnerability is to data confidentiality.",
       "cve": "CVE-2020-14330",
       "specs": [
-        "<2.10.0",
         "<2.9.12"
       ]
     },
