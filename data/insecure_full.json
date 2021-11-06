@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/42075b3ee192d5eb4974ff9328bdb31a42593b88",
-    "timestamp": 1636077129
+    "timestamp": 1636163251
   },
   "accesscontrol": [
     {
@@ -2093,7 +2093,7 @@
   "dask": [
     {
       "id": "pyup.io-dask:CVE-2021-42343",
-      "advisory": "An issue was discovered in Dask (aka python-dask) through 2021.09.1. Single machine Dask clusters started with dask.distributed.LocalCluster or dask.distributed.Client (which defaults to using LocalCluster) would mistakenly configure their respective Dask workers to listen on external interfaces (typically with a randomly selected high port) rather than only on localhost. A Dask cluster created using this method (when running on a machine that has an applicable port exposed) could be used by a sophisticated attacker to achieve remote code execution.",
+      "advisory": "An issue was discovered in the Dask distributed package before 2021.10.0 for Python. Single machine Dask clusters started with dask.distributed.LocalCluster or dask.distributed.Client (which defaults to using LocalCluster) would mistakenly configure their respective Dask workers to listen on external interfaces (typically with a randomly selected high port) rather than only on localhost. A Dask cluster created using this method (when running on a machine that has an applicable port exposed) could be used by a sophisticated attacker to achieve remote code execution.",
       "cve": "CVE-2021-42343",
       "specs": [
         "<=2021.09.1"
