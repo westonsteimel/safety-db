@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/42075b3ee192d5eb4974ff9328bdb31a42593b88",
-    "timestamp": 1636163251
+    "timestamp": 1636509083
   },
   "accesscontrol": [
     {
@@ -11940,6 +11940,300 @@
       "cve": "CVE-2021-37692",
       "specs": [
         ">=2.5.0,<2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41195",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `tf.math.segment_*` operations results in a `CHECK`-fail related abort (and denial of service) if a segment id in `segment_ids` is large. This is similar to CVE-2021-29584 (and similar other reported vulnerabilities in TensorFlow, localized to specific APIs): the implementation (both on CPU and GPU) computes the output shape using `AddDim`. However, if the number of elements in the tensor overflows an `int64_t` value, `AddDim` results in a `CHECK` failure which provokes a `std::abort`. Instead, code should use `AddDimWithStatus`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41195",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41196",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the Keras pooling layers can trigger a segfault if the size of the pool is 0 or if a dimension is negative. This is due to the TensorFlow's implementation of pooling operations where the values in the sliding window are not checked to be strictly positive. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41196",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41197",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow allows tensor to have a large number of dimensions and each dimension can be as large as desired. However, the total number of elements in a tensor must fit within an `int64_t`. If an overflow occurs, `MultiplyWithoutOverflow` would return a negative result. In the majority of TensorFlow codebase this then results in a `CHECK`-failure. Newer constructs exist which return a `Status` instead of crashing the binary. This is similar to CVE-2021-29584. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41197",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41198",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.tile` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41198",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41199",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.image.resize` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41199",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41200",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.summary.create_file_writer` is called with non-scalar arguments code crashes due to a `CHECK`-fail. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41200",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41201",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41201",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41202",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions while calculating the size of the output within the `tf.range` kernel, there is a conditional statement of type `int64 = condition ? int64 : double`. Due to C++ implicit conversion rules, both branches of the condition will be cast to `double` and the result would be truncated before the assignment. This result in overflows. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41202",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41203",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions an attacker can trigger undefined behavior, integer overflows, segfaults and `CHECK`-fail crashes if they can change saved checkpoints from outside of TensorFlow. This is because the checkpoints loading infrastructure is missing validation for invalid file formats. The fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41203",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41204",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions during TensorFlow's Grappler optimizer phase, constant folding might attempt to deep copy a resource tensor. This results in a segfault, as these tensors are supposed to not change. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41204",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41205",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for the `QuantizeAndDequantizeV*` operations can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41205",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41206",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions several TensorFlow operations are missing validation for the shapes of the tensor arguments involved in the call. Depending on the API, this can result in undefined behavior and segfault or `CHECK`-fail related crashes but in some scenarios writes and reads from heap populated arrays are also possible. We have discovered these issues internally via tooling while working on improving/testing GPU op determinism. As such, we don't have reproducers and there will be multiple fixes for these issues. These fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41206",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41207",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `ParallelConcat` misses some input validation and can produce a division by 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41207",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41208",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for boosted trees in TensorFlow is still missing validation. As a result, attackers can trigger denial of service (via dereferencing `nullptr`s or via `CHECK`-failures) as well as abuse undefined behavior (binding references to `nullptr`s). An attacker can also read and write from heap buffers, depending on the API that gets used and the arguments that are passed to the call. Given that the boosted trees implementation in TensorFlow is unmaintained, it is recommend to no longer use these APIs. We will deprecate TensorFlow's boosted trees APIs in subsequent releases. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41208",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41209",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementations for convolution operators trigger a division by 0 if passed empty filter tensor arguments. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41209",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41210",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for `SparseCountSparseOutput` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41210",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41211",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `QuantizeV2` can trigger a read outside of bounds of heap allocated array. This occurs whenever `axis` is a negative value less than `-1`. In this case, we are accessing data before the start of a heap buffer. The code allows `axis` to be an optional argument (`s` would contain an `error::NOT_FOUND` error code). Otherwise, it assumes that `axis` is a valid index into the dimensions of the `input` tensor. If `axis` is less than `-1` then this results in a heap OOB read. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41211",
+      "specs": [
+        "==2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41212",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41212",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41213",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code behind `tf.function` API can be made to deadlock when two `tf.function` decorated Python functions are mutually recursive. This occurs due to using a non-reentrant `Lock` Python object. Loading any model which contains mutually recursive functions is vulnerable. An attacker can cause denial of service by causing users to load such models and calling a recursive `tf.function`, although this is not a frequent scenario. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41213",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41214",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` has an undefined behavior due to binding a reference to `nullptr`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41214",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41215",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `DeserializeSparse` can trigger a null pointer dereference. This is because the shape inference function assumes that the `serialize_sparse` tensor is a tensor with positive rank (and having `3` as the last dimension). The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41215",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41216",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference function for `Transpose` is vulnerable to a heap buffer overflow. This occurs whenever `perm` contains negative elements. The shape inference function does not validate that the indices in `perm` are all valid. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41216",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41217",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the process of building the control flow graph for a TensorFlow model is vulnerable to a null pointer exception when nodes that should be paired are not. This occurs because the code assumes that the first node in the pairing (e.g., an `Enter` node) always exists when encountering the second node (e.g., an `Exit` node). When this is not the case, `parent` is `nullptr` so dereferencing it causes a crash. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41217",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41218",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41218",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41219",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for sparse matrix multiplication is vulnerable to undefined behavior via binding a reference to `nullptr`. This occurs whenever the dimensions of `a` or `b` are 0 or less. In the case on one of these is 0, an empty output tensor should be allocated (to conserve the invariant that output tensors are always allocated when the operation is successful) but nothing should be written to it (that is, we should return early from the kernel implementation). Otherwise, attempts to write to this empty tensor would result in heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41219",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41223",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41223",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41224",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseFillEmptyRows` can be made to trigger a heap OOB access. This occurs whenever the size of `indices` does not match the size of `values`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41224",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41226",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41226",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
       ]
     }
   ],
@@ -55718,6 +56012,300 @@
       "specs": [
         ">=2.5.0,<2.6.0"
       ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41195",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `tf.math.segment_*` operations results in a `CHECK`-fail related abort (and denial of service) if a segment id in `segment_ids` is large. This is similar to CVE-2021-29584 (and similar other reported vulnerabilities in TensorFlow, localized to specific APIs): the implementation (both on CPU and GPU) computes the output shape using `AddDim`. However, if the number of elements in the tensor overflows an `int64_t` value, `AddDim` results in a `CHECK` failure which provokes a `std::abort`. Instead, code should use `AddDimWithStatus`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41195",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41196",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the Keras pooling layers can trigger a segfault if the size of the pool is 0 or if a dimension is negative. This is due to the TensorFlow's implementation of pooling operations where the values in the sliding window are not checked to be strictly positive. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41196",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41197",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow allows tensor to have a large number of dimensions and each dimension can be as large as desired. However, the total number of elements in a tensor must fit within an `int64_t`. If an overflow occurs, `MultiplyWithoutOverflow` would return a negative result. In the majority of TensorFlow codebase this then results in a `CHECK`-failure. Newer constructs exist which return a `Status` instead of crashing the binary. This is similar to CVE-2021-29584. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41197",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41198",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.tile` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41198",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41199",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.image.resize` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41199",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41200",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.summary.create_file_writer` is called with non-scalar arguments code crashes due to a `CHECK`-fail. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41200",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41201",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41201",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41202",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions while calculating the size of the output within the `tf.range` kernel, there is a conditional statement of type `int64 = condition ? int64 : double`. Due to C++ implicit conversion rules, both branches of the condition will be cast to `double` and the result would be truncated before the assignment. This result in overflows. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41202",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41203",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions an attacker can trigger undefined behavior, integer overflows, segfaults and `CHECK`-fail crashes if they can change saved checkpoints from outside of TensorFlow. This is because the checkpoints loading infrastructure is missing validation for invalid file formats. The fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41203",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41204",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions during TensorFlow's Grappler optimizer phase, constant folding might attempt to deep copy a resource tensor. This results in a segfault, as these tensors are supposed to not change. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41204",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41205",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for the `QuantizeAndDequantizeV*` operations can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41205",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41206",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions several TensorFlow operations are missing validation for the shapes of the tensor arguments involved in the call. Depending on the API, this can result in undefined behavior and segfault or `CHECK`-fail related crashes but in some scenarios writes and reads from heap populated arrays are also possible. We have discovered these issues internally via tooling while working on improving/testing GPU op determinism. As such, we don't have reproducers and there will be multiple fixes for these issues. These fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41206",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41207",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `ParallelConcat` misses some input validation and can produce a division by 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41207",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41208",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for boosted trees in TensorFlow is still missing validation. As a result, attackers can trigger denial of service (via dereferencing `nullptr`s or via `CHECK`-failures) as well as abuse undefined behavior (binding references to `nullptr`s). An attacker can also read and write from heap buffers, depending on the API that gets used and the arguments that are passed to the call. Given that the boosted trees implementation in TensorFlow is unmaintained, it is recommend to no longer use these APIs. We will deprecate TensorFlow's boosted trees APIs in subsequent releases. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41208",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41209",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementations for convolution operators trigger a division by 0 if passed empty filter tensor arguments. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41209",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41210",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for `SparseCountSparseOutput` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41210",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41211",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `QuantizeV2` can trigger a read outside of bounds of heap allocated array. This occurs whenever `axis` is a negative value less than `-1`. In this case, we are accessing data before the start of a heap buffer. The code allows `axis` to be an optional argument (`s` would contain an `error::NOT_FOUND` error code). Otherwise, it assumes that `axis` is a valid index into the dimensions of the `input` tensor. If `axis` is less than `-1` then this results in a heap OOB read. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41211",
+      "specs": [
+        "==2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41212",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41212",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41213",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code behind `tf.function` API can be made to deadlock when two `tf.function` decorated Python functions are mutually recursive. This occurs due to using a non-reentrant `Lock` Python object. Loading any model which contains mutually recursive functions is vulnerable. An attacker can cause denial of service by causing users to load such models and calling a recursive `tf.function`, although this is not a frequent scenario. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41213",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41214",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` has an undefined behavior due to binding a reference to `nullptr`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41214",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41215",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `DeserializeSparse` can trigger a null pointer dereference. This is because the shape inference function assumes that the `serialize_sparse` tensor is a tensor with positive rank (and having `3` as the last dimension). The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41215",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41216",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference function for `Transpose` is vulnerable to a heap buffer overflow. This occurs whenever `perm` contains negative elements. The shape inference function does not validate that the indices in `perm` are all valid. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41216",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41217",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the process of building the control flow graph for a TensorFlow model is vulnerable to a null pointer exception when nodes that should be paired are not. This occurs because the code assumes that the first node in the pairing (e.g., an `Enter` node) always exists when encountering the second node (e.g., an `Exit` node). When this is not the case, `parent` is `nullptr` so dereferencing it causes a crash. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41217",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41218",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41218",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41219",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for sparse matrix multiplication is vulnerable to undefined behavior via binding a reference to `nullptr`. This occurs whenever the dimensions of `a` or `b` are 0 or less. In the case on one of these is 0, an empty output tensor should be allocated (to conserve the invariant that output tensors are always allocated when the operation is successful) but nothing should be written to it (that is, we should return early from the kernel implementation). Otherwise, attempts to write to this empty tensor would result in heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41219",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41223",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41223",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41224",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseFillEmptyRows` can be made to trigger a heap OOB access. This occurs whenever the size of `indices` does not match the size of `values`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41224",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41226",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41226",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
     }
   ],
   "tensorflow-cpu": [
@@ -58074,6 +58662,300 @@
       "cve": "CVE-2021-37692",
       "specs": [
         ">=2.5.0,<2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41195",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `tf.math.segment_*` operations results in a `CHECK`-fail related abort (and denial of service) if a segment id in `segment_ids` is large. This is similar to CVE-2021-29584 (and similar other reported vulnerabilities in TensorFlow, localized to specific APIs): the implementation (both on CPU and GPU) computes the output shape using `AddDim`. However, if the number of elements in the tensor overflows an `int64_t` value, `AddDim` results in a `CHECK` failure which provokes a `std::abort`. Instead, code should use `AddDimWithStatus`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41195",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41196",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the Keras pooling layers can trigger a segfault if the size of the pool is 0 or if a dimension is negative. This is due to the TensorFlow's implementation of pooling operations where the values in the sliding window are not checked to be strictly positive. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41196",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41197",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow allows tensor to have a large number of dimensions and each dimension can be as large as desired. However, the total number of elements in a tensor must fit within an `int64_t`. If an overflow occurs, `MultiplyWithoutOverflow` would return a negative result. In the majority of TensorFlow codebase this then results in a `CHECK`-failure. Newer constructs exist which return a `Status` instead of crashing the binary. This is similar to CVE-2021-29584. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41197",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41198",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.tile` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41198",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41199",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.image.resize` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41199",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41200",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.summary.create_file_writer` is called with non-scalar arguments code crashes due to a `CHECK`-fail. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41200",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41201",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41201",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41202",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions while calculating the size of the output within the `tf.range` kernel, there is a conditional statement of type `int64 = condition ? int64 : double`. Due to C++ implicit conversion rules, both branches of the condition will be cast to `double` and the result would be truncated before the assignment. This result in overflows. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41202",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41203",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions an attacker can trigger undefined behavior, integer overflows, segfaults and `CHECK`-fail crashes if they can change saved checkpoints from outside of TensorFlow. This is because the checkpoints loading infrastructure is missing validation for invalid file formats. The fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41203",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41204",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions during TensorFlow's Grappler optimizer phase, constant folding might attempt to deep copy a resource tensor. This results in a segfault, as these tensors are supposed to not change. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41204",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41205",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for the `QuantizeAndDequantizeV*` operations can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41205",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41206",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions several TensorFlow operations are missing validation for the shapes of the tensor arguments involved in the call. Depending on the API, this can result in undefined behavior and segfault or `CHECK`-fail related crashes but in some scenarios writes and reads from heap populated arrays are also possible. We have discovered these issues internally via tooling while working on improving/testing GPU op determinism. As such, we don't have reproducers and there will be multiple fixes for these issues. These fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41206",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41207",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `ParallelConcat` misses some input validation and can produce a division by 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41207",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41208",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for boosted trees in TensorFlow is still missing validation. As a result, attackers can trigger denial of service (via dereferencing `nullptr`s or via `CHECK`-failures) as well as abuse undefined behavior (binding references to `nullptr`s). An attacker can also read and write from heap buffers, depending on the API that gets used and the arguments that are passed to the call. Given that the boosted trees implementation in TensorFlow is unmaintained, it is recommend to no longer use these APIs. We will deprecate TensorFlow's boosted trees APIs in subsequent releases. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41208",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41209",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementations for convolution operators trigger a division by 0 if passed empty filter tensor arguments. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41209",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41210",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for `SparseCountSparseOutput` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41210",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41211",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `QuantizeV2` can trigger a read outside of bounds of heap allocated array. This occurs whenever `axis` is a negative value less than `-1`. In this case, we are accessing data before the start of a heap buffer. The code allows `axis` to be an optional argument (`s` would contain an `error::NOT_FOUND` error code). Otherwise, it assumes that `axis` is a valid index into the dimensions of the `input` tensor. If `axis` is less than `-1` then this results in a heap OOB read. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41211",
+      "specs": [
+        "==2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41212",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41212",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41213",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code behind `tf.function` API can be made to deadlock when two `tf.function` decorated Python functions are mutually recursive. This occurs due to using a non-reentrant `Lock` Python object. Loading any model which contains mutually recursive functions is vulnerable. An attacker can cause denial of service by causing users to load such models and calling a recursive `tf.function`, although this is not a frequent scenario. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41213",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41214",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` has an undefined behavior due to binding a reference to `nullptr`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41214",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41215",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `DeserializeSparse` can trigger a null pointer dereference. This is because the shape inference function assumes that the `serialize_sparse` tensor is a tensor with positive rank (and having `3` as the last dimension). The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41215",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41216",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference function for `Transpose` is vulnerable to a heap buffer overflow. This occurs whenever `perm` contains negative elements. The shape inference function does not validate that the indices in `perm` are all valid. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41216",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41217",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the process of building the control flow graph for a TensorFlow model is vulnerable to a null pointer exception when nodes that should be paired are not. This occurs because the code assumes that the first node in the pairing (e.g., an `Enter` node) always exists when encountering the second node (e.g., an `Exit` node). When this is not the case, `parent` is `nullptr` so dereferencing it causes a crash. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41217",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41218",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41218",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41219",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for sparse matrix multiplication is vulnerable to undefined behavior via binding a reference to `nullptr`. This occurs whenever the dimensions of `a` or `b` are 0 or less. In the case on one of these is 0, an empty output tensor should be allocated (to conserve the invariant that output tensors are always allocated when the operation is successful) but nothing should be written to it (that is, we should return early from the kernel implementation). Otherwise, attempts to write to this empty tensor would result in heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41219",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41223",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41223",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41224",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseFillEmptyRows` can be made to trigger a heap OOB access. This occurs whenever the size of `indices` does not match the size of `values`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41224",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41226",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41226",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
       ]
     }
   ],
@@ -60432,6 +61314,300 @@
       "specs": [
         ">=2.5.0,<2.6.0"
       ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41195",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `tf.math.segment_*` operations results in a `CHECK`-fail related abort (and denial of service) if a segment id in `segment_ids` is large. This is similar to CVE-2021-29584 (and similar other reported vulnerabilities in TensorFlow, localized to specific APIs): the implementation (both on CPU and GPU) computes the output shape using `AddDim`. However, if the number of elements in the tensor overflows an `int64_t` value, `AddDim` results in a `CHECK` failure which provokes a `std::abort`. Instead, code should use `AddDimWithStatus`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41195",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41196",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the Keras pooling layers can trigger a segfault if the size of the pool is 0 or if a dimension is negative. This is due to the TensorFlow's implementation of pooling operations where the values in the sliding window are not checked to be strictly positive. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41196",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41197",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow allows tensor to have a large number of dimensions and each dimension can be as large as desired. However, the total number of elements in a tensor must fit within an `int64_t`. If an overflow occurs, `MultiplyWithoutOverflow` would return a negative result. In the majority of TensorFlow codebase this then results in a `CHECK`-failure. Newer constructs exist which return a `Status` instead of crashing the binary. This is similar to CVE-2021-29584. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41197",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41198",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.tile` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41198",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41199",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.image.resize` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41199",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41200",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.summary.create_file_writer` is called with non-scalar arguments code crashes due to a `CHECK`-fail. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41200",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41201",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41201",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41202",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions while calculating the size of the output within the `tf.range` kernel, there is a conditional statement of type `int64 = condition ? int64 : double`. Due to C++ implicit conversion rules, both branches of the condition will be cast to `double` and the result would be truncated before the assignment. This result in overflows. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41202",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41203",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions an attacker can trigger undefined behavior, integer overflows, segfaults and `CHECK`-fail crashes if they can change saved checkpoints from outside of TensorFlow. This is because the checkpoints loading infrastructure is missing validation for invalid file formats. The fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41203",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41204",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions during TensorFlow's Grappler optimizer phase, constant folding might attempt to deep copy a resource tensor. This results in a segfault, as these tensors are supposed to not change. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41204",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41205",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for the `QuantizeAndDequantizeV*` operations can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41205",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41206",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions several TensorFlow operations are missing validation for the shapes of the tensor arguments involved in the call. Depending on the API, this can result in undefined behavior and segfault or `CHECK`-fail related crashes but in some scenarios writes and reads from heap populated arrays are also possible. We have discovered these issues internally via tooling while working on improving/testing GPU op determinism. As such, we don't have reproducers and there will be multiple fixes for these issues. These fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41206",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41207",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `ParallelConcat` misses some input validation and can produce a division by 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41207",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41208",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for boosted trees in TensorFlow is still missing validation. As a result, attackers can trigger denial of service (via dereferencing `nullptr`s or via `CHECK`-failures) as well as abuse undefined behavior (binding references to `nullptr`s). An attacker can also read and write from heap buffers, depending on the API that gets used and the arguments that are passed to the call. Given that the boosted trees implementation in TensorFlow is unmaintained, it is recommend to no longer use these APIs. We will deprecate TensorFlow's boosted trees APIs in subsequent releases. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41208",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41209",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementations for convolution operators trigger a division by 0 if passed empty filter tensor arguments. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41209",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41210",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for `SparseCountSparseOutput` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41210",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41211",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `QuantizeV2` can trigger a read outside of bounds of heap allocated array. This occurs whenever `axis` is a negative value less than `-1`. In this case, we are accessing data before the start of a heap buffer. The code allows `axis` to be an optional argument (`s` would contain an `error::NOT_FOUND` error code). Otherwise, it assumes that `axis` is a valid index into the dimensions of the `input` tensor. If `axis` is less than `-1` then this results in a heap OOB read. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41211",
+      "specs": [
+        "==2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41212",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41212",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41213",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code behind `tf.function` API can be made to deadlock when two `tf.function` decorated Python functions are mutually recursive. This occurs due to using a non-reentrant `Lock` Python object. Loading any model which contains mutually recursive functions is vulnerable. An attacker can cause denial of service by causing users to load such models and calling a recursive `tf.function`, although this is not a frequent scenario. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41213",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41214",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` has an undefined behavior due to binding a reference to `nullptr`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41214",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41215",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `DeserializeSparse` can trigger a null pointer dereference. This is because the shape inference function assumes that the `serialize_sparse` tensor is a tensor with positive rank (and having `3` as the last dimension). The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41215",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41216",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference function for `Transpose` is vulnerable to a heap buffer overflow. This occurs whenever `perm` contains negative elements. The shape inference function does not validate that the indices in `perm` are all valid. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41216",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41217",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the process of building the control flow graph for a TensorFlow model is vulnerable to a null pointer exception when nodes that should be paired are not. This occurs because the code assumes that the first node in the pairing (e.g., an `Enter` node) always exists when encountering the second node (e.g., an `Exit` node). When this is not the case, `parent` is `nullptr` so dereferencing it causes a crash. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41217",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41218",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41218",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41219",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for sparse matrix multiplication is vulnerable to undefined behavior via binding a reference to `nullptr`. This occurs whenever the dimensions of `a` or `b` are 0 or less. In the case on one of these is 0, an empty output tensor should be allocated (to conserve the invariant that output tensors are always allocated when the operation is successful) but nothing should be written to it (that is, we should return early from the kernel implementation). Otherwise, attempts to write to this empty tensor would result in heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41219",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41223",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41223",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41224",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseFillEmptyRows` can be made to trigger a heap OOB access. This occurs whenever the size of `indices` does not match the size of `values`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41224",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41226",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41226",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
     }
   ],
   "tensorflow-lite": [
@@ -62788,6 +63964,300 @@
       "cve": "CVE-2021-37692",
       "specs": [
         ">=2.5.0,<2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41195",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `tf.math.segment_*` operations results in a `CHECK`-fail related abort (and denial of service) if a segment id in `segment_ids` is large. This is similar to CVE-2021-29584 (and similar other reported vulnerabilities in TensorFlow, localized to specific APIs): the implementation (both on CPU and GPU) computes the output shape using `AddDim`. However, if the number of elements in the tensor overflows an `int64_t` value, `AddDim` results in a `CHECK` failure which provokes a `std::abort`. Instead, code should use `AddDimWithStatus`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41195",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41196",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the Keras pooling layers can trigger a segfault if the size of the pool is 0 or if a dimension is negative. This is due to the TensorFlow's implementation of pooling operations where the values in the sliding window are not checked to be strictly positive. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41196",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41197",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow allows tensor to have a large number of dimensions and each dimension can be as large as desired. However, the total number of elements in a tensor must fit within an `int64_t`. If an overflow occurs, `MultiplyWithoutOverflow` would return a negative result. In the majority of TensorFlow codebase this then results in a `CHECK`-failure. Newer constructs exist which return a `Status` instead of crashing the binary. This is similar to CVE-2021-29584. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41197",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41198",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.tile` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41198",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41199",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.image.resize` is called with a large input argument then the TensorFlow process will crash due to a `CHECK`-failure caused by an overflow. The number of elements in the output tensor is too much for the `int64_t` type and the overflow is detected via a `CHECK` statement. This aborts the process. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41199",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41200",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions if `tf.summary.create_file_writer` is called with non-scalar arguments code crashes due to a `CHECK`-fail. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41200",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41201",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affeced versions during execution, `EinsumHelper::ParseEquation()` is supposed to set the flags in `input_has_ellipsis` vector and `*output_has_ellipsis` boolean to indicate whether there is ellipsis in the corresponding inputs and output. However, the code only changes these flags to `true` and never assigns `false`. This results in unitialized variable access if callers assume that `EinsumHelper::ParseEquation()` always sets these flags. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41201",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41202",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions while calculating the size of the output within the `tf.range` kernel, there is a conditional statement of type `int64 = condition ? int64 : double`. Due to C++ implicit conversion rules, both branches of the condition will be cast to `double` and the result would be truncated before the assignment. This result in overflows. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41202",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41203",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions an attacker can trigger undefined behavior, integer overflows, segfaults and `CHECK`-fail crashes if they can change saved checkpoints from outside of TensorFlow. This is because the checkpoints loading infrastructure is missing validation for invalid file formats. The fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41203",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41204",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions during TensorFlow's Grappler optimizer phase, constant folding might attempt to deep copy a resource tensor. This results in a segfault, as these tensors are supposed to not change. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41204",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41205",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for the `QuantizeAndDequantizeV*` operations can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41205",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41206",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions several TensorFlow operations are missing validation for the shapes of the tensor arguments involved in the call. Depending on the API, this can result in undefined behavior and segfault or `CHECK`-fail related crashes but in some scenarios writes and reads from heap populated arrays are also possible. We have discovered these issues internally via tooling while working on improving/testing GPU op determinism. As such, we don't have reproducers and there will be multiple fixes for these issues. These fixes will be included in TensorFlow 2.7.0. We will also cherrypick these commits on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41206",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41207",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `ParallelConcat` misses some input validation and can produce a division by 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41207",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41208",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for boosted trees in TensorFlow is still missing validation. As a result, attackers can trigger denial of service (via dereferencing `nullptr`s or via `CHECK`-failures) as well as abuse undefined behavior (binding references to `nullptr`s). An attacker can also read and write from heap buffers, depending on the API that gets used and the arguments that are passed to the call. Given that the boosted trees implementation in TensorFlow is unmaintained, it is recommend to no longer use these APIs. We will deprecate TensorFlow's boosted trees APIs in subsequent releases. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41208",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41209",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementations for convolution operators trigger a division by 0 if passed empty filter tensor arguments. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41209",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41210",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference functions for `SparseCountSparseOutput` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41210",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41211",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `QuantizeV2` can trigger a read outside of bounds of heap allocated array. This occurs whenever `axis` is a negative value less than `-1`. In this case, we are accessing data before the start of a heap buffer. The code allows `axis` to be an optional argument (`s` would contain an `error::NOT_FOUND` error code). Otherwise, it assumes that `axis` is a valid index into the dimensions of the `input` tensor. If `axis` is less than `-1` then this results in a heap OOB read. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41211",
+      "specs": [
+        "==2.6.0"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41212",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` can trigger a read outside of bounds of heap allocated array. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41212",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41213",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code behind `tf.function` API can be made to deadlock when two `tf.function` decorated Python functions are mutually recursive. This occurs due to using a non-reentrant `Lock` Python object. Loading any model which contains mutually recursive functions is vulnerable. An attacker can cause denial of service by causing users to load such models and calling a recursive `tf.function`, although this is not a frequent scenario. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41213",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41214",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `tf.ragged.cross` has an undefined behavior due to binding a reference to `nullptr`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41214",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41215",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `DeserializeSparse` can trigger a null pointer dereference. This is because the shape inference function assumes that the `serialize_sparse` tensor is a tensor with positive rank (and having `3` as the last dimension). The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41215",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41216",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference function for `Transpose` is vulnerable to a heap buffer overflow. This occurs whenever `perm` contains negative elements. The shape inference function does not validate that the indices in `perm` are all valid. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41216",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41217",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the process of building the control flow graph for a TensorFlow model is vulnerable to a null pointer exception when nodes that should be paired are not. This occurs because the code assumes that the first node in the pairing (e.g., an `Enter` node) always exists when encountering the second node (e.g., an `Exit` node). When this is not the case, `parent` is `nullptr` so dereferencing it causes a crash. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41217",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41218",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for `AllToAll` can be made to execute a division by 0. This occurs whenever the `split_count` argument is 0. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41218",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41219",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the code for sparse matrix multiplication is vulnerable to undefined behavior via binding a reference to `nullptr`. This occurs whenever the dimensions of `a` or `b` are 0 or less. In the case on one of these is 0, an empty output tensor should be allocated (to conserve the invariant that output tensors are always allocated when the operation is successful) but nothing should be written to it (that is, we should return early from the kernel implementation). Otherwise, attempts to write to this empty tensor would result in heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41219",
+      "specs": [
+        "<2.4.4",
+        "==2.6.0",
+        ">=2.5.0,<2.5.2"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41223",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41223",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41224",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseFillEmptyRows` can be made to trigger a heap OOB access. This occurs whenever the size of `indices` does not match the size of `values`. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41224",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41226",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41226",
+      "specs": [
+        "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
       ]
     }
   ],
