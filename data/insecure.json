@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/42075b3ee192d5eb4974ff9328bdb31a42593b88",
-    "timestamp": 1636509083
+    "timestamp": 1636582142
   },
   "accesscontrol": [
     ">=4.0,<4.3",
@@ -1195,7 +1195,8 @@
   ],
   "jupyterhub": [
     "<0.9.5",
-    "==1.1.0"
+    "==1.1.0",
+    ">=1.0.0,<1.5.0"
   ],
   "jupyterhub-firstuseauthenticator": [
     "<1.0.0"

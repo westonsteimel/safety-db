@@ -1,7 +1,7 @@
 {
   "$meta": {
     "package_metadata_source": "https://github.com/westonsteimel/package-metadata/tree/42075b3ee192d5eb4974ff9328bdb31a42593b88",
-    "timestamp": 1636509083
+    "timestamp": 1636582142
   },
   "accesscontrol": [
     {
@@ -2093,7 +2093,7 @@
   "dask": [
     {
       "id": "pyup.io-dask:CVE-2021-42343",
-      "advisory": "An issue was discovered in the Dask distributed package before 2021.10.0 for Python. Single machine Dask clusters started with dask.distributed.LocalCluster or dask.distributed.Client (which defaults to using LocalCluster) would mistakenly configure their respective Dask workers to listen on external interfaces (typically with a randomly selected high port) rather than only on localhost. A Dask cluster created using this method (when running on a machine that has an applicable port exposed) could be used by a sophisticated attacker to achieve remote code execution.",
+      "advisory": "An issue was discovered in Dask (aka python-dask) through 2021.09.1. Single machine Dask clusters started with dask.distributed.LocalCluster or dask.distributed.Client (which defaults to using LocalCluster) would mistakenly configure their respective Dask workers to listen on external interfaces (typically with a randomly selected high port) rather than only on localhost. A Dask cluster created using this method (when running on a machine that has an applicable port exposed) could be used by a sophisticated attacker to achieve remote code execution.",
       "cve": "CVE-2021-42343",
       "specs": [
         "<=2021.09.1"
@@ -5710,6 +5710,14 @@
       "cve": "CVE-2020-36191",
       "specs": [
         "==1.1.0"
+      ]
+    },
+    {
+      "id": "pyup.io-jupyterhub:CVE-2021-41247",
+      "advisory": "JupyterHub is an open source multi-user server for Jupyter notebooks. In affected versions users who have multiple JupyterLab tabs open in the same browser session, may see incomplete logout from the single-user server, as fresh credentials (for the single-user server only, not the Hub) reinstated after logout, if another active JupyterLab session is open while the logout takes place. Upgrade to JupyterHub 1.5. For distributed deployments, it is jupyterhub in the _user_ environment that needs patching. There are no patches necessary in the Hub environment. The only workaround is to make sure that only one JupyterLab tab is open when you log out.",
+      "cve": "CVE-2021-41247",
+      "specs": [
+        ">=1.0.0,<1.5.0"
       ]
     }
   ],
@@ -12207,6 +12215,40 @@
       ]
     },
     {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41220",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the async implementation of `CollectiveReduceV2` suffers from a memory leak and a use after free. This occurs due to the asynchronous computation and the fact that objects that have been `std::move()`d from are still accessed. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41220",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41221",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for the `Cudnn*` operations in TensorFlow can be tricked into accessing invalid memory, via a heap buffer overflow. This occurs because the ranks of the `input`, `input_h` and `input_c` parameters are not validated, but code assumes they have certain values. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41221",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41222",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SplitV` can trigger a segfault is an attacker supplies negative arguments. This occurs whenever `size_splits` contains more than one value and at least one value is negative. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41222",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-41223",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41223",
@@ -12227,11 +12269,47 @@
       ]
     },
     {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41225",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's Grappler optimizer has a use of unitialized variable. If the `train_nodes` vector (obtained from the saved model that gets optimized) does not contain a `Dequeue` node, then `dequeue_node` is left unitialized. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41225",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-nvidia-tensorflow:CVE-2021-41226",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41226",
       "specs": [
         "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41227",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the `ImmutableConst` operation in TensorFlow can be tricked into reading arbitrary memory contents. This is because the `tstring` TensorFlow string class has a special case for memory mapped strings but the operation itself does not offer any support for this datatype. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41227",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-nvidia-tensorflow:CVE-2021-41228",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's `saved_model_cli` tool is vulnerable to a code injection as it calls `eval` on user supplied strings. This can be used by attackers to run arbitrary code on the plaform where the CLI tool runs. However, given that the tool is always run manually, the impact of this is not severe. We have patched this by adding a `safe` flag which defaults to `True` and an explicit warning for users. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41228",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
         ">=2.5.0,<2.5.2",
         ">=2.6.0,<2.6.1"
       ]
@@ -56278,6 +56356,40 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow:CVE-2021-41220",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the async implementation of `CollectiveReduceV2` suffers from a memory leak and a use after free. This occurs due to the asynchronous computation and the fact that objects that have been `std::move()`d from are still accessed. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41220",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41221",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for the `Cudnn*` operations in TensorFlow can be tricked into accessing invalid memory, via a heap buffer overflow. This occurs because the ranks of the `input`, `input_h` and `input_c` parameters are not validated, but code assumes they have certain values. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41221",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41222",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SplitV` can trigger a segfault is an attacker supplies negative arguments. This occurs whenever `size_splits` contains more than one value and at least one value is negative. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41222",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow:CVE-2021-41223",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41223",
@@ -56298,11 +56410,47 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow:CVE-2021-41225",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's Grappler optimizer has a use of unitialized variable. If the `train_nodes` vector (obtained from the saved model that gets optimized) does not contain a `Dequeue` node, then `dequeue_node` is left unitialized. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41225",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow:CVE-2021-41226",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41226",
       "specs": [
         "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41227",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the `ImmutableConst` operation in TensorFlow can be tricked into reading arbitrary memory contents. This is because the `tstring` TensorFlow string class has a special case for memory mapped strings but the operation itself does not offer any support for this datatype. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41227",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow:CVE-2021-41228",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's `saved_model_cli` tool is vulnerable to a code injection as it calls `eval` on user supplied strings. This can be used by attackers to run arbitrary code on the plaform where the CLI tool runs. However, given that the tool is always run manually, the impact of this is not severe. We have patched this by adding a `safe` flag which defaults to `True` and an explicit warning for users. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41228",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
         ">=2.5.0,<2.5.2",
         ">=2.6.0,<2.6.1"
       ]
@@ -58929,6 +59077,40 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41220",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the async implementation of `CollectiveReduceV2` suffers from a memory leak and a use after free. This occurs due to the asynchronous computation and the fact that objects that have been `std::move()`d from are still accessed. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41220",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41221",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for the `Cudnn*` operations in TensorFlow can be tricked into accessing invalid memory, via a heap buffer overflow. This occurs because the ranks of the `input`, `input_h` and `input_c` parameters are not validated, but code assumes they have certain values. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41221",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41222",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SplitV` can trigger a segfault is an attacker supplies negative arguments. This occurs whenever `size_splits` contains more than one value and at least one value is negative. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41222",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-cpu:CVE-2021-41223",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41223",
@@ -58949,11 +59131,47 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41225",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's Grappler optimizer has a use of unitialized variable. If the `train_nodes` vector (obtained from the saved model that gets optimized) does not contain a `Dequeue` node, then `dequeue_node` is left unitialized. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41225",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-cpu:CVE-2021-41226",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41226",
       "specs": [
         "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41227",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the `ImmutableConst` operation in TensorFlow can be tricked into reading arbitrary memory contents. This is because the `tstring` TensorFlow string class has a special case for memory mapped strings but the operation itself does not offer any support for this datatype. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41227",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-cpu:CVE-2021-41228",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's `saved_model_cli` tool is vulnerable to a code injection as it calls `eval` on user supplied strings. This can be used by attackers to run arbitrary code on the plaform where the CLI tool runs. However, given that the tool is always run manually, the impact of this is not severe. We have patched this by adding a `safe` flag which defaults to `True` and an explicit warning for users. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41228",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
         ">=2.5.0,<2.5.2",
         ">=2.6.0,<2.6.1"
       ]
@@ -61580,6 +61798,40 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41220",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the async implementation of `CollectiveReduceV2` suffers from a memory leak and a use after free. This occurs due to the asynchronous computation and the fact that objects that have been `std::move()`d from are still accessed. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41220",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41221",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for the `Cudnn*` operations in TensorFlow can be tricked into accessing invalid memory, via a heap buffer overflow. This occurs because the ranks of the `input`, `input_h` and `input_c` parameters are not validated, but code assumes they have certain values. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41221",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41222",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SplitV` can trigger a segfault is an attacker supplies negative arguments. This occurs whenever `size_splits` contains more than one value and at least one value is negative. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41222",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-gpu:CVE-2021-41223",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41223",
@@ -61600,11 +61852,47 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41225",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's Grappler optimizer has a use of unitialized variable. If the `train_nodes` vector (obtained from the saved model that gets optimized) does not contain a `Dequeue` node, then `dequeue_node` is left unitialized. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41225",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-gpu:CVE-2021-41226",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41226",
       "specs": [
         "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41227",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the `ImmutableConst` operation in TensorFlow can be tricked into reading arbitrary memory contents. This is because the `tstring` TensorFlow string class has a special case for memory mapped strings but the operation itself does not offer any support for this datatype. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41227",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-gpu:CVE-2021-41228",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's `saved_model_cli` tool is vulnerable to a code injection as it calls `eval` on user supplied strings. This can be used by attackers to run arbitrary code on the plaform where the CLI tool runs. However, given that the tool is always run manually, the impact of this is not severe. We have patched this by adding a `safe` flag which defaults to `True` and an explicit warning for users. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41228",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
         ">=2.5.0,<2.5.2",
         ">=2.6.0,<2.6.1"
       ]
@@ -64231,6 +64519,40 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41220",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the async implementation of `CollectiveReduceV2` suffers from a memory leak and a use after free. This occurs due to the asynchronous computation and the fact that objects that have been `std::move()`d from are still accessed. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, as this version is the only one that is also affected.",
+      "cve": "CVE-2021-41220",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41221",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the shape inference code for the `Cudnn*` operations in TensorFlow can be tricked into accessing invalid memory, via a heap buffer overflow. This occurs because the ranks of the `input`, `input_h` and `input_c` parameters are not validated, but code assumes they have certain values. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41221",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41222",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SplitV` can trigger a segfault is an attacker supplies negative arguments. This occurs whenever `size_splits` contains more than one value and at least one value is negative. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41222",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-lite:CVE-2021-41223",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `FusedBatchNorm` kernels is vulnerable to a heap OOB access. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41223",
@@ -64251,11 +64573,47 @@
       ]
     },
     {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41225",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's Grappler optimizer has a use of unitialized variable. If the `train_nodes` vector (obtained from the saved model that gets optimized) does not contain a `Dequeue` node, then `dequeue_node` is left unitialized. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41225",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
       "id": "pyup.io-tensorflow-lite:CVE-2021-41226",
       "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the implementation of `SparseBinCount` is vulnerable to a heap OOB access. This is because of missing validation between the elements of the `values` argument and the shape of the sparse output. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
       "cve": "CVE-2021-41226",
       "specs": [
         "<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41227",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions the `ImmutableConst` operation in TensorFlow can be tricked into reading arbitrary memory contents. This is because the `tstring` TensorFlow string class has a special case for memory mapped strings but the operation itself does not offer any support for this datatype. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41227",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
+        ">=2.5.0,<2.5.2",
+        ">=2.6.0,<2.6.1"
+      ]
+    },
+    {
+      "id": "pyup.io-tensorflow-lite:CVE-2021-41228",
+      "advisory": "TensorFlow is an open source platform for machine learning. In affected versions TensorFlow's `saved_model_cli` tool is vulnerable to a code injection as it calls `eval` on user supplied strings. This can be used by attackers to run arbitrary code on the plaform where the CLI tool runs. However, given that the tool is always run manually, the impact of this is not severe. We have patched this by adding a `safe` flag which defaults to `True` and an explicit warning for users. The fix will be included in TensorFlow 2.7.0. We will also cherrypick this commit on TensorFlow 2.6.1, TensorFlow 2.5.2, and TensorFlow 2.4.4, as these are also affected and still in supported range.",
+      "cve": "CVE-2021-41228",
+      "specs": [
+        "==2.7.0-rc0",
+        "==2.7.0-rc1",
+        ">=2.4.0,<2.4.4",
         ">=2.5.0,<2.5.2",
         ">=2.6.0,<2.6.1"
       ]
